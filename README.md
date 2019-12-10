@@ -16,13 +16,13 @@ The `LAGOSUS` package provides an R interface to download LAGOS-US data,
 store this data locally, and perform a variety of filtering and
 subsetting operations.
 
-LAGOS-NE contains data for 51,101 lakes and reservoirs larger than 4 ha
-in 17 lake-rich US states. The database includes 3 data modules for:
-lake location and physical characteristics for all lakes; ecological
-context (i.e., the land use, geologic, climatic, and hydrologic setting
-of lakes) for all lakes; and in situ measurements of lake water quality
-for a subset of the lakes from the past 3 decades for approximately
-2,600-12,000 lakes depending on the variable (see Soranno et al. 2017
+LAGOS-US contains data for X lakes and reservoirs larger than 1 ha in
+continental US. The database includes 3 data modules for: lake location
+and physical characteristics for all lakes; ecological context (i.e.,
+the land use, geologic, climatic, and hydrologic setting of lakes) for
+all lakes; and in situ measurements of lake water quality for a subset
+of the lakes from the past 3 decades for approximately Y-Z lakes
+depending on the variable (see Soranno et al. 2017
 [below](https://github.com/cont-limno/LAGOSUS#references)).
 
 ## Installation
@@ -43,12 +43,7 @@ format in the location specified by the `dest_folder` argument.
 Recommended setting is `lagos_path()`. Data only needs to be downloaded
 one time per version per machine. Each `LAGOSUS`
 [module](https://cont-limno.github.io/LAGOSUS/articles/lagosus_structure.html)
-has a unique version number. However, only the limno module has been
-dynamically updated. Therefore the `LAGOSUS` `R` package uses the limno
-module version number to check-out specific
-datasets.
-
-<!-- **The latest version of the `LAGOSUS` dataset is `LAGOSUS::lagosus_version()`.** -->
+has a unique version number.
 
 ``` r
 library(LAGOSUS)
