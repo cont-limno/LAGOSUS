@@ -1,18 +1,14 @@
-Package: LAGOSNE
+Package: LAGOSUS
 Title: Interface to the Lake Multi-Scaled Geospatial and Temporal Database
-Version: 2.0.1
+Version: 0.0.1
 Authors@R: c(
     person("Joseph", "Stachelek", 
     email = "stachel2@msu.edu", 
     role = c("aut", "cre"), 
-    comment = c(ORCID = c("0000-0002-5924-2464"))),
-    person("Samantha","Oliver", 
-    role = c("aut"), 
-    comment = c(ORCID = c("0000-0001-5668-1165"))),
-    person("Farzan","Masrour", role = c("aut"))
+    comment = c(ORCID = c("0000-0002-5924-2464")))
     )
-URL: https://github.com/cont-limno/LAGOSNE
-BugReports: https://github.com/cont-limno/LAGOSNE/issues
+URL: https://github.com/cont-limno/LAGOSUS
+BugReports: https://github.com/cont-limno/LAGOSUS/issues
 Description: Client for programmatic access to the Lake
     Multi-scaled Geospatial and Temporal database <https://lagoslakes.org>, with functions
     for accessing lake water quality and ecological context data for the US.
