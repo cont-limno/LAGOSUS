@@ -85,50 +85,50 @@ names(lg)
 head(lg$locus$locus_characteristics)
 ```
 
-#### Preview a specific lake
+<!-- #### Preview a specific lake -->
 
-```{r lake_info, eval = FALSE}
-lake_info(name = "Pine Lake", state = "Iowa")
-# or using a lagoslakeid
-# lake_info(lagoslakeid = 4389)
-```
+<!-- ```{r lake_info, eval = FALSE} -->
+<!-- lake_info(name = "Pine Lake", state = "Iowa") -->
+<!-- # or using a lagoslakeid -->
+<!-- # lake_info(lagoslakeid = 4389) -->
+<!-- ``` -->
 
-```{r lake_info_cached, echo = FALSE, eval=FALSE}
-lake_info(name = "Pine Lake", state = "Iowa", dt = dt)
-```
+<!-- ```{r lake_info_cached, echo = FALSE, eval=FALSE} -->
+<!-- lake_info(name = "Pine Lake", state = "Iowa", dt = dt) -->
+<!-- ``` -->
 
-#### Read table metadata
+<!-- #### Read table metadata -->
 
-```{r load printr, echo=FALSE,message=FALSE,results='hide', eval=FALSE}
-loadNamespace("printr")
-```
+<!-- ```{r load printr, echo=FALSE,message=FALSE,results='hide', eval=FALSE} -->
+<!-- loadNamespace("printr") -->
+<!-- ``` -->
 
-```{r Read metadata for individual tables, eval=FALSE}
-help.search("datasets", package = "LAGOSUS")
-```
+<!-- ```{r Read metadata for individual tables, eval=FALSE} -->
+<!-- help.search("datasets", package = "LAGOSUS") -->
+<!-- ``` -->
 
-```{r unload printr, echo=FALSE, eval=FALSE}
-unloadNamespace("printr")
-```
+<!-- ```{r unload printr, echo=FALSE, eval=FALSE} -->
+<!-- unloadNamespace("printr") -->
+<!-- ``` -->
 
-### Select data
+<!-- ### Select data -->
 
-`lagosus_select` is a convenience function whose primary purpose is to provide users with the ability to select subsets of LAGOS tables that correspond to specific keywords (see `LAGOSUS:::keyword_partial_key()` and `LAGOSUS:::keyword_full_key()`). See [here](http://adv-r.had.co.nz/Subsetting.html) for a comprehensive tutorial on generic `data.frame` subsetting.
+<!-- `lagosus_select` is a convenience function whose primary purpose is to provide users with the ability to select subsets of LAGOS tables that correspond to specific keywords (see `LAGOSUS:::keyword_partial_key()` and `LAGOSUS:::keyword_full_key()`). See [here](http://adv-r.had.co.nz/Subsetting.html) for a comprehensive tutorial on generic `data.frame` subsetting. -->
 
-```{r demo_select, eval=TRUE, eval=FALSE}
-# specific variables
-head(lagosus_select(table = "epi_nutr", vars = c("tp", "tn"), dt = dt))
-head(lagosus_select(table = "iws.lulc", vars = c("iws_nlcd2011_pct_95"), dt = dt))
+<!-- ```{r demo_select, eval=TRUE, eval=FALSE} -->
+<!-- # specific variables -->
+<!-- head(lagosus_select(table = "epi_nutr", vars = c("tp", "tn"), dt = dt)) -->
+<!-- head(lagosus_select(table = "iws.lulc", vars = c("iws_nlcd2011_pct_95"), dt = dt)) -->
 
-# categories
-head(lagosus_select(table = "locus", categories = "id", dt = dt))
-head(lagosus_select(table = "epi_nutr", categories = "waterquality", dt = dt))
-head(lagosus_select(table = "hu4.chag", categories = "deposition", dt = dt)[,1:4])
+<!-- # categories -->
+<!-- head(lagosus_select(table = "locus", categories = "id", dt = dt)) -->
+<!-- head(lagosus_select(table = "epi_nutr", categories = "waterquality", dt = dt)) -->
+<!-- head(lagosus_select(table = "hu4.chag", categories = "deposition", dt = dt)[,1:4]) -->
 
-# mix of specific variables and categories
-head(lagosus_select(table = "epi_nutr", vars = "programname", 
-                    categories = c("id", "waterquality"), dt = dt))
-```
+<!-- # mix of specific variables and categories -->
+<!-- head(lagosus_select(table = "epi_nutr", vars = "programname",  -->
+<!--                     categories = c("id", "waterquality"), dt = dt)) -->
+<!-- ``` -->
 
 ## References
 
