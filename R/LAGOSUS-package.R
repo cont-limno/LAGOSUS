@@ -13,10 +13,9 @@ NULL
 #' @examples
 #' lagosus_version()
 lagosus_version <- function(){
-  list(locus  = "0",
-       limno  = "0",
-       geo    = "0",
-       depth  = "0")
+  data.frame(modules = c("locus", "limno", "geo", "depth"),
+             versions = c("0","0","0","0"),
+             stringsAsFactors = FALSE)
   }
 
 #' LAGOSNE Spatial Classifications Metadata
