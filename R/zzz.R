@@ -6,7 +6,7 @@
                 package = "LAGOSUS"), fields = c("Title", "Version", "Date")))
 
   gigascience_cite <-
-  "https://lagoslakes.org/how-to-cite-lagos-ne/"
+  "https://lagoslakes.org"
 
   if(interactive()){
     packageStartupMessage(paste0("Welcome to the LAGOSUS R package. To cite LAGOSUS in publications see: \n ",
