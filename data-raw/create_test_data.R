@@ -2,7 +2,7 @@ library(dplyr)
 
 # Create a testing dataset from compiled LAGOS database rds
 
-dt        <- LAGOSNE::lagosne_load()
+dt        <- LAGOSUS::lagosus_load(modules = c("locus", "depth"))
 
 # id 2 llids with non-missing chla data in two different states
 set.seed(5)
