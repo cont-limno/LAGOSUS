@@ -124,8 +124,8 @@ stop_if_not_exists <- function(src_path) {
 #'
 #' Return the cross-platform data path designated for LAGOSNE.
 #' @export
-lagos_path <- function() paste0(rappdirs::user_data_dir(appname = "LAGOSNE",
-                appauthor = "LAGOSNE"), .Platform$file.sep)
+lagos_path <- function() paste0(rappdirs::user_data_dir(appname = "LAGOSUS",
+                appauthor = "LAGOSUS"), .Platform$file.sep)
 
 lagos_names <- function(dt) purrr::map(dt, names)
 # unlist(lapply(dt, function(x) length(grep("connect", names(x))))) # search tables for column

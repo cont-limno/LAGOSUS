@@ -1,13 +1,11 @@
-#'@name lagos_ingest
-#'@title Ingest LAGOSNE flat files
-#'@description Ingest LAGOSNE data from component flat files
-#'@param version character LAGOSNE database version string
-#'@param limno_folder file.path to limno export folder. optional.
-#'@param geo_folder file.path to geo export folder. optional.
-#'@param locus_folder file.path to locus export folder. optional.
-#'@importFrom utils read.table
-#'@importFrom progress progress_bar
-#'@examples \dontrun{
+#' @name lagos_ingest
+#' @title Ingest LAGOSUS flat files
+#'
+#' @description Ingest LAGOSUS data from component flat files
+#' @inheritParams lagosus_compile
+#' @importFrom utils read.table
+#' @importFrom progress progress_bar
+#' @examples \dontrun{
 #' lagos_ingest("1.087.3",
 #'  limno_folder = "~/Downloads/LAGOS-NE-LIMNO-EXPORT",
 #'  geo_folder   = "~/Downloads/LAGOS-NE-GEO-EXPORT",
