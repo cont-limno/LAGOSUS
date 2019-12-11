@@ -37,10 +37,10 @@
 #' }
 
 lake_info <- function(lagoslakeid = NA, name = NA, state = NA,
-                                       dt = lagosne_load(), ...){
+                                       lg = lagosus_load("locus"), ...){
 
-  if(class(dt) != "list"){
-    stop("dt must be a list (created by the lagosne_load function).")
+  if(class(lg) != "list"){
+    stop("lg must be a list (created by the lagosus_load function).")
   }
 
   if((all(is.na(name)) & !all(is.na(state))) |
@@ -55,23 +55,23 @@ lake_info <- function(lagoslakeid = NA, name = NA, state = NA,
 
   # create data.frame of lake and state names
   if(!all(is.na(lagoslakeid))){
+    browser()
+    lagoslakeid <- 8056
+    # lg$locus$locus_
+
     name_state <- data.frame(lagoslakeid = as.integer(lagoslakeid),
                              stringsAsFactors = FALSE)
 
     suppressWarnings(
     name_state <- dplyr::left_join(
       name_state,
-      dplyr::select(dt$locus, .data$lagoslakeid,
-                              .data$state_zoneid, .data$gnis_name),
+      dplyr::select(lg$locus$locus_information, .data$lagoslakeid,
+                              .data$lake_centroidstate, .data$lake_namegnis),
                                by = "lagoslakeid"))
-    suppressWarnings(
-    name_state <- dplyr::left_join(
-      name_state,
-      dplyr::select(dt$state, .data$state_zoneid, .data$state_name),
-                  by = "state_zoneid"))
 
     name_state <- dplyr::mutate(name_state,
-                                name = .data$gnis_name, state = .data$state_name)
+                                name = .data$lake_namegnis,
+                                state = .data$lake_centroidstate)
     name_state <- dplyr::select(name_state,
                                 .data$name, .data$state, .data$lagoslakeid)
   }else{
