@@ -45,9 +45,24 @@ one time per version per machine. Each `LAGOSUS`
 [module](https://cont-limno.github.io/LAGOSUS/articles/lagosus_structure.html)
 has a unique version number.
 
+### Data
+
+Until the LAGOS-US datasets have been made available in a public
+repository, LAGOSUS users will need to use the `lagosus_compile`
+function (not `lagosus_get`) and supply the path to their local `locus`,
+`limno`, `geo`, and `depth` data folders. Replace the paths in the
+example below with the path to each respective folder on your system.
+Most people will have access to these folders through Dropbox. For
+example, the `limno_folder` would be assigned to something like:
+`C:/Users/FWL/Dropbox/LAGOS-US-LOCUS-EXPORT`
+
 ``` r
 library(LAGOSUS)
-lagosus_get(dest_folder = lagos_path())
+lagosus_compile(
+  locus_version = "0",
+  locus_folder = "~/Downloads/LAGOS-US-LOCUS-EXPORT",
+  depth_version = "0",
+  depth_folder = "~/Downloads/LAGOS-US-DEPTH-EXPORT")
 ```
 
 ## Usage

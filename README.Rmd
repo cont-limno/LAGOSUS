@@ -34,12 +34,15 @@ The `lagosus_get` function downloads the LAGOSUS files corresponding to the spec
 
 ### Data
 
-Until older datasets have been made available in a public repository, LAGOSNE users will need to use the `lagosne_compile` function (not `lagosne_get`) and supply the path to their local `locus`, `limno` and `geo` data folders. Replace the paths in the example below with the path to each respective folder on your system. Most people will have access to these folders through Dropbox. For example, the `limno_folder` would be assigned to something like: `C:/Users/FWL/Dropbox/CSI_LAGOS-exports/LAGOS-NE-LIMNO-EXPORT`
+Until the LAGOS-US datasets have been made available in a public repository, LAGOSUS users will need to use the `lagosus_compile` function (not `lagosus_get`) and supply the path to their local `locus`, `limno`, `geo`, and `depth` data folders. Replace the paths in the example below with the path to each respective folder on your system. Most people will have access to these folders through Dropbox. For example, the `limno_folder` would be assigned to something like: `C:/Users/FWL/Dropbox/LAGOS-US-LOCUS-EXPORT`
 
 ```{r eval=FALSE}
 library(LAGOSUS)
-lagosus_compile(locus_version = "0", 
-                locus_folder = "~/Downloads/LAGOS-US-LOCUS-EXPORT")
+lagosus_compile(
+  locus_version = "0",
+  locus_folder = "~/Downloads/LAGOS-US-LOCUS-EXPORT",
+  depth_version = "0",
+  depth_folder = "~/Downloads/LAGOS-US-DEPTH-EXPORT")
 ```
 
 ## Usage
