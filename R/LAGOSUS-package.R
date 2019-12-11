@@ -1,18 +1,18 @@
-#' Interface to the LAGOSNE lakes database
-#' @name LAGOSNE-package
-#' @aliases LAGOSNE
+#' Interface to the LAGOSUS lakes database
+#' @name LAGOSUS-package
+#' @aliases LAGOSUS
 #' @docType package
 #' @importFrom magrittr %>%
-#' @title R interface to the LAGOSNE lakes database
+#' @title R interface to the LAGOSUS lakes database
 #' @author \email{stachel2@msu.edu}
 NULL
 
-#' Latest LAGOSNE version
-#' @name lagosne_version
+#' Latest LAGOSUS version
+#' @name lagosus_version
 #' @export
 #' @examples
-#' lagosne_version()
-lagosne_version <- function(){"1.087.3"}
+#' lagosus_version()
+lagosus_version <- function(){"0"}
 
 #' LAGOSNE Spatial Classifications Metadata
 #'
