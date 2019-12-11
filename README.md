@@ -58,11 +58,13 @@ example, the `locus_folder` would be assigned to something like:
 
 ``` r
 library(LAGOSUS)
+
 lagosus_compile(
   locus_version = "0",
   locus_folder = "~/Downloads/LAGOS-US-LOCUS-EXPORT",
   depth_version = "0",
-  depth_folder = "~/Downloads/LAGOS-US-DEPTH-EXPORT")
+  depth_folder = "~/Downloads/LAGOS-US-DEPTH-EXPORT", 
+  dest_folder = lagos_path())
 ```
 
 ## Usage
@@ -80,8 +82,9 @@ objects. Use the `names()` function to see a list of available data
 frames `names(dt)`.
 
 ``` r
-dt <- lagosus_load()
-names(dt)
+lg <- lagosus_load(modules = c("locus", "depth", "geo"), 
+                   geo_tables = c("connectivity"))
+names(lg)
 ```
 
 #### Locate tables containing a variable

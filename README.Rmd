@@ -38,11 +38,13 @@ Until the LAGOS-US datasets have been made available in a public repository, LAG
 
 ```{r eval=FALSE}
 library(LAGOSUS)
+
 lagosus_compile(
   locus_version = "0",
   locus_folder = "~/Downloads/LAGOS-US-LOCUS-EXPORT",
   depth_version = "0",
-  depth_folder = "~/Downloads/LAGOS-US-DEPTH-EXPORT")
+  depth_folder = "~/Downloads/LAGOS-US-DEPTH-EXPORT", 
+  dest_folder = lagos_path())
 ```
 
 ## Usage
@@ -58,8 +60,11 @@ library(LAGOSUS)
 The `lagosus_load` function returns a named list of `data.frame` objects. Use the `names()` function to see a list of available data frames `names(dt)`.
 
 ```{r load_data, eval=FALSE}
-dt <- lagosus_load()
-names(dt)
+lg <- lagosus_load(modules = c("locus", "depth"), 
+                   versions = c(0, 0))
+# lg <- lagosus_load(modules = c("locus", "depth", "geo"), 
+#                    geo_tables = c("connectivity"))
+names(lg)
 ```
 
 ```{r load_data_cached, eval=FALSE, echo=FALSE}
