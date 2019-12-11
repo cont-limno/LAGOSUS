@@ -7,12 +7,16 @@
 lagosus_compile(
   locus_version = NA,
   locus_folder = NA,
+  locus_overwrite = FALSE,
   limno_version = NA,
   limno_folder = NA,
+  limno_overwrite = FALSE,
   geo_version = NA,
   geo_folder = NA,
+  geo_overwrite = FALSE,
   depth_version = NA,
   depth_folder = NA,
+  depth_overwrite = FALSE,
   dest_folder = NA
 )
 }
@@ -21,17 +25,24 @@ lagosus_compile(
 
 \item{locus_folder}{file.path to locus export folder}
 
+\item{locus_overwrite}{logical overwrite existing data?}
+
 \item{limno_version}{character LAGOSUS database version string}
 
 \item{limno_folder}{file.path to limno export folder}
+
+\item{limno_overwrite}{logical overwrite existing data?}
 
 \item{geo_version}{character LAGOSUS database version string}
 
 \item{geo_folder}{file.path to geo export folder}
 
+\item{geo_overwrite}{logical overwrite existing data?}
+
 \item{depth_version}{character LAGOSUS database version string}
 
-\item{depth_folder}{file.path to depth export folder}
+\item{depth_folder}{file.path to depth export folder
+#'@param depth_overwrite logical overwrite existing data?}
 
 \item{dest_folder}{file.path optional will default to the location returned
 by \code{\link[rappdirs]{user_data_dir}}}
@@ -45,7 +56,8 @@ lagosus_compile(
  locus_version = "0",
  locus_folder = "~/Downloads/LAGOS-US-LOCUS-EXPORT",
  depth_version = "0",
- depth_folder = "~/Downloads/LAGOS-US-DEPTH-EXPORT")
+ depth_folder = "~/Downloads/LAGOS-US-DEPTH-EXPORT",
+ dest_folder = lagos_path())
 }
 
 }

@@ -6,12 +6,16 @@
 #'
 #'@param limno_version character LAGOSUS database version string
 #'@param limno_folder file.path to limno export folder
+#'@param limno_overwrite logical overwrite existing data?
 #'@param geo_version character LAGOSUS database version string
 #'@param geo_folder file.path to geo export folder
+#'@param geo_overwrite logical overwrite existing data?
 #'@param locus_version character LAGOSUS database version string
 #'@param locus_folder file.path to locus export folder
+#'@param locus_overwrite logical overwrite existing data?
 #'@param depth_version character LAGOSUS database version string
 #'@param depth_folder file.path to depth export folder
+#'#'@param depth_overwrite logical overwrite existing data?
 #'@param dest_folder file.path optional will default to the location returned
 #'by \code{\link[rappdirs]{user_data_dir}}
 #'
@@ -28,42 +32,58 @@
 #'  dest_folder = lagos_path())
 #' }
 #'
-lagosus_compile <- function(locus_version = NA, locus_folder = NA,
-                            limno_version = NA, limno_folder = NA,
-                            geo_version = NA, geo_folder = NA,
-                            depth_version = NA, depth_folder = NA,
+lagosus_compile <- function(locus_version = NA, locus_folder = NA, locus_overwrite = FALSE,
+                            limno_version = NA, limno_folder = NA, limno_overwrite = FALSE,
+                            geo_version = NA, geo_folder = NA, geo_overwrite = FALSE,
+                            depth_version = NA, depth_folder = NA, depth_overwrite = FALSE,
                             dest_folder = NA){
 
   if(is.na(dest_folder)){
     stop("Set the dest_folder argument to a folder on your local machine. Recommended setting is lagos_path().")
   }
+  dir.create(dest_folder, recursive = TRUE, showWarnings = FALSE)
 
-  ingest <- lagos_ingest(
-    locus_version = locus_version, locus_folder = locus_folder,
-    limno_version = limno_version, limno_folder = limno_folder,
-    geo_version = geo_version, geo_folder = geo_folder,
-    depth_version = depth_version, depth_folder = depth_folder)
+  modules <- c("locus", "limno", "geo", "depth")[
+    !is.na(c(locus_folder, limno_folder, geo_folder, depth_folder))]
+  pb <- progress::progress_bar$new(format = "  Reading :type [:bar]",
+                                   total = length(modules),
+                                   clear = FALSE)
 
-  geo    <- ingest$geo
-  limno  <- ingest$limno
-  locus  <- ingest$locus
-  depth  <- ingest$depth
+  locus_path <- file.path(dest_folder, paste0("locus_", locus_version, ".rds"))
+  if(file.exists(locus_path)){message(paste0("locus module version ", locus_version,
+                                             " already exists at: ", dest_folder))}
+  if(!is.na(locus_folder) & (!file.exists(locus_path) | locus_overwrite)){
+    pb$tick(tokens = list(type = "locus data"))
+    locus <- lagos_ingest(locus_folder = locus_folder)
+    saveRDS(locus, locus_path)
+  }
 
-  dir.create(lagos_path(), recursive = TRUE, showWarnings = FALSE)
+  limno_path <- file.path(dest_folder, paste0("limno_", limno_version, ".rds"))
+  if(file.exists(limno_path)){message(paste0("limno module version ", limno_version,
+                                             " already exists at: ", dest_folder))}
+  if(!is.na(limno_folder) & (!file.exists(limno_path) | limno_overwrite)){
+    pb$tick(tokens = list(type = "limno data"))
+    limno <- lagos_ingest(limno_folder = limno_folder)
+    saveRDS(limno, limno_path)
+  }
 
-  # TODO save separate rds files
-  res <- list("geo" = geo,
-              "limno" = limno,
-              "locus" = list(locus),
-              "depth" = depth)
-  # res <- purrr::flatten(res)
-  #
-  modules <- c("geo", "limno", "locus", "depth")
-  versions <- c(geo_version, limno_version, locus_version, depth_version)
-  # dest_folder <- lagos_path()
-  # versions <- 1:4
-  outpaths <- file.path(dest_folder, paste0(modules, "_", versions, ".rds"))
+  geo_path <- file.path(dest_folder, paste0("geo_", geo_version, ".rds"))
+  if(file.exists(geo_path)){message(paste0("geo module version ", geo_version,
+                                             " already exists at: ", dest_folder))}
+  if(!is.na(geo_folder) & (!file.exists(geo_path) | geo_overwrite)){
+    pb$tick(tokens = list(type = "geo data"))
+    geo <- lagos_ingest(geo_folder = geo_folder)
+    saveRDS(geo, geo_path)
+  }
 
-  lapply(seq_len(length(res)), function(x) saveRDS(res[x], outpaths[x]))
+  depth_path <- file.path(dest_folder, paste0("depth_", depth_version, ".rds"))
+  if(file.exists(depth_path)){message(paste0("depth module version ", depth_version,
+                                             " already exists at: ", dest_folder))}
+  if(!is.na(depth_folder) & (!file.exists(depth_path) | depth_overwrite)){
+    pb$tick(tokens = list(type = "depth data"))
+    depth <- lagos_ingest(depth_folder = depth_folder)
+    saveRDS(depth, depth_path)
+  }
+
   message(paste0("LAGOSUS compiled to ", dest_folder))
 }
