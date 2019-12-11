@@ -53,7 +53,7 @@ function (not `lagosus_get`) and supply the path to their local `locus`,
 `limno`, `geo`, and `depth` data folders. Replace the paths in the
 example below with the path to each respective folder on your system.
 Most people will have access to these folders through Dropbox. For
-example, the `limno_folder` would be assigned to something like:
+example, the `locus_folder` would be assigned to something like:
 `C:/Users/FWL/Dropbox/LAGOS-US-LOCUS-EXPORT`
 
 ``` r
