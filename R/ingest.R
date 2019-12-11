@@ -6,19 +6,24 @@
 #' @importFrom utils read.table
 #' @importFrom progress progress_bar
 #' @examples \dontrun{
-#' lagos_ingest("1.087.3",
-#'  limno_folder = "~/Downloads/LAGOS-NE-LIMNO-EXPORT",
-#'  geo_folder   = "~/Downloads/LAGOS-NE-GEO-EXPORT",
-#'  locus_folder = "~/Downloads/LAGOS-NE-LOCUS-EXPORT")
+lg <- lagos_ingest(
+  locus_version = "0",
+  locus_folder = "~/Downloads/LAGOS-US-LOCUS-EXPORT",
+  depth_version = "0",
+  depth_folder = "~/Downloads/LAGOS-US-DEPTH-EXPORT")
 #'}
-lagos_ingest <- function(version, limno_folder = NA, geo_folder = NA,
-                         locus_folder = NA){
+lagos_ingest <- function(locus_version = NA, locus_folder = NA,
+                         limno_version = NA, limno_folder = NA,
+                         geo_version = NA, geo_folder = NA,
+                         depth_version = NA, depth_folder = NA){
 
-  pb <- progress::progress_bar$new(format = "  Reading :type [:bar]",
-                         total = 9,
-                         clear = FALSE)
+  # pb <- progress::progress_bar$new(format = "  Reading :type [:bar]",
+  #                        total = 9,
+  #                        clear = FALSE)
+  #
+  # folder_version <- gsub("\\.", "", version)
 
-  folder_version <- gsub("\\.", "", version)
+  browser()
 
   # Set-up paths ####
   limno_prefix <- paste0(limno_folder, "/")

@@ -24,7 +24,8 @@
 #'  locus_version = "0",
 #'  locus_folder = "~/Downloads/LAGOS-US-LOCUS-EXPORT",
 #'  depth_version = "0",
-#'  depth_folder = "~/Downloads/LAGOS-US-DEPTH-EXPORT")
+#'  depth_folder = "~/Downloads/LAGOS-US-DEPTH-EXPORT",
+#'  dest_folder = lagos_path())
 #' }
 #'
 lagosus_compile <- function(locus_version = NA, locus_folder = NA,
