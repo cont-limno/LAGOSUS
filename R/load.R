@@ -1,26 +1,43 @@
-#' Load LAGOSNE data
+#' Load LAGOSUS data
 #'
-#' Load LAGOSNE data from local system files
+#' Load LAGOSUS data from local system files
 #'
-#' @param version character LAGOSNE database version string. Defaults to \code{\link{lagosne_version}}
-#' @param fpath file.path optionally specify custom location of LAGOSNE rds file
+#' @param modules character vector of module names. One or more of "locus", "limno", "geo", or "depth.
+#' @param versions character LAGOSUS database version strings. Defaults to \code{\link{lagosus_version}}
 #' @export
 #' @importFrom rappdirs user_data_dir
 #' @importFrom memoise memoise
 #'
 #' @examples \dontrun{
-#' dt  <- lagosne_load("1.087.3")
+#' lg <- lagosus_load(modules = c("locus", "depth"),
+#'                    versions = c(0, 0))
 #' }
-lagosne_load <- memoise::memoise(function(version = NULL,
-                                          fpath = NA){
-  if(is.null(version)){
-    version <- lagosne_version()
-    if(interactive()){
-      message(paste0("Loading LAGOSNE version: ", version))
-    }else{
-      warning(paste0("LAGOSNE version unspecified, loading version: ", version))
-    }
-  }
+lagosus_load <- memoise::memoise(function(modules = NULL,
+                                          versions = NA,
+                                          geo_tables = NA){
+
+  browser()
+  # TODO sanity check of specified module names
+  # are they true module names?
+  # are there <= 4 specified?
+  # have versions been specified for all requested modules?
+  #   print message(s) for defaults used
+
+  # TODO if geo has been requested have geo_tables been specified?
+  #   error if not
+  # are geo_tables true table names?
+  #   error if not
+
+  # TODO iterate through specified modules
+
+  # if(is.null(version)){
+  #   version <- lagosne_version()
+  #   if(interactive()){
+  #     message(paste0("Loading LAGOSNE version: ", version))
+  #   }else{
+  #     warning(paste0("LAGOSNE version unspecified, loading version: ", version))
+  #   }
+  # }
 
   if(!is.na(fpath)){
       readRDS(fpath)

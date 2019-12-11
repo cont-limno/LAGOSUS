@@ -2,12 +2,12 @@
 % Please edit documentation in R/LAGOSUS-package.R
 \name{lagosus_version}
 \alias{lagosus_version}
-\title{Latest LAGOSUS version}
+\title{Latest LAGOSUS module versions}
 \usage{
 lagosus_version()
 }
 \description{
-Latest LAGOSUS version
+Latest LAGOSUS module versions
 }
 \examples{
 lagosus_version()

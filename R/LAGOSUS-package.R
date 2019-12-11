@@ -7,12 +7,17 @@
 #' @author \email{stachel2@msu.edu}
 NULL
 
-#' Latest LAGOSUS version
+#' Latest LAGOSUS module versions
 #' @name lagosus_version
 #' @export
 #' @examples
 #' lagosus_version()
-lagosus_version <- function(){"0"}
+lagosus_version <- function(){
+  list(locus  = "0",
+       limno  = "0",
+       geo    = "0",
+       depth  = "0")
+  }
 
 #' LAGOSNE Spatial Classifications Metadata
 #'
