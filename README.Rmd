@@ -57,34 +57,32 @@ library(LAGOSUS)
 
 ### Load data
 
-The `lagosus_load` function returns a named list of `data.frame` objects. Use the `names()` function to see a list of available data frames `names(dt)`.
+The `lagosus_load` function returns a named list of `data.frame` objects. Use the `names()` function to see a list of available data frames `names(lg)`.
 
 ```{r load_data, eval=FALSE}
-lg <- lagosus_load(modules = c("locus", "depth"), 
-                   versions = c(0, 0))
-# lg <- lagosus_load(modules = c("locus", "depth", "geo"), 
-#                    geo_tables = c("connectivity"))
+lg <- lagosus_load(modules = c("locus", "depth"))
 names(lg)
 ```
 
-```{r load_data_cached, eval=FALSE, echo=FALSE}
-dt <- readRDS(system.file("lagos_test_subset.rds", package = "LAGOSUS"))
-names(dt)
-```
 
-#### Locate tables containing a variable 
-```{r eval=FALSE}
-query_lagos_names("secchi")
-```
+<!-- ```{r load_data_cached, eval=FALSE, echo=FALSE} -->
+<!-- dt <- readRDS(system.file("lagos_test_subset.rds", package = "LAGOSUS")) -->
+<!-- names(dt) -->
+<!-- ``` -->
 
-```{r echo=FALSE, eval=FALSE}
-query_lagos_names("secchi", dt = dt)
-```
+<!-- #### Locate tables containing a variable  -->
+<!-- ```{r eval=FALSE} -->
+<!-- query_lagos_names("secchi") -->
+<!-- ``` -->
+
+<!-- ```{r echo=FALSE, eval=FALSE} -->
+<!-- query_lagos_names("secchi", dt = dt) -->
+<!-- ``` -->
 
 #### Preview a table
 
 ```{r preview table, eval=FALSE}
-head(dt$state)
+head(lg$locus$locus_characteristics)
 ```
 
 #### Preview a specific lake

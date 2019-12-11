@@ -79,24 +79,39 @@ library(LAGOSUS)
 
 The `lagosus_load` function returns a named list of `data.frame`
 objects. Use the `names()` function to see a list of available data
-frames `names(dt)`.
+frames `names(lg)`.
 
 ``` r
-lg <- lagosus_load(modules = c("locus", "depth", "geo"), 
-                   geo_tables = c("connectivity"))
+lg <- lagosus_load(modules = c("locus", "depth"))
 names(lg)
 ```
 
-#### Locate tables containing a variable
+<!-- ```{r load_data_cached, eval=FALSE, echo=FALSE} -->
 
-``` r
-query_lagos_names("secchi")
-```
+<!-- dt <- readRDS(system.file("lagos_test_subset.rds", package = "LAGOSUS")) -->
+
+<!-- names(dt) -->
+
+<!-- ``` -->
+
+<!-- #### Locate tables containing a variable  -->
+
+<!-- ```{r eval=FALSE} -->
+
+<!-- query_lagos_names("secchi") -->
+
+<!-- ``` -->
+
+<!-- ```{r echo=FALSE, eval=FALSE} -->
+
+<!-- query_lagos_names("secchi", dt = dt) -->
+
+<!-- ``` -->
 
 #### Preview a table
 
 ``` r
-head(dt$state)
+head(lg$locus$locus_characteristics)
 ```
 
 #### Preview a specific lake
