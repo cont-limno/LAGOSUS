@@ -8,8 +8,8 @@ test_that("lagos_load fails well", {
 
   expect_error(lagosne_load("gibberish"),
     paste0("Dataset not found at: ",
-    paste0(lagos_path(), "data_", "gibberish", ".rds"),
-    "\n Try running the `lagosne_get` command."),
+    paste0(lagosus_path(), "data_", "gibberish", ".rds"),
+    "\n Try running the `lagosus_get` command."),
     fixed = TRUE)
 })
 

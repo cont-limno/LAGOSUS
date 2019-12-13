@@ -29,7 +29,7 @@
 #'  locus_folder = "~/Downloads/LAGOS-US-LOCUS-EXPORT",
 #'  depth_version = "0",
 #'  depth_folder = "~/Downloads/LAGOS-US-DEPTH-EXPORT",
-#'  dest_folder = lagos_path())
+#'  dest_folder = lagosus_path())
 #' }
 #'
 lagosus_compile <- function(locus_version = NA, locus_folder = NA, locus_overwrite = FALSE,
@@ -39,7 +39,7 @@ lagosus_compile <- function(locus_version = NA, locus_folder = NA, locus_overwri
                             dest_folder = NA){
 
   if(is.na(dest_folder)){
-    stop("Set the dest_folder argument to a folder on your local machine. Recommended setting is lagos_path().")
+    stop("Set the dest_folder argument to a folder on your local machine. Recommended setting is lagosus_path().")
   }
   dir.create(dest_folder, recursive = TRUE, showWarnings = FALSE)
 

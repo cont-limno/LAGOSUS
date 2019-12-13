@@ -9,7 +9,6 @@
 #' @param longname character name of longitude column; default is "nhd_long"
 #' @param crs numeric epsg code; default is 4326 WGS84-lat-long
 #' @importFrom sf st_as_sf
-#' @export
 #' @examples \dontrun{
 #' dt <- lagosne_load("1.087.3")
 #' res <- coordinatize(dt$locus)

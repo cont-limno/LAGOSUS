@@ -11,7 +11,7 @@ lagosus_load(modules = NULL, versions = NULL, geo_tables = NA, fpath = NA)
 
 \item{versions}{character LAGOSUS database version strings. Defaults to \code{\link{lagosus_version}}}
 
-\item{fpath}{file.path to LAGOSUS data store. Defaults to lagos_path()}
+\item{fpath}{file.path to LAGOSUS data store. Defaults to lagosus_path()}
 }
 \description{
 Load LAGOSUS data from local system files

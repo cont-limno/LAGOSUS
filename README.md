@@ -40,8 +40,8 @@ the specified version from the [EDI data
 repository](https://portal.edirepository.org/nis/home.jsp). Files are
 stored in a temporary directory before being “compiled” to an `R` data
 format in the location specified by the `dest_folder` argument.
-Recommended setting is `lagos_path()`. Data only needs to be downloaded
-one time per version per machine. Each `LAGOSUS`
+Recommended setting is `lagosus_path()`. Data only needs to be
+downloaded one time per version per machine. Each `LAGOSUS`
 [module](https://cont-limno.github.io/LAGOSUS/articles/lagosus_structure.html)
 has a unique version number.
 
@@ -64,7 +64,7 @@ lagosus_compile(
   locus_folder = "~/Downloads/LAGOS-US-LOCUS-EXPORT",
   depth_version = "0",
   depth_folder = "~/Downloads/LAGOS-US-DEPTH-EXPORT", 
-  dest_folder = lagos_path())
+  dest_folder = lagosus_path())
 ```
 
 ## Usage

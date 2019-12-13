@@ -57,7 +57,7 @@ lagosus_compile(
  locus_folder = "~/Downloads/LAGOS-US-LOCUS-EXPORT",
  depth_version = "0",
  depth_folder = "~/Downloads/LAGOS-US-DEPTH-EXPORT",
- dest_folder = lagos_path())
+ dest_folder = lagosus_path())
 }
 
 }

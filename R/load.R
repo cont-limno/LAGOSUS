@@ -4,7 +4,7 @@
 #'
 #' @param modules character vector of module names. One or more of "locus", "limno", "geo", or "depth.
 #' @param versions character LAGOSUS database version strings. Defaults to \code{\link{lagosus_version}}
-#' @param fpath file.path to LAGOSUS data store. Defaults to lagos_path()
+#' @param fpath file.path to LAGOSUS data store. Defaults to lagosus_path()
 #' @export
 #' @importFrom rappdirs user_data_dir
 #' @importFrom memoise memoise
@@ -23,7 +23,7 @@ lagosus_load <- memoise::memoise(function(modules = NULL,
                                           geo_tables = NA,
                                           fpath = NA){
 
-  if(is.na(fpath)){fpath <- lagos_path()}
+  if(is.na(fpath)){fpath <- lagosus_path()}
 
   modules_raw <- c("locus", "limno", "geo", "depth")
   modules_query <- modules_raw[modules_raw %in% modules]

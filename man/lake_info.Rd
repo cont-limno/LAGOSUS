@@ -4,7 +4,13 @@
 \alias{lake_info}
 \title{Get a summary of lake attribute information}
 \usage{
-lake_info(lagoslakeid = NA, name = NA, state = NA, dt = lagosne_load(), ...)
+lake_info(
+  lagoslakeid = NA,
+  name = NA,
+  state = NA,
+  lg = lagosus_load("locus"),
+  ...
+)
 }
 \arguments{
 \item{lagoslakeid}{numeric lake id}
@@ -13,10 +19,10 @@ lake_info(lagoslakeid = NA, name = NA, state = NA, dt = lagosne_load(), ...)
 
 \item{state}{character state name not caps sensitive}
 
-\item{dt}{list of data.frames. output of \code{\link[LAGOSNE]{lagosne_load}}.}
-
 \item{\dots}{arguments passed to \code{\link[base]{agrepl}} to fuzzy match
 lake name}
+
+\item{dt}{list of data.frames. output of \code{\link[LAGOSNE]{lagosne_load}}.}
 }
 \description{
 Return lake attribute information from its name and state or its lagoslakeid.

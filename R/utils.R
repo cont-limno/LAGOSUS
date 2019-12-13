@@ -120,11 +120,11 @@ stop_if_not_exists <- function(src_path) {
   }
 }
 
-#' lagos_path
+#' lagosus_path
 #'
 #' Return the cross-platform data path designated for LAGOSNE.
 #' @export
-lagos_path <- function() paste0(rappdirs::user_data_dir(appname = "LAGOSUS",
+lagosus_path <- function() paste0(rappdirs::user_data_dir(appname = "LAGOSUS",
                 appauthor = "LAGOSUS"), .Platform$file.sep)
 
 lagos_names <- function(dt) purrr::map(dt, names)
@@ -154,7 +154,7 @@ lagos_names <- function(dt) purrr::map(dt, names)
 #' query_lagos_names("secchi")
 #' query_lagos_names("conn")
 #' }
-query_lagos_names <- function(grep_string, scale = NA, dt = lagosne_load()){
+query_lagos_names <- function(grep_string, scale = NA, dt = lagosus_load()){
 
   dt_names <- lagos_names(dt)
   names_matches <- unlist(lapply(dt_names,

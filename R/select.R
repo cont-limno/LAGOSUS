@@ -40,8 +40,8 @@
 #'
 #' }
 
-lagosne_select <- function(table = NULL, vars = NULL, categories = NULL,
-                         dt = lagosne_load("1.087.1")){
+lagosus_select <- function(table = NULL, vars = NULL, categories = NULL,
+                         dt = lagosus_load()){
 
   # sanitize inputs ####
   is_not_char_args <- c(!(is.null(table) | is.character(table)),

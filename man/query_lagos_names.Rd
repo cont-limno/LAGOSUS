@@ -4,7 +4,7 @@
 \alias{query_lagos_names}
 \title{Query LAGOSNE names}
 \usage{
-query_lagos_names(grep_string, scale = NA, dt = lagosne_load())
+query_lagos_names(grep_string, scale = NA, dt = lagosus_load())
 }
 \arguments{
 \item{grep_string}{character search string to grep to table column names}

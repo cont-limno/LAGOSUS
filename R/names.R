@@ -5,7 +5,6 @@
 #'
 #' @importFrom tidyr unnest
 #' @importFrom tibble enframe
-#' @export
 #' @examples \dontrun{
 #' lg <- lagosne_load("1.087.3")
 #' cbind(names(lg$iws), display_names(names(lg$iws)))
