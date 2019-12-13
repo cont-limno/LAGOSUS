@@ -19,11 +19,13 @@ Load LAGOSUS data from local system files
 \examples{
 \dontrun{
 # works
+lg <- lagosus_load("locus")
 lg <- lagosus_load(modules = c("locus", "depth"), versions = c(0, 1))
 lg <- lagosus_load(modules = c("locus", "depth"))
 lg <- lagosus_load(modules = c("locus", "depth"), versions = c(0, NA))
 
 # errors
+# lg <- lagosus_load()
 # lg <- lagosus_load(modules = c("locus", "depth"), versions = c(0))
 }
 }

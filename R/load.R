@@ -11,11 +11,13 @@
 #'
 #' @examples \dontrun{
 #' # works
+#' lg <- lagosus_load("locus")
 #' lg <- lagosus_load(modules = c("locus", "depth"), versions = c(0, 1))
 #' lg <- lagosus_load(modules = c("locus", "depth"))
 #' lg <- lagosus_load(modules = c("locus", "depth"), versions = c(0, NA))
 #'
 #' # errors
+#' # lg <- lagosus_load()
 #' # lg <- lagosus_load(modules = c("locus", "depth"), versions = c(0))
 #' }
 lagosus_load <- memoise::memoise(function(modules = NULL,
@@ -24,6 +26,8 @@ lagosus_load <- memoise::memoise(function(modules = NULL,
                                           fpath = NA){
 
   if(is.na(fpath)){fpath <- lagosus_path()}
+
+  # TODO error if no modules specified
 
   modules_raw <- c("locus", "limno", "geo", "depth")
   modules_query <- modules_raw[modules_raw %in% modules]
@@ -46,7 +50,7 @@ lagosus_load <- memoise::memoise(function(modules = NULL,
       versions)
 
     message(paste0(
-      "Module versions not specified, defaulting to ",
+      "Module version(s) not specified, defaulting to ",
       paste0(paste0(modules_query, " = ", versions), collapse = " and ")
       ))
   }
@@ -69,8 +73,8 @@ lagosus_load <- memoise::memoise(function(modules = NULL,
                                    versions[which(modules_query == "locus")],
                                    ".rds"))
     locus <- readRDS(locus_path)
+    res[["locus"]] <- locus
   }
-  res[["locus"]] <- locus
 
   if("depth" %in% modules_query){
     depth_path <- file.path(fpath,
@@ -78,8 +82,8 @@ lagosus_load <- memoise::memoise(function(modules = NULL,
                                    versions[which(modules_query == "depth")],
                                    ".rds"))
     depth <- readRDS(depth_path)
+    res[["depth"]] <- depth
   }
-  res[["depth"]] <- depth
 
   res
 })
