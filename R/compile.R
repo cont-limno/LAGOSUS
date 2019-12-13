@@ -21,6 +21,7 @@
 #'
 #'@importFrom utils read.table
 #'@importFrom rappdirs user_data_dir
+#'@importFrom qs qsave
 #'@export
 #'
 #'@examples \dontrun{
@@ -49,40 +50,40 @@ lagosus_compile <- function(locus_version = NA, locus_folder = NA, locus_overwri
                                    total = length(modules),
                                    clear = FALSE)
 
-  locus_path <- file.path(dest_folder, paste0("locus_", locus_version, ".rds"))
+  locus_path <- file.path(dest_folder, paste0("locus_", locus_version, ".qs"))
   if(file.exists(locus_path)){message(paste0("locus module version ", locus_version,
                                              " already exists at: ", dest_folder))}
   if(!is.na(locus_folder) & (!file.exists(locus_path) | locus_overwrite)){
     pb$tick(tokens = list(type = "locus data"))
     locus <- lagos_ingest(locus_folder = locus_folder)
-    saveRDS(locus, locus_path)
+    qs::qsave(locus, locus_path)
   }
 
-  limno_path <- file.path(dest_folder, paste0("limno_", limno_version, ".rds"))
+  limno_path <- file.path(dest_folder, paste0("limno_", limno_version, ".qs"))
   if(file.exists(limno_path)){message(paste0("limno module version ", limno_version,
                                              " already exists at: ", dest_folder))}
   if(!is.na(limno_folder) & (!file.exists(limno_path) | limno_overwrite)){
     pb$tick(tokens = list(type = "limno data"))
     limno <- lagos_ingest(limno_folder = limno_folder)
-    saveRDS(limno, limno_path)
+    qs::qsave(limno, limno_path)
   }
 
-  geo_path <- file.path(dest_folder, paste0("geo_", geo_version, ".rds"))
+  geo_path <- file.path(dest_folder, paste0("geo_", geo_version, ".qs"))
   if(file.exists(geo_path)){message(paste0("geo module version ", geo_version,
                                              " already exists at: ", dest_folder))}
   if(!is.na(geo_folder) & (!file.exists(geo_path) | geo_overwrite)){
     pb$tick(tokens = list(type = "geo data"))
     geo <- lagos_ingest(geo_folder = geo_folder)
-    saveRDS(geo, geo_path)
+    qs::qsave(geo, geo_path)
   }
 
-  depth_path <- file.path(dest_folder, paste0("depth_", depth_version, ".rds"))
+  depth_path <- file.path(dest_folder, paste0("depth_", depth_version, ".qs"))
   if(file.exists(depth_path)){message(paste0("depth module version ", depth_version,
                                              " already exists at: ", dest_folder))}
   if(!is.na(depth_folder) & (!file.exists(depth_path) | depth_overwrite)){
     pb$tick(tokens = list(type = "depth data"))
     depth <- lagos_ingest(depth_folder = depth_folder)
-    saveRDS(depth, depth_path)
+    qs::qsave(depth, depth_path)
   }
 
   message(paste0("LAGOSUS compiled to ", dest_folder))

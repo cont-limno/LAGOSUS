@@ -7,6 +7,7 @@
 #' @param fpath file.path to LAGOSUS data store. Defaults to lagosus_path()
 #' @export
 #' @importFrom rappdirs user_data_dir
+#' @importFrom qs qread
 #' @importFrom memoise memoise
 #'
 #' @examples \dontrun{
@@ -20,7 +21,7 @@
 #' # lg <- lagosus_load()
 #' # lg <- lagosus_load(modules = c("locus", "depth"), versions = c(0))
 #' }
-lagosus_load <- memoise::memoise(function(modules = NULL,
+lagosus_load <- function(modules = NULL,
                                           versions = NULL,
                                           geo_tables = NA,
                                           fpath = NA){
@@ -71,8 +72,8 @@ lagosus_load <- memoise::memoise(function(modules = NULL,
     locus_path <- file.path(fpath,
                             paste0("locus_",
                                    versions[which(modules_query == "locus")],
-                                   ".rds"))
-    locus <- readRDS(locus_path)
+                                   ".qs"))
+    locus <- qs::qread(locus_path)
     res[["locus"]] <- locus
   }
 
@@ -80,10 +81,10 @@ lagosus_load <- memoise::memoise(function(modules = NULL,
     depth_path <- file.path(fpath,
                             paste0("depth_",
                                    versions[which(modules_query == "depth")],
-                                   ".rds"))
-    depth <- readRDS(depth_path)
+                                   ".qs"))
+    depth <- qs::qread(depth_path)
     res[["depth"]] <- depth
   }
 
   res
-})
+}
