@@ -49,7 +49,7 @@ lagos_ingest <- function(locus_version = NA, locus_folder = NA,
                   locus_link = locus_link
                   )
 
-    locus
+    return(locus)
   }
 
   if(!is.na(depth_folder)){
@@ -60,7 +60,7 @@ lagos_ingest <- function(locus_version = NA, locus_folder = NA,
 
     depth <- list(depth = depth)
 
-    depth
+    return(depth)
   }
 
   }
