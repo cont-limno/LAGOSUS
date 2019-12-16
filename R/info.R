@@ -13,7 +13,7 @@
 #' @importFrom lazyeval interp
 #' @importFrom utils adist
 #' @importFrom rlang .data
-#' @export
+#'
 #' @examples \dontrun{
 #' lake_info(lagoslakeid = 4314)
 #' lake_info(lagoslakeid = 7441)
