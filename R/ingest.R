@@ -24,7 +24,8 @@ lagos_ingest <- function(locus_version = NA, locus_folder = NA,
     # Importing LAGOS locus data ####
     locus_information <- load_lagos_txt(
       list.files(locus_folder, pattern = "information_\\d*.csv",
-                 include.dirs = TRUE, full.names = TRUE), sep = ",")
+                 include.dirs = TRUE, full.names = TRUE),
+      na.strings = c("NA", "NULL"), sep = ",")
 
     locus_ws <- load_lagos_txt(
       list.files(locus_folder, pattern = "watersheds_ws_\\d*.csv",
