@@ -12,7 +12,7 @@ load_lagos_txt <- function(file_name, sep = "\t", ...){
   suppressWarnings(
     read.table(file_name, header = TRUE, sep = sep, quote = "\"",
              dec = ".", strip.white = TRUE, comment.char = "",
-             stringsAsFactors = FALSE))
+             ..., stringsAsFactors = FALSE))
 }
 
 #' Summarize all LAGOSNE flat files
