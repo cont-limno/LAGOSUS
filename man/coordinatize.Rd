@@ -2,16 +2,21 @@
 % Please edit documentation in R/coordinates.R
 \name{coordinatize}
 \alias{coordinatize}
-\title{Convert a LAGOSNE flat file into a spatial object}
+\title{Convert a LAGOSUS flat file into a spatial object}
 \usage{
-coordinatize(dt, latname = "nhd_lat", longname = "nhd_long", crs = 4326)
+coordinatize(
+  dt,
+  latname = "lake_lat_decdeg",
+  longname = "lake_lon_decdeg",
+  crs = 4326
+)
 }
 \arguments{
 \item{dt}{data.frame}
 
-\item{latname}{character name of latitude column; default is "nhd_lat"}
+\item{latname}{character name of latitude column; default is "lake_lat_decdeg"}
 
-\item{longname}{character name of longitude column; default is "nhd_long"}
+\item{longname}{character name of longitude column; default is "lake_lon_decdeg"}
 
 \item{crs}{numeric epsg code; default is 4326 WGS84-lat-long}
 }
@@ -21,8 +26,8 @@ This function turns a data.frame into a spatial object using a reasonable
 }
 \examples{
 \dontrun{
-dt <- lagosne_load("1.087.3")
-res <- coordinatize(dt$locus)
+dt <- lagosus_load("locus")
+res <- coordinatize(dt$locus$locus_information)
 
 library(maps)
 map("state", xlim = c(-97.90363, -66.99892), ylim = c(34.61761, 49.41941))
