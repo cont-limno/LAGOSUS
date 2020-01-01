@@ -13,27 +13,27 @@
 #' @importFrom lazyeval interp
 #' @importFrom utils adist
 #' @importFrom rlang .data
+#' @export
 #'
 #' @examples \dontrun{
-#' lake_info(lagoslakeid = 4314)
-#' lake_info(lagoslakeid = 7441)
-#' lake_info(lagoslakeid = 244)
-#' lake_info(lagoslakeid = 4686)
-#' lake_info(lagoslakeid = 8016)
+#' lg <- lagosus_load("locus")
+#'
+#' lake_info(lagoslakeid = 4314, lg = lg)
 #' lake_info(lagoslakeid = c(21864, 2317))
 #' lake_info(lagoslakeid = c(1441))
-#' lake_info(lagoslakeid = c(125428, 1441))
-#' lake_info(lagoslakeid = c(4686, 8016))
+#' lake_info(lagoslakeid = c(125428, 1441), lg = lg)
+#' lake_info(lagoslakeid = c(4686, 8016), lg = lg)
 #'
 #' # fuzzy matching to lake name
-#' lake_info(name = "Duck Lake", state = "Michigan")
+#' lake_info(name = "Duck Lake", state = "Michigan", lg = lg)
 #' # exact matching to lake name
 #' lake_info(name = "Duck Lake", state = "Michigan",
-#'           max.distance = list(all = 0))
+#'           max.distance = list(all = 0), lg = lg)
 #'
-#' lake_info(name = "Sunapee Lake", state = "New Hampshire")
+#' lake_info(name = "Sunapee Lake", state = "New Hampshire", lg = lg)
 #' lake_info(name = c("Sunapee Lake", "Oneida Lake"),
-#'               state = c("New Hampshire", "New York"))
+#'               state = c("New Hampshire", "New York"),
+#'               max.distance = list(all = 0), lg = lg)
 #' }
 
 lake_info <- function(lagoslakeid = NA, name = NA, state = NA,
@@ -55,10 +55,6 @@ lake_info <- function(lagoslakeid = NA, name = NA, state = NA,
 
   # create data.frame of lake and state names
   if(!all(is.na(lagoslakeid))){
-    browser()
-    lagoslakeid <- 8056
-    # lg$locus$locus_
-
     name_state <- data.frame(lagoslakeid = as.integer(lagoslakeid),
                              stringsAsFactors = FALSE)
 
@@ -66,14 +62,16 @@ lake_info <- function(lagoslakeid = NA, name = NA, state = NA,
     name_state <- dplyr::left_join(
       name_state,
       dplyr::select(lg$locus$locus_information, .data$lagoslakeid,
-                              .data$lake_centroidstate, .data$lake_namegnis),
+                    .data$lake_centroidstate, .data$lake_namegnis,
+                    .data$state_zoneid),
                                by = "lagoslakeid"))
 
     name_state <- dplyr::mutate(name_state,
                                 name = .data$lake_namegnis,
                                 state = .data$lake_centroidstate)
     name_state <- dplyr::select(name_state,
-                                .data$name, .data$state, .data$lagoslakeid)
+                                .data$name, .data$state, .data$lagoslakeid,
+                                .data$state_zoneid)
   }else{
     lagoslakeid <- rep(NA, length(state))
     name_state  <- data.frame(name = name, state = state,
@@ -81,25 +79,25 @@ lake_info <- function(lagoslakeid = NA, name = NA, state = NA,
                               stringsAsFactors = FALSE)
   }
 
-  dt$locus$state_zoneid <- as.character(dt$locus$state_zoneid)
-  dt$state$state_zoneid <- as.character(dt$state$state_zoneid)
-  dt$state$state_name   <- as.character(dt$state$state_name)
-
-  locus_state <- suppressMessages(dplyr::left_join(dt$locus, dt$state,
-    by = c("state_zoneid")))
-
   locus_state_conn <- suppressMessages(dplyr::left_join(
-    locus_state, dt$lakes.geo[,c("lagoslakeid", "lakeconnection")],
+    lg$locus$locus_information,
+    dplyr::select(lg$locus$locus_characteristics,
+                  lake_connectivity_permanent, lagoslakeid,
+                  lake_totalarea_ha),
     by = c("lagoslakeid" = "lagoslakeid")
   ))
 
   locus_state_iws <- suppressMessages(dplyr::left_join(
-    locus_state_conn, dt$iws[,c("lagoslakeid", "iws_ha")],
+    locus_state_conn,
+    dplyr::select(lg$locus$locus_ws,
+                  lagoslakeid, ws_area_ha),
     by = c("lagoslakeid" = "lagoslakeid")
   ))
 
-  dt <- suppressMessages(dplyr::left_join(dt$lakes_limno,
-          locus_state_iws))
+  # pull depth
+  # dt <- suppressMessages(dplyr::left_join(dt$lakes_limno,
+  #         locus_state_iws))
+  dt <- locus_state_iws
 
   # ---- filtering ----
   do.call("rbind", apply(name_state, 1, function(x){
@@ -108,18 +106,26 @@ lake_info <- function(lagoslakeid = NA, name = NA, state = NA,
 }
 
 lake_info_ <- function(dt, name, state, llid, ...){
+  # name <- name_state$name[1]
+  # state <- name_state$state[1]
+  # llid <- name_state$lagoslakeid[1]
+
+  state <- as.character(key_state(
+    data.frame(state.name = state,
+               stringsAsFactors = FALSE))$state.abb)
 
   if(is.na(name)){
-    name  <- as.character(
-      dt[dt$lagoslakeid == llid, "lagosname1"])
+    name  <- dplyr::filter(dt, lagoslakeid == llid) %>%
+      dplyr::pull(lake_namegnis)
   }
 
   # dt_filter       <- dt[which(dt$lagoslakeid == llid),]
-  dt_filter       <- dt[dt$state_name %in% state,]
+  dt_filter       <- dt[dt$lake_centroidstate %in%
+                          as.character(state),]
 
   if(is.na(llid)){
     filter_criteria <- lazyeval::interp(~ agrepl(name,
-                                                 lagosname1,
+                                                 lake_namegnis,
                                                  ignore.case = TRUE,
                                                  ...))
     # dt_filter       <- dplyr::filter(dt, !is.na(state_name))
@@ -129,7 +135,7 @@ lake_info_ <- function(dt, name, state, llid, ...){
   }
 
   if(nrow(dt_filter) == 0){
-    filter_criteria <- lazyeval::interp(~ agrepl(name, gnis_name,
+    filter_criteria <- lazyeval::interp(~ agrepl(name, lake_namegnis,
                                                  ignore.case = TRUE, ...))
     dt_filter       <- dplyr::filter_(dt_filter, filter_criteria)
   }
@@ -139,5 +145,12 @@ lake_info_ <- function(dt, name, state, llid, ...){
   }
 
   # dt_filter[which.min(adist(dt_filter$lagosname1, name)),]
-  dt_filter
+  dplyr::select(dt_filter,
+                lagoslakeid,
+                lake_namegnis,
+                lake_centroidstate,
+                dplyr::contains("decdeg"),
+                dplyr::contains("area"),
+                dplyr::contains("connectivity")
+                )
 }

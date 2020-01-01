@@ -29,24 +29,23 @@ Return lake attribute information from its name and state or its lagoslakeid.
 }
 \examples{
 \dontrun{
-lake_info(lagoslakeid = 4314)
-lake_info(lagoslakeid = 7441)
-lake_info(lagoslakeid = 244)
-lake_info(lagoslakeid = 4686)
-lake_info(lagoslakeid = 8016)
+lg <- lagosus_load("locus")
+
+lake_info(lagoslakeid = 4314, lg = lg)
 lake_info(lagoslakeid = c(21864, 2317))
 lake_info(lagoslakeid = c(1441))
-lake_info(lagoslakeid = c(125428, 1441))
-lake_info(lagoslakeid = c(4686, 8016))
+lake_info(lagoslakeid = c(125428, 1441), lg = lg)
+lake_info(lagoslakeid = c(4686, 8016), lg = lg)
 
 # fuzzy matching to lake name
-lake_info(name = "Duck Lake", state = "Michigan")
+lake_info(name = "Duck Lake", state = "Michigan", lg = lg)
 # exact matching to lake name
 lake_info(name = "Duck Lake", state = "Michigan",
-          max.distance = list(all = 0))
+          max.distance = list(all = 0), lg = lg)
 
-lake_info(name = "Sunapee Lake", state = "New Hampshire")
+lake_info(name = "Sunapee Lake", state = "New Hampshire", lg = lg)
 lake_info(name = c("Sunapee Lake", "Oneida Lake"),
-              state = c("New Hampshire", "New York"))
+              state = c("New Hampshire", "New York"),
+              max.distance = list(all = 0), lg = lg)
 }
 }

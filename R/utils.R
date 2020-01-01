@@ -376,3 +376,12 @@ url_exists <- function(url){
     error = function(e) FALSE
   )
 }
+
+key_state <- function(x){
+    key <- data.frame(state.abb = datasets::state.abb,
+                      state.name = datasets::state.name,
+                      stringsAsFactors = FALSE)
+    dplyr::left_join(x, key,
+                     by = c("state.name"))
+}
+
