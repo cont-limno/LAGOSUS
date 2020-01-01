@@ -9,6 +9,7 @@
 #' @param longname character name of longitude column; default is "lake_lon_decdeg"
 #' @param crs numeric epsg code; default is 4326 WGS84-lat-long
 #' @importFrom sf st_as_sf
+#' @export
 #' @examples \dontrun{
 #' dt <- lagosus_load("locus")
 #' res <- coordinatize(dt$locus$locus_information)
