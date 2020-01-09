@@ -7,8 +7,8 @@
 #' @param name character lake name not caps sensitive
 #' @param state character state name not caps sensitive
 #' @param lagoslakeid numeric lake id
-#' @param \dots arguments passed to \code{\link[base]{agrepl}} to fuzzy match
-#' lake name
+#' @param max_distance passed to the \code{\link[base]{agrepl}} "all" parameter
+#' to control fuzzy matching lake name. Defaults to exact matching.
 #' @importFrom dplyr filter
 #' @importFrom lazyeval interp
 #' @importFrom utils adist
@@ -37,7 +37,7 @@
 #' }
 
 lake_info <- function(lagoslakeid = NA, name = NA, state = NA,
-                                       lg = lagosus_load("locus"), ...){
+                                       lg = lagosus_load("locus"), max_distance = 0){
 
   if(class(lg) != "list"){
     stop("lg must be a list (created by the lagosus_load function).")
@@ -101,11 +101,12 @@ lake_info <- function(lagoslakeid = NA, name = NA, state = NA,
 
   # ---- filtering ----
   do.call("rbind", apply(name_state, 1, function(x){
-    lake_info_(dt = dt, name = x[1], state = x[2], llid = x[3], ...)
+    lake_info_(dt = dt, name = x[1], state = x[2], llid = x[3],
+               max_distance = max_distance)
   }))
 }
 
-lake_info_ <- function(dt, name, state, llid, ...){
+lake_info_ <- function(dt, name, state, llid, max_distance){
   # name <- name_state$name[1]
   # state <- name_state$state[1]
   # llid <- name_state$lagoslakeid[1]
@@ -127,7 +128,7 @@ lake_info_ <- function(dt, name, state, llid, ...){
     filter_criteria <- lazyeval::interp(~ agrepl(name,
                                                  lake_namegnis,
                                                  ignore.case = TRUE,
-                                                 ...))
+                                      max.distance = list(all = max_distance)))
     # dt_filter       <- dplyr::filter(dt, !is.na(state_name))
     dt_filter       <- dplyr::filter_(dt_filter, filter_criteria)
   }else{
@@ -136,7 +137,8 @@ lake_info_ <- function(dt, name, state, llid, ...){
 
   if(nrow(dt_filter) == 0){
     filter_criteria <- lazyeval::interp(~ agrepl(name, lake_namegnis,
-                                                 ignore.case = TRUE, ...))
+                                                 ignore.case = TRUE,
+                                    max.distance = list(all = max_distance)))
     dt_filter       <- dplyr::filter_(dt_filter, filter_criteria)
   }
 
