@@ -34,7 +34,8 @@ Suggests: testthat,
     devtools,
     R.rsp,
     printr,
-    ggplot2
+    ggplot2, 
+    mapview
 License: GPL
 Encoding: UTF-8
 LazyData: true
