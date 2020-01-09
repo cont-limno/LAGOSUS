@@ -14,6 +14,6 @@
 
 utils::globalVariables(c('lagoslakeid'))
 
-.onLoad <- function(pkgname, libname) {
+.onLoad <- function(libname, pkgname) {
   lagosus_load <<- memoise::memoise(lagosus_load)
 }
