@@ -114,23 +114,21 @@ names(lg)
 head(lg$locus$locus_characteristics)
 ```
 
-<!-- #### Preview a specific lake -->
+#### Preview a specific lake
 
-<!-- ```{r lake_info, eval = FALSE} -->
+``` r
+lake_info(name = "Pine Lake", state = "Michigan")
+# or using a lagoslakeid
+# lake_info(lagoslakeid = 4389)
+```
 
-<!-- lake_info(name = "Pine Lake", state = "Iowa") -->
+#### Map specific lakes
 
-<!-- # or using a lagoslakeid -->
+``` r
+library(mapview)
 
-<!-- # lake_info(lagoslakeid = 4389) -->
-
-<!-- ``` -->
-
-<!-- ```{r lake_info_cached, echo = FALSE, eval=FALSE} -->
-
-<!-- lake_info(name = "Pine Lake", state = "Iowa", dt = dt) -->
-
-<!-- ``` -->
+mapview(coordinatize(lake_info(name = "Pine Lake", state = "Michigan")))
+```
 
 <!-- #### Read table metadata -->
 
