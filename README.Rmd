@@ -57,7 +57,8 @@ library(LAGOSUS)
 
 ### Load data
 
-The `lagosus_load` function returns a named list of `data.frame` objects. Use the `names()` function to see a list of available data frames `names(lg)`.
+The `lagosus_load` function returns a named list of `data.frame` objects. 
+Use the `names()` function to see a list of available data frames `names(lg)`.
 
 ```{r load_data, eval=FALSE}
 lg <- lagosus_load(modules = c("locus", "depth"))
