@@ -39,16 +39,24 @@ lagos_ingest <- function(locus_version = NA, locus_folder = NA,
       list.files(locus_folder, pattern = "characteristics_\\d*.csv",
                  include.dirs = TRUE, full.names = TRUE), sep = ",")
 
-    locus_link <- load_lagos_txt(
-      list.files(locus_folder, pattern = "Link_v2_\\d*.csv",
-                 include.dirs = TRUE, full.names = TRUE), sep = ",")
+    if(length(list.files(locus_folder, pattern = "Link_v2_\\d*.csv") > 0)){
+      locus_link <- load_lagos_txt(
+        list.files(locus_folder, pattern = "Link_v2_\\d*.csv",
+                   include.dirs = TRUE, full.names = TRUE), sep = ",")
 
-    locus <- list(locus_information = locus_information,
-                  locus_ws = locus_ws,
-                  locus_nws = locus_nws,
-                  locus_characteristics = locus_characteristics,
-                  locus_link = locus_link
-                  )
+      locus <- list(locus_information = locus_information,
+                    locus_ws = locus_ws,
+                    locus_nws = locus_nws,
+                    locus_characteristics = locus_characteristics,
+                    locus_link = locus_link
+                    )
+    }else{
+      locus <- list(locus_information = locus_information,
+                    locus_ws = locus_ws,
+                    locus_nws = locus_nws,
+                    locus_characteristics = locus_characteristics
+      )
+    }
 
     return(locus)
   }
