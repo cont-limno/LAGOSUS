@@ -2,10 +2,10 @@
 % Please edit documentation in R/utils.R
 \name{lagosus_path}
 \alias{lagosus_path}
-\title{lagosus_path}
+\title{Return the cross-platform data path designated for LAGOSUS.}
 \usage{
 lagosus_path()
 }
 \description{
-Return the cross-platform data path designated for LAGOSNE.
+Return the cross-platform data path designated for LAGOSUS.
 }

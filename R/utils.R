@@ -30,9 +30,8 @@ stop_if_not_exists <- function(src_path) {
   }
 }
 
-#' lagosus_path
+#' Return the cross-platform data path designated for LAGOSUS.
 #'
-#' Return the cross-platform data path designated for LAGOSNE.
 #' @export
 lagosus_path <- function() paste0(rappdirs::user_data_dir(appname = "LAGOSUS",
                 appauthor = "LAGOSUS"), .Platform$file.sep)
