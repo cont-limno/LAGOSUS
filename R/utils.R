@@ -15,96 +15,6 @@ load_lagos_txt <- function(file_name, sep = "\t", ...){
              ..., stringsAsFactors = FALSE))
 }
 
-#' Summarize all LAGOSNE flat files
-#'
-#' Generate table summary statistics for all LAGOSNE data frames.
-#'
-#' @author Masrour Farzan
-#' @param lg list output of lagosne_load
-#' @examples \dontrun{
-#' lg <- lagosne_load("1.087.3")
-#' LAGOSNE:::info_table(lg)
-#' }
-info_table <- function(lg){
-
-  limno_names <- c("epi_nutr", "lakes_limno")
-  geo_names   <- !(names(lg) %in% c(limno_names, "locus", "lagos_source_program"))
-
-  limno <- lg[limno_names]
-  geo   <- lg[geo_names]
-
-  name <- c(names(geo), names(limno), "lagos_source_program")
-  type <- c(rep("geo", length(geo)), rep("limno", length(limno)), "source")
-  identifier <- c("county_zoneid","county_zoneid","county_zoneid",
-                  "county_zoneid", "edu_zoneid", "edu_zoneid", "edu_zoneid",
-                  "edu_zoneid", "hu4_zoneid", "hu4_zoneid", "hu4_zoneid",
-                  "hu4_zoneid", "hu8_zoneid", "hu8_zoneid", "hu8_zoneid",
-                  "hu8_zoneid", "hu12_zoneid", "hu12_zoneid", "hu12_zoneid",
-                  "hu12_zoneid", "iws_zoneid","iws_zoneid", "iws_zoneid",
-                  "state_zoneid", "state_zoneid", "state_zoneid",
-                  "state_zoneid", "lagoslakeid", "lagoslakeid",
-                  "lagoslakeid", "lagoslakeid", "lagoslakeid",
-                  "lagoslakeid", "lagoslakeid, eventida10873, programname",
-                  "lagoslakeid", "programname, sourceid")
-
-  # number of variables of each data.frame in the list
-  variables <- rep(0, length(name))
-
-  for(i in seq_along(name)){
-    if(type[i] == "geo"){
-      j            <- which(names(geo) == name[i])
-      variables[i] <- ncol(geo[[j]])
-    }else{
-      j <- which(names(limno) == name[i])
-      if(length(j) != 0){
-        variables[i] <- ncol(limno[[j]])
-      }else{
-        variables[i] <- ncol(lg[[
-          names(lg)[which(names(lg) == name[i])]]])
-      }
-    }
-  }
-
-  # Number of observation of each dataframe in the table
-  observations <- rep(0, length(name))
-
-  for(i in seq_along(name)){
-    if(type[i] == "geo"){
-      j <- which(names(geo) == name[i])
-      observations[i] <- nrow(geo[[j]])
-    }else{
-      j <- which(names(limno) == name[i])
-
-      if(length(j) != 0){
-        observations[i] <- nrow(limno[[j]])
-      }else{
-        observations[i] <- nrow(lg[[
-          names(lg)[which(names(lg) == name[i])]]])
-      }
-
-    }
-  }
-
-  group <- c(1, 1, 1, 1,
-             2, 2, 2, 2,
-             3, 3, 3, 3,
-             4, 4, 4, 4,
-             5, 5, 5, 5,
-             6, 6, 6,
-             7, 7, 7, 7,
-             10, 10, 10, 10, 10,
-             11, 11, 11,
-             13)
-
-  data.frame(name= I(name),
-    type= I(type),
-    variables=I(variables),
-    observations=I(observations),
-    identifier= I(identifier),
-    group = I(group))
-
-}
-
 #' @importFrom curl curl_download
 get_if_not_exists <- function(url, destfile, overwrite){
   if(!file.exists(destfile) | overwrite){
@@ -130,7 +40,7 @@ lagosus_path <- function() paste0(rappdirs::user_data_dir(appname = "LAGOSUS",
 lagos_names <- function(dt) purrr::map(dt, names)
 # unlist(lapply(dt, function(x) length(grep("connect", names(x))))) # search tables for column
 
-#' Query LAGOSNE names
+#' Query LAGOSUS names
 #'
 #' Return a vector of table names whose associated tables have
 #'  columns that grep to query.
