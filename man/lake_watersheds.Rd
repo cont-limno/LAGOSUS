@@ -42,4 +42,7 @@
   nws_meanwidth_m                \tab nws area (* 10000 m^2/ha) divided by the nws convex hull length of the focal zone polygon
 }
 }
+\keyword{#'}
+\keyword{@aliases}
 \keyword{datasets}
+\keyword{watersheds}
