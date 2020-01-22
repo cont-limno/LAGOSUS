@@ -1,5 +1,7 @@
 library(readxl)
 library(tidyxl)
+library(dplyr)
+library(unpivotr)
 
 # read wholesale ----
 
@@ -41,5 +43,16 @@ tabular <- function(df, ...) {
         contents, "\n}\n", sep = "")
 }
 
-clipr::write_clip(
-  tabular(dplyr::filter(x, table_name == "Lake information")))
+res <- data.frame(dplyr::filter(x, table_name == "Lake information"))[,2:3]
+res <- paste0("#' ", readLines(textConnection(tabular(res))))
+clipr::write_clip(res)
+
+res <- data.frame(dplyr::filter(x, table_name == "Lake characteristics"))[,2:3]
+res <- paste0("#' ", readLines(textConnection(tabular(res))))
+clipr::write_clip(res)
+
+res <- data.frame(dplyr::filter(x, table_name == "Lake watersheds"))[,2:3]
+res <- paste0("#' ", readLines(textConnection(tabular(res))))
+clipr::write_clip(res)
+
+unique(x$table_name)
