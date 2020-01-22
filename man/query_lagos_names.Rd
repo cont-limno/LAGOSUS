@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{query_lagos_names}
 \alias{query_lagos_names}
-\title{Query LAGOSNE names}
+\title{Query LAGOSUS names}
 \usage{
 query_lagos_names(grep_string, scale = NA, dt = lagosus_load())
 }

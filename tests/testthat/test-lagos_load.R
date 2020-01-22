@@ -13,7 +13,7 @@ test_that("lagos_load fails well", {
     fixed = TRUE)
 })
 
-test_that("legacyids have non-scientific notation", {
+test_that("reachcodes have non-scientific notation", {
 
   skip_on_cran()
   skip_on_travis()
@@ -25,13 +25,13 @@ test_that("legacyids have non-scientific notation", {
     13)# [1] "4.51733E+12"
 })
 
-test_that("sampledate is parsed correctly", {
-
-  skip_on_cran()
-  skip_on_travis()
-  skip_on_appveyor()
-
-  epi_nutr <- lagosne_load()$epi_nutr
-
-  expect_equal(any(!is.na(epi_nutr$sampledate)), TRUE)
-})
+# test_that("sampledate is parsed correctly", {
+#
+#   skip_on_cran()
+#   skip_on_travis()
+#   skip_on_appveyor()
+#
+#   epi_nutr <- lagosus_load("limno")$epi_nutr
+#
+#   expect_equal(any(!is.na(epi_nutr$sampledate)), TRUE)
+# })
