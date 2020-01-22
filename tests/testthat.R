@@ -1,4 +1,4 @@
 library(testthat)
-library(LAGOSNE)
+library(LAGOSUS)
 
-test_check("LAGOSNE")
+test_check("LAGOSUS")

@@ -156,12 +156,12 @@ lagos_names <- function(dt) purrr::map(dt, names)
 #' }
 query_lagos_names <- function(grep_string, scale = NA, dt = lagosus_load()){
 
-  dt_names <- lagos_names(dt)
+  dt_names      <- lagos_names(dt$locus)
   names_matches <- unlist(lapply(dt_names,
                     function(x) length(grep(grep_string, x)) > 0))
-  res <- names(dt_names)[names_matches]
+  res           <- names(dt_names)[names_matches]
 
-  res_filtered <- res[grep(scale, res)]
+  res_filtered  <- res[grep(scale, res)]
 
   if(!is.na(scale)){
     if(length(res_filtered) < 1 & length(res) > 1){

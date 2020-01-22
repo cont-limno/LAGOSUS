@@ -2,10 +2,11 @@ context("lake_info")
 
 test_that("lake_info works", {
   dt <- readRDS("lagos_test_subset.rds")
-  # dt <- readRDS(system.file("lagos_test_subset.rds", package = "LAGOSNE"))
+  # dt <- readRDS(system.file("lagos_test_subset.rds", package = "LAGOSUS"))
 
   expect_equal(nrow(
-    lake_info(name = "Pine Lake", state = "Iowa", dt = dt)), 1)
+    lake_info(name = "Pine Lake", state = "Iowa", lg = dt)
+    ), 1)
 
   # not in test dataset
   # expect_equal(nrow(
