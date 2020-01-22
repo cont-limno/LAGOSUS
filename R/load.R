@@ -28,14 +28,20 @@ lagosus_load <- function(modules = NULL,
 
   if(is.na(fpath)){fpath <- lagosus_path()}
 
-  # TODO error if no modules specified
+  # error if no modules specified
+  if(is.null(modules)){
+    stop("Must specify one or more modules by name: locus, depth, geo, limno.")
+  }
 
   modules_raw <- c("locus", "limno", "geo", "depth")
   modules_query <- modules_raw[modules_raw %in% modules]
 
-  # TODO sanity check of specified module names
-  # are they true module names?
-  # are there <= 4 specified?
+  # sanity check of specified module names
+  if(any(!(modules %in% c("locus", "limno", "geo", "depth")))){
+    # are they true module names?
+    stop(paste0("Module '",  modules, "' not found. Please specify one or more modules by name: locus, depth, geo, limno. Alternatively, try running the `lagosus_get` command."))
+  }
+  # TODO are there <= 4 specified?
   # have versions been specified for all requested modules?
 
   # error if length > 0 but not equal to modules

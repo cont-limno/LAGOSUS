@@ -32,15 +32,14 @@ test_that("lake_info works with corner cases", {
 
   # multiple matches
   expect_equal(nrow(
-    lake_info(name = "Duck Lake", state = "Michigan",
-              max.distance = list(all = 0))), 7)
+    lake_info(name = "Duck Lake", state = "Michigan")), 26)
 
 })
 
 test_that("lake_info fails well", {
   dt <- readRDS("lagos_test_subset.rds")
 
-  expect_error(lake_info(name = "gibberish", state = "Wisconsin", dt = dt),
-               "Lake 'gibberish' in Wisconsin not found")
+  expect_error(lake_info(name = "gibberish", state = "Wisconsin", lg = dt),
+               "Lake 'gibberish' in WI not found")
 
 })

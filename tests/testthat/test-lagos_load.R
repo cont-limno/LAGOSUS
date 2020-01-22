@@ -7,9 +7,7 @@ test_that("lagos_load fails well", {
   skip_on_appveyor()
 
   expect_error(lagosus_load("gibberish"),
-    paste0("Dataset not found at: ",
-    paste0(lagosus_path(), "data_", "gibberish", ".rds"),
-    "\n Try running the `lagosus_get` command."),
+               paste0("Module 'gibberish' not found. Please specify one or more modules by name: locus, depth, geo, limno. Alternatively, try running the `lagosus_get` command."),
     fixed = TRUE)
 })
 
