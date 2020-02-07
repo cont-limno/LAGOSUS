@@ -120,25 +120,6 @@ mapview(coordinatize(lake_info(name = "Pine Lake", state = "Michigan")))
 <!-- unloadNamespace("printr") -->
 <!-- ``` -->
 
-<!-- ### Select data -->
-
-<!-- `lagosus_select` is a convenience function whose primary purpose is to provide users with the ability to select subsets of LAGOS tables that correspond to specific keywords (see `LAGOSUS:::keyword_partial_key()` and `LAGOSUS:::keyword_full_key()`). See [here](http://adv-r.had.co.nz/Subsetting.html) for a comprehensive tutorial on generic `data.frame` subsetting. -->
-
-<!-- ```{r demo_select, eval=TRUE, eval=FALSE} -->
-<!-- # specific variables -->
-<!-- head(lagosus_select(table = "epi_nutr", vars = c("tp", "tn"), dt = dt)) -->
-<!-- head(lagosus_select(table = "iws.lulc", vars = c("iws_nlcd2011_pct_95"), dt = dt)) -->
-
-<!-- # categories -->
-<!-- head(lagosus_select(table = "locus", categories = "id", dt = dt)) -->
-<!-- head(lagosus_select(table = "epi_nutr", categories = "waterquality", dt = dt)) -->
-<!-- head(lagosus_select(table = "hu4.chag", categories = "deposition", dt = dt)[,1:4]) -->
-
-<!-- # mix of specific variables and categories -->
-<!-- head(lagosus_select(table = "epi_nutr", vars = "programname",  -->
-<!--                     categories = c("id", "waterquality"), dt = dt)) -->
-<!-- ``` -->
-
 ## References
 
 Soranno, P.A., Bacon, L.C., Beauchene, M., Bednar, K.E., Bissell, E.G., Boudreau, C.K., Boyer, M.G., Bremigan, M.T., Carpenter, S.R., Carr, J.W. Cheruvelil, K.S., and ... , 2017. LAGOS-NE: A multi-scaled geospatial and temporal database of lake ecological context and water quality for thousands of US lakes. GigaScience, https://doi.org/10.1093/gigascience/gix101
