@@ -102,11 +102,17 @@ lake_info(name = "Pine Lake", state = "Iowa", dt = dt)
 
 ```{r coordinatize, eval=FALSE}
 library(mapview)
-
 mapview(coordinatize(lake_info(name = "Pine Lake", state = "Michigan")))
 ```
 
-<!-- #### Read table metadata -->
+#### Read table metadata
+
+```{r eval=FALSE}
+# lookup which table(s) contain a column name 
+query_lagos_names("ws_meanwidth", dt = lg)
+# load help file for a table
+?locus_ws
+```
 
 <!-- ```{r load printr, echo=FALSE,message=FALSE,results='hide', eval=FALSE} -->
 <!-- loadNamespace("printr") -->

@@ -126,11 +126,17 @@ lake_info(name = "Pine Lake", state = "Michigan")
 
 ``` r
 library(mapview)
-
 mapview(coordinatize(lake_info(name = "Pine Lake", state = "Michigan")))
 ```
 
-<!-- #### Read table metadata -->
+#### Read table metadata
+
+``` r
+# lookup which table(s) contain a column name 
+query_lagos_names("ws_meanwidth", dt = lg)
+# load help file for a table
+?locus_ws
+```
 
 <!-- ```{r load printr, echo=FALSE,message=FALSE,results='hide', eval=FALSE} -->
 
@@ -147,34 +153,6 @@ mapview(coordinatize(lake_info(name = "Pine Lake", state = "Michigan")))
 <!-- ```{r unload printr, echo=FALSE, eval=FALSE} -->
 
 <!-- unloadNamespace("printr") -->
-
-<!-- ``` -->
-
-<!-- ### Select data -->
-
-<!-- `lagosus_select` is a convenience function whose primary purpose is to provide users with the ability to select subsets of LAGOS tables that correspond to specific keywords (see `LAGOSUS:::keyword_partial_key()` and `LAGOSUS:::keyword_full_key()`). See [here](http://adv-r.had.co.nz/Subsetting.html) for a comprehensive tutorial on generic `data.frame` subsetting. -->
-
-<!-- ```{r demo_select, eval=TRUE, eval=FALSE} -->
-
-<!-- # specific variables -->
-
-<!-- head(lagosus_select(table = "epi_nutr", vars = c("tp", "tn"), dt = dt)) -->
-
-<!-- head(lagosus_select(table = "iws.lulc", vars = c("iws_nlcd2011_pct_95"), dt = dt)) -->
-
-<!-- # categories -->
-
-<!-- head(lagosus_select(table = "locus", categories = "id", dt = dt)) -->
-
-<!-- head(lagosus_select(table = "epi_nutr", categories = "waterquality", dt = dt)) -->
-
-<!-- head(lagosus_select(table = "hu4.chag", categories = "deposition", dt = dt)[,1:4]) -->
-
-<!-- # mix of specific variables and categories -->
-
-<!-- head(lagosus_select(table = "epi_nutr", vars = "programname",  -->
-
-<!--                     categories = c("id", "waterquality"), dt = dt)) -->
 
 <!-- ``` -->
 
