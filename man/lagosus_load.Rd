@@ -11,6 +11,8 @@ lagosus_load(modules = NULL, versions = NULL, geo_tables = NA, fpath = NA)
 
 \item{versions}{character LAGOSUS database version strings. Defaults to \code{\link{lagosus_version}}}
 
+\item{geo_tables}{character vector of geo module table names}
+
 \item{fpath}{file.path to LAGOSUS data store. Defaults to lagosus_path()}
 }
 \description{

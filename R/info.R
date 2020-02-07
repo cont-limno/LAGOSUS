@@ -3,7 +3,7 @@
 #'
 #' Return lake attribute information from its name and state or its lagoslakeid.
 #'
-#' @param dt list of data.frames. output of \code{\link[LAGOSNE]{lagosne_load}}.
+#' @param lg list of data.frames. output of \code{\link[LAGOSUS]{lagosus_load}}.
 #' @param name character lake name not caps sensitive
 #' @param state character state name not caps sensitive
 #' @param lagoslakeid numeric lake id
@@ -82,15 +82,15 @@ lake_info <- function(lagoslakeid = NA, name = NA, state = NA,
   locus_state_conn <- suppressMessages(dplyr::left_join(
     lg$locus$locus_information,
     dplyr::select(lg$locus$locus_characteristics,
-                  lake_connectivity_permanent, lagoslakeid,
-                  lake_totalarea_ha),
+                  .data$lake_connectivity_permanent, .data$lagoslakeid,
+                  .data$lake_totalarea_ha),
     by = c("lagoslakeid" = "lagoslakeid")
   ))
 
   locus_state_iws <- suppressMessages(dplyr::left_join(
     locus_state_conn,
     dplyr::select(lg$locus$locus_ws,
-                  lagoslakeid, ws_area_ha),
+                  .data$lagoslakeid, .data$ws_area_ha),
     by = c("lagoslakeid" = "lagoslakeid")
   ))
 
@@ -117,7 +117,7 @@ lake_info_ <- function(dt, name, state, llid, max_distance){
 
   if(is.na(name)){
     name  <- dplyr::filter(dt, lagoslakeid == llid) %>%
-      dplyr::pull(lake_namegnis)
+      dplyr::pull(.data$lake_namegnis)
   }
 
   # dt_filter       <- dt[which(dt$lagoslakeid == llid),]
@@ -148,9 +148,9 @@ lake_info_ <- function(dt, name, state, llid, max_distance){
 
   # dt_filter[which.min(adist(dt_filter$lagosname1, name)),]
   dplyr::select(dt_filter,
-                lagoslakeid,
-                lake_namegnis,
-                lake_centroidstate,
+                .data$lagoslakeid,
+                .data$lake_namegnis,
+                .data$lake_centroidstate,
                 dplyr::contains("decdeg"),
                 dplyr::contains("area"),
                 dplyr::contains("connectivity")

@@ -4,11 +4,7 @@
 #'
 #' @export
 #' @importFrom utils download.file
-#' @param dest_folder file.path to save data. Default to a temporary folder.
-#' Recommended to set to LAGOSNE:::lagosus_path() so that data persists between
-#' R sessions.
-#' @param version character LAGOSNE database version string
-#' @param overwrite logical overwrite existing data for the specified version
+#' @inheritParams lagosus_compile
 #' @examples \dontrun{
 #' # default to latest version
 #' lagosus_get(dest_folder = LAGOSUS:::lagosus_path())
@@ -17,8 +13,11 @@
 #' # - recommended to install corresponding package version
 #' # - See 'Legacy Versions' section of the README for instructions
 #' }
-lagosus_get <- function(version = lagosus_version(), overwrite = FALSE,
-                        dest_folder = tempdir()){
+lagosus_get <- function(locus_version = NA, locus_folder = NA, locus_overwrite = FALSE,
+                        limno_version = NA, limno_folder = NA, limno_overwrite = FALSE,
+                        geo_version = NA, geo_folder = NA, geo_overwrite = FALSE,
+                        depth_version = NA, depth_folder = NA, depth_overwrite = FALSE,
+                        dest_folder = NA){
 
   if(dest_folder != lagosus_path()){
     warning("Set dest_folder to LAGOSNE:::lagosus_path() so that data persists
@@ -26,7 +25,7 @@ between R sessions. \n")
   }
 
   outpath <- file.path(lagosus_path(), paste0("data_", version, ".rds"))
-  if(file.exists(outpath) & !overwrite){
+  if(file.exists(outpath) & !locus_overwrite){
     warning("LAGOSUS data for this version already exists on the local machine.
   Re-download if neccessary using the 'overwrite` argument.'")
     return(invisible("LAGOS is the best"))
@@ -44,25 +43,25 @@ between R sessions. \n")
     locus_base_edi   <- paste0(edi_baseurl, c("edi.100.4"))
     locus_base_pasta <- paste0(pasta_baseurl, "100/4")
     locus_dir        <- get_lagos_module(locus_base_edi, locus_base_pasta,
-                                         "locus", overwrite)
+                                         "locus", locus_overwrite)
 
     message("Downloading the 'limno' module ...")
     limno_base_edi   <- paste0(edi_baseurl, c("edi.101.3"))
     limno_base_pasta <- paste0(pasta_baseurl, "101/3")
     limno_dir        <- get_lagos_module(limno_base_edi, limno_base_pasta,
-                                         "limno", overwrite)
+                                         "limno", limno_overwrite)
 
     message("Downloading the 'geo' module ...")
     geo_base_edi   <- paste0(edi_baseurl, c("edi.99.5"))
     geo_base_pasta <- paste0(pasta_baseurl, "99/5")
     geo_dir        <- get_lagos_module(geo_base_edi, geo_base_pasta,
-                                       "geo", overwrite)
+                                       "geo", geo_overwrite)
 
   dir.create(dest_folder, showWarnings = FALSE)
 
   message("LAGOSNE downloaded. Now compressing to native R object ...")
 
-  lagosus_compile(version = version,
+  lagosus_compile(locus_version = locus_version,
                 locus_folder = locus_dir,
                 limno_folder = limno_dir,
                 geo_folder   = geo_dir,

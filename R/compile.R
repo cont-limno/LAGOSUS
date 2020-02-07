@@ -15,7 +15,7 @@
 #'@param locus_overwrite logical overwrite existing data?
 #'@param depth_version character LAGOSUS database version string
 #'@param depth_folder file.path to depth export folder
-#'#'@param depth_overwrite logical overwrite existing data?
+#'@param depth_overwrite logical overwrite existing data?
 #'@param dest_folder file.path optional will default to the location returned
 #'by \code{\link[rappdirs]{user_data_dir}}
 #'

@@ -5,19 +5,48 @@
 \title{Retrieve LAGOSNE flat files}
 \usage{
 lagosus_get(
-  version = lagosus_version(),
-  overwrite = FALSE,
-  dest_folder = tempdir()
+  locus_version = NA,
+  locus_folder = NA,
+  locus_overwrite = FALSE,
+  limno_version = NA,
+  limno_folder = NA,
+  limno_overwrite = FALSE,
+  geo_version = NA,
+  geo_folder = NA,
+  geo_overwrite = FALSE,
+  depth_version = NA,
+  depth_folder = NA,
+  depth_overwrite = FALSE,
+  dest_folder = NA
 )
 }
 \arguments{
-\item{version}{character LAGOSNE database version string}
+\item{locus_version}{character LAGOSUS database version string}
 
-\item{overwrite}{logical overwrite existing data for the specified version}
+\item{locus_folder}{file.path to locus export folder}
 
-\item{dest_folder}{file.path to save data. Default to a temporary folder.
-Recommended to set to LAGOSNE:::lagosus_path() so that data persists between
-R sessions.}
+\item{locus_overwrite}{logical overwrite existing data?}
+
+\item{limno_version}{character LAGOSUS database version string}
+
+\item{limno_folder}{file.path to limno export folder}
+
+\item{limno_overwrite}{logical overwrite existing data?}
+
+\item{geo_version}{character LAGOSUS database version string}
+
+\item{geo_folder}{file.path to geo export folder}
+
+\item{geo_overwrite}{logical overwrite existing data?}
+
+\item{depth_version}{character LAGOSUS database version string}
+
+\item{depth_folder}{file.path to depth export folder}
+
+\item{depth_overwrite}{logical overwrite existing data?}
+
+\item{dest_folder}{file.path optional will default to the location returned
+by \code{\link[rappdirs]{user_data_dir}}}
 }
 \description{
 Retrieve LAGOSNE flat files from EDI.

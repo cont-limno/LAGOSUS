@@ -4,6 +4,7 @@
 #'
 #' @param modules character vector of module names. One or more of "locus", "limno", "geo", or "depth.
 #' @param versions character LAGOSUS database version strings. Defaults to \code{\link{lagosus_version}}
+#' @param geo_tables character vector of geo module table names
 #' @param fpath file.path to LAGOSUS data store. Defaults to lagosus_path()
 #' @export
 #' @importFrom rappdirs user_data_dir

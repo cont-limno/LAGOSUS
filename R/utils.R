@@ -71,7 +71,7 @@ query_lagos_names <- function(grep_string, scale = NA, dt){
   res           <- names(dt_names)[names_matches]
   res           <- stringr::str_extract(res, "(?<=\\.)\\w+")
 
-  # res_filtered  <- res[grep(scale, res)]
+  res_filtered  <- res[grep(scale, res)]
 
   if(!is.na(scale)){
     if(length(res_filtered) < 1 & length(res) > 1){

@@ -30,8 +30,7 @@ lagos_ingest(
 
 \item{depth_version}{character LAGOSUS database version string}
 
-\item{depth_folder}{file.path to depth export folder
-#'@param depth_overwrite logical overwrite existing data?}
+\item{depth_folder}{file.path to depth export folder}
 }
 \description{
 Ingest LAGOSUS data from component flat files

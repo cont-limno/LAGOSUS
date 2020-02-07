@@ -17,7 +17,7 @@ lagos_ingest <- function(locus_version = NA, locus_folder = NA,
 
   if(sum(!is.na(nchar(c(locus_folder, limno_folder,
                         geo_folder, depth_folder)))) > 1){
-    error("Only one folder at a time should be passed here, iteration occurs in lagosus_compile")
+    stop("Only one folder at a time should be passed here, iteration occurs in lagosus_compile")
   }
 
   if(!is.na(locus_folder)){

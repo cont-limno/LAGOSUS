@@ -19,10 +19,10 @@ lake_info(
 
 \item{state}{character state name not caps sensitive}
 
+\item{lg}{list of data.frames. output of \code{\link[LAGOSUS]{lagosus_load}}.}
+
 \item{max_distance}{passed to the \code{\link[base]{agrepl}} "all" parameter
 to control fuzzy matching lake name. Defaults to exact matching.}
-
-\item{dt}{list of data.frames. output of \code{\link[LAGOSNE]{lagosne_load}}.}
 }
 \description{
 Return lake attribute information from its name and state or its lagoslakeid.
