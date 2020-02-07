@@ -55,7 +55,7 @@ lagosus_version <- function(){
 #'  neon_zoneid        \tab unique NEON zone identifier assigned by LAGOS for zone containing the focal lake
 #' }
 #'
-#' @name lake_information
+#' @name locus_information
 #' @docType data
 #' @keywords datasets
 NULL
@@ -90,7 +90,7 @@ NULL
 #'   lake_glaciatedlatewisc          \tab glaciation status during the Late Wisconsin glaciation
 #' }
 #'
-#' @name lake_characteristics
+#' @name locus_characteristics
 #' @docType data
 #' @keywords datasets
 NULL
@@ -134,7 +134,7 @@ NULL
 #'   nws_meanwidth_m                \tab nws area (* 10000 m^2/ha) divided by the nws convex hull length of the focal zone polygon
 #' }
 #'
-#' @name lake_watersheds
+#' @name locus_ws
 #' @docType data
 #' @keywords datasets
 #' #' @aliases watersheds

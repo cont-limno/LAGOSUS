@@ -4,7 +4,7 @@
 \alias{query_lagos_names}
 \title{Query LAGOSUS names}
 \usage{
-query_lagos_names(grep_string, scale = NA, dt = lagosus_load())
+query_lagos_names(grep_string, scale = NA, dt)
 }
 \arguments{
 \item{grep_string}{character search string to grep to table column names}
@@ -31,6 +31,6 @@ query_lagos_names("_dep_")
 query_lagos_names("_dep_", "hu4")
 query_lagos_names("chla")
 query_lagos_names("secchi")
-query_lagos_names("conn")
+query_lagos_names("zoneid", dt = lg)
 }
 }
