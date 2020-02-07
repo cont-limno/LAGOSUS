@@ -44,7 +44,7 @@ lagos_names <- function(dt) purrr::map(dt, names)
 #' Return a vector of table names whose associated tables have
 #'  columns that grep to query.
 #'
-#' @param dt data.frame output of \code{\link[LAGOSNE]{lagosne_load}}
+#' @param dt data.frame output of \code{\link[LAGOSUS]{lagosus_load}}
 #' @param grep_string character search string to grep to table column names
 #' @param scale character filter results by one of:
 #' \itemize{
@@ -57,20 +57,21 @@ lagos_names <- function(dt) purrr::map(dt, names)
 #' }
 #' @export
 #' @examples \dontrun{
-#' query_lagos_names("_dep_")
-#' query_lagos_names("_dep_", "hu4")
-#' query_lagos_names("chla")
-#' query_lagos_names("secchi")
-#' query_lagos_names("conn")
+#' lg <- lagosus_load(c("locus", "depth"))
+#' query_lagos_names("zoneid", dt = lg)
+#' query_lagos_names("ws_meanwidth", dt = lg)
+#' query_lagos_names("max_depth_m", dt = lg)
 #' }
-query_lagos_names <- function(grep_string, scale = NA, dt = lagosus_load()){
-
-  dt_names      <- lagos_names(dt$locus)
-  names_matches <- unlist(lapply(dt_names,
-                    function(x) length(grep(grep_string, x)) > 0))
+query_lagos_names <- function(grep_string, scale = NA, dt){
+  dt_names      <- unlist(lapply(dt, lagos_names), recursive = FALSE)
+  names_matches <- unlist(
+    lapply(dt_names,
+                    function(x) length(grep(grep_string, x)) > 0)
+    )
   res           <- names(dt_names)[names_matches]
+  res           <- stringr::str_extract(res, "(?<=\\.)\\w+")
 
-  res_filtered  <- res[grep(scale, res)]
+  # res_filtered  <- res[grep(scale, res)]
 
   if(!is.na(scale)){
     if(length(res_filtered) < 1 & length(res) > 1){

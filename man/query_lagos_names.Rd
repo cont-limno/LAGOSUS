@@ -19,7 +19,7 @@ query_lagos_names(grep_string, scale = NA, dt)
     \item state
 }}
 
-\item{dt}{data.frame output of \code{\link[LAGOSNE]{lagosne_load}}}
+\item{dt}{data.frame output of \code{\link[LAGOSUS]{lagosus_load}}}
 }
 \description{
 Return a vector of table names whose associated tables have
@@ -27,10 +27,9 @@ Return a vector of table names whose associated tables have
 }
 \examples{
 \dontrun{
-query_lagos_names("_dep_")
-query_lagos_names("_dep_", "hu4")
-query_lagos_names("chla")
-query_lagos_names("secchi")
+lg <- lagosus_load(c("locus", "depth"))
 query_lagos_names("zoneid", dt = lg)
+query_lagos_names("ws_meanwidth", dt = lg)
+query_lagos_names("max_depth_m", dt = lg)
 }
 }
