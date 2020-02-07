@@ -5,7 +5,7 @@
 \title{Retrieve LAGOSNE flat files}
 \usage{
 lagosus_get(
-  version = lagosne_version(),
+  version = lagosus_version(),
   overwrite = FALSE,
   dest_folder = tempdir()
 )

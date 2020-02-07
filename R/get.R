@@ -17,7 +17,7 @@
 #' # - recommended to install corresponding package version
 #' # - See 'Legacy Versions' section of the README for instructions
 #' }
-lagosus_get <- function(version = lagosne_version(), overwrite = FALSE,
+lagosus_get <- function(version = lagosus_version(), overwrite = FALSE,
                         dest_folder = tempdir()){
 
   if(dest_folder != lagosus_path()){
@@ -32,9 +32,9 @@ between R sessions. \n")
     return(invisible("LAGOS is the best"))
   }
 
-  if(version != lagosne_version()){
+  if(version != lagosus_version()){
     warning(
-      paste0("Specified version '", version, "' does not match the most recent LAGOSNE version '", lagosne_version(), "' - If an older LAGOSNE version is desired, see the 'Legacy Versions' section of the README for instructions."))
+      paste0("Specified version '", version, "' does not match the most recent LAGOSUS version '", lagosus_version(), "' - If an older LAGOSUS version is desired, see the 'Legacy Versions' section of the README for instructions."))
   }
 
     edi_baseurl   <- "https://portal.edirepository.org/nis/dataviewer?packageid="
@@ -62,7 +62,7 @@ between R sessions. \n")
 
   message("LAGOSNE downloaded. Now compressing to native R object ...")
 
-  lagosne_compile(version = version,
+  lagosus_compile(version = version,
                 locus_folder = locus_dir,
                 limno_folder = limno_dir,
                 geo_folder   = geo_dir,
