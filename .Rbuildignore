@@ -29,3 +29,4 @@ R/.logo.R
 export_script
 taxonomy
 pkgdown
+^.*\.xlsx$
