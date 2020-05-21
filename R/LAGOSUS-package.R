@@ -137,5 +137,5 @@ NULL
 #' @name locus_ws
 #' @docType data
 #' @keywords datasets
-#' #' @aliases watersheds
+#' @aliases watersheds
 NULL
