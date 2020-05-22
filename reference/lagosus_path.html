@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Changelog • LAGOSUS</title>
+<title>Return the cross-platform data path designated for LAGOSUS. — lagosus_path • LAGOSUS</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,7 +46,8 @@
 
 
 
-<meta property="og:title" content="Changelog" />
+<meta property="og:title" content="Return the cross-platform data path designated for LAGOSUS. — lagosus_path" />
+<meta property="og:description" content="Return the cross-platform data path designated for LAGOSUS." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -66,7 +67,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-news">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -133,112 +134,25 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1 data-toc-skip>Changelog <small></small></h1>
-      <small>Source: <a href='https://github.com/cont-limno/LAGOSUS/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
+    <h1>Return the cross-platform data path designated for LAGOSUS.</h1>
+    <small class="dont-index">Source: <a href='https://github.com/cont-limno/LAGOSUS/blob/master/R/utils.R'><code>R/utils.R</code></a></small>
+    <div class="hidden name"><code>lagosus_path.Rd</code></div>
     </div>
 
-    <div id="lagosne-201" class="section level1">
-<h1 class="page-header" data-toc-text="2.0.1">
-<a href="#lagosne-201" class="anchor"></a>LAGOSNE 2.0.1</h1>
-<div id="bug-fixes" class="section level2">
-<h2 class="hasAnchor">
-<a href="#bug-fixes" class="anchor"></a>BUG FIXES</h2>
-<ul>
-<li>Fixed critical error in date conversion for <code>epi_nutr</code> table.</li>
-</ul>
-</div>
-</div>
-    <div id="lagosne-200" class="section level1">
-<h1 class="page-header" data-toc-text="2.0.0">
-<a href="#lagosne-200" class="anchor"></a>LAGOSNE 2.0.0</h1>
-<div id="major-improvements" class="section level2">
-<h2 class="hasAnchor">
-<a href="#major-improvements" class="anchor"></a>MAJOR IMPROVEMENTS</h2>
-<ul>
-<li><p>Added support for a new version of the LAGOSNE limno module <code>1.087.3</code>. A detailed breakdown of data changes are available from the <a href="https://portal.edirepository.org/nis/dataviewer?packageid=edi.101.3&amp;entityid=d448003f31f07458f8ee59903dcc7da0">EDI data repository</a></p></li>
-<li><p>Added a new published LAGOSNE dataset from Collins et al. 2017</p></li>
-</ul>
-</div>
-<div id="minor-improvements" class="section level2">
-<h2 class="hasAnchor">
-<a href="#minor-improvements" class="anchor"></a>MINOR IMPROVEMENTS</h2>
-<ul>
-<li>Added documentation <code>seealso</code> cross-reference links</li>
-</ul>
-</div>
-<div id="bug-fixes-1" class="section level2">
-<h2 class="hasAnchor">
-<a href="#bug-fixes-1" class="anchor"></a>BUG FIXES</h2>
-<ul>
-<li><p>Fixed truncation of lake legacyids due to scientific notation (<a href='https://github.com/cont-limno/LAGOSUS/issues/96'>#96</a>)</p></li>
-<li><p>Fixed excessive memory usage from caching in <code>lake_info</code> (<a href='https://github.com/cont-limno/LAGOSUS/issues/103'>#103</a>)</p></li>
-</ul>
-</div>
-</div>
-    <div id="lagosne-120" class="section level1">
-<h1 class="page-header" data-toc-text="1.2.0">
-<a href="#lagosne-120" class="anchor"></a>LAGOSNE 1.2.0</h1>
-<div id="major-improvements-1" class="section level2">
-<h2 class="hasAnchor">
-<a href="#major-improvements-1" class="anchor"></a>MAJOR IMPROVEMENTS</h2>
-<ul>
-<li><p>Major speed up on repeated calls to <code>lagosne_load</code> because results are now cached (memoized)</p></li>
-<li><p>Increased functionality and stability of the <code>lake_info</code> function (<a href='https://github.com/cont-limno/LAGOSUS/issues/92'>#92</a>)</p></li>
-<li><p>Added ability to pass multiple categories to <code>lagosne_select</code> (<a href='https://github.com/cont-limno/LAGOSUS/issues/44'>#44</a>)</p></li>
-</ul>
-</div>
-<div id="minor-improvements-1" class="section level2">
-<h2 class="hasAnchor">
-<a href="#minor-improvements-1" class="anchor"></a>MINOR IMPROVEMENTS</h2>
-<ul>
-<li><p>Include a polygon data object (<code>lg_extent</code>) representing the <code>LAGOSNE</code> footprint</p></li>
-<li><p>Parse dates as formatted strings rather than factors (<a href='https://github.com/cont-limno/LAGOSUS/issues/43'>#43</a>)</p></li>
-</ul>
-</div>
-<div id="bug-fixes-2" class="section level2">
-<h2 class="hasAnchor">
-<a href="#bug-fixes-2" class="anchor"></a>BUG FIXES</h2>
-<ul>
-<li><p>Pad HUC ID codes to be fixed length (<a href='https://github.com/cont-limno/LAGOSUS/issues/76'>#76</a>)</p></li>
-<li><p>All factor fields are now of type character (<a href='https://github.com/cont-limno/LAGOSUS/issues/82'>#82</a>)</p></li>
-<li><p><code>lake_info</code> now returns multiple matches to lake names (<a href='https://github.com/cont-limno/LAGOSUS/issues/92'>#92</a>)</p></li>
-</ul>
-</div>
-</div>
-    <div id="lagosne-110" class="section level1">
-<h1 class="page-header" data-toc-text="1.1.0">
-<a href="#lagosne-110" class="anchor"></a>LAGOSNE 1.1.0</h1>
-<div id="minor-improvements-2" class="section level2">
-<h2 class="hasAnchor">
-<a href="#minor-improvements-2" class="anchor"></a>MINOR IMPROVEMENTS</h2>
-<ul>
-<li>Streamline console output and avoid errors during non-interactive use (<a href='https://github.com/cont-limno/LAGOSUS/issues/59'>#59</a>)</li>
-</ul>
-</div>
-<div id="bug-fixes-3" class="section level2">
-<h2 class="hasAnchor">
-<a href="#bug-fixes-3" class="anchor"></a>BUG FIXES</h2>
-<ul>
-<li>Switch data source URLs to enable downloads with more restrictive firewalls (<a href='https://github.com/cont-limno/LAGOSUS/issues/60'>#60</a>)</li>
-</ul>
-</div>
-</div>
-    <div id="lagosne-100" class="section level1">
-<h1 class="page-header" data-toc-text="1.0.0">
-<a href="#lagosne-100" class="anchor"></a>LAGOSNE 1.0.0</h1>
-<ul>
-<li>Package name and functions changed to LAGOSNE</li>
-<li>Initial CRAN submission</li>
-</ul>
-</div>
-  </div>
+    <div class="ref-description">
+    <p>Return the cross-platform data path designated for LAGOSUS.</p>
+    </div>
 
+    <pre class="usage"><span class='fu'>lagosus_path</span>()</pre>
+
+
+
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
     </nav>
   </div>
-
 </div>
 
 

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • LAGOSNE</title>
+<title>Function reference • LAGOSUS</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -17,23 +17,27 @@
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -44,7 +48,6 @@
 
 <meta property="og:title" content="Function reference" />
 <meta property="og:image" content="/logo.png" />
-<meta name="twitter:card" content="summary" />
 
 
 
@@ -62,7 +65,7 @@
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-index">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -75,8 +78,8 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">LAGOSNE</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.0.1</span>
+        <a class="navbar-link" href="../index.html">LAGOSUS</a>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1</span>
       </span>
     </div>
 
@@ -112,7 +115,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/cont-limno/LAGOSNE">
+  <a href="https://github.com/cont-limno/LAGOSUS/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -148,36 +151,23 @@
           <p class="section-desc"></p>
         </th>
       </tr>
+      
+      
+    </tbody><tbody>
+      
+      
       <tr>
         
         <td>
-          <p><code><a href="LAGOSNE-package.html">LAGOSNE-package</a></code> </p>
+          <p><code><a href="LAGOSUS-package.html">LAGOSUS-package</a></code> </p>
         </td>
-        <td><p>R interface to the LAGOSNE lakes database</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="chag.html">chag</a></code> </p>
-        </td>
-        <td><p>Climate, Hydrology, Atmospheric, and Geologic (CHAG) Datasets</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="classifications.html">classifications</a></code> </p>
-        </td>
-        <td><p>LAGOSNE Spatial Classifications Metadata</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="conn.html">conn</a></code> </p>
-        </td>
-        <td><p>Connectivity Datasets</p></td>
+        <td><p>R interface to the LAGOSUS lakes database</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="coordinatize.html">coordinatize()</a></code> </p>
         </td>
-        <td><p>Convert a LAGOSNE flat file into a spatial object</p></td>
+        <td><p>Convert a LAGOSUS flat file into a spatial object</p></td>
       </tr><tr>
         
         <td>
@@ -187,93 +177,45 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="epi_nutr.html">epi_nutr</a></code> </p>
-        </td>
-        <td><p>Epilimnion Water Quality Data</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="info_table.html">info_table()</a></code> </p>
-        </td>
-        <td><p>Summarize all LAGOSNE flat files</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="lagos_get_collins_2017.html">lagos_get_collins_2017()</a></code> </p>
-        </td>
-        <td><p>Get LAGOSNE snapshot from Collins et al. 2017</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="lagos_get_oliver_2015.html">lagos_get_oliver_2015()</a></code> </p>
-        </td>
-        <td><p>Get depth data from Oliver et al. 2015</p></td>
-      </tr><tr>
-        
-        <td>
           <p><code><a href="lagos_ingest.html">lagos_ingest()</a></code> </p>
         </td>
-        <td><p>Ingest LAGOSNE flat files</p></td>
+        <td><p>Ingest LAGOSUS flat files</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="lagos_load_collins_2017.html">lagos_load_collins_2017()</a></code> </p>
+          <p><code><a href="lagosus_compile.html">lagosus_compile()</a></code> </p>
         </td>
-        <td><p>Load LAGOSNE snapshot from Collins et al. 2017.</p></td>
+        <td><p>Compile LAGOSUS data</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="lagos_load_oliver_2015.html">lagos_load_oliver_2015()</a></code> </p>
-        </td>
-        <td><p>Load depth data from Oliver et al. 2015.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="lagos_path.html">lagos_path()</a></code> </p>
-        </td>
-        <td><p>lagos_path</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="lagos_source_program.html">lagos_source_program</a></code> </p>
-        </td>
-        <td><p>LAGOSNE sources</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="lagoslakes.html">lagoslakes</a></code> </p>
-        </td>
-        <td><p>Lake Geospatial Metadata</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="lagosne_compile.html">lagosne_compile()</a></code> </p>
-        </td>
-        <td><p>Compile LAGOSNE data</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="lagosne_get.html">lagosne_get()</a></code> </p>
+          <p><code><a href="lagosus_get.html">lagosus_get()</a></code> </p>
         </td>
         <td><p>Retrieve LAGOSNE flat files</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="lagosne_load.html">lagosne_load()</a></code> </p>
+          <p><code><a href="lagosus_load.html">lagosus_load()</a></code> </p>
         </td>
-        <td><p>Load LAGOSNE data</p></td>
+        <td><p>Load LAGOSUS data</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="lagosne_select.html">lagosne_select()</a></code> </p>
+          <p><code><a href="lagosus_path.html">lagosus_path()</a></code> </p>
+        </td>
+        <td><p>Return the cross-platform data path designated for LAGOSUS.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="lagosus_select.html">lagosus_select()</a></code> </p>
         </td>
         <td><p>Select and filter LAGOSNE data</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="lagosne_version.html">lagosne_version()</a></code> </p>
+          <p><code><a href="lagosus_version.html">lagosus_version()</a></code> </p>
         </td>
-        <td><p>Latest LAGOSNE version</p></td>
+        <td><p>Latest LAGOSUS module versions</p></td>
       </tr><tr>
         
         <td>
@@ -283,27 +225,27 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="lakes_limno.html">lakes_limno</a></code> </p>
-        </td>
-        <td><p>Metadata for Lakes with Water Quality</p></td>
-      </tr><tr>
-        
-        <td>
           <p><code><a href="load_lagos_txt.html">load_lagos_txt()</a></code> </p>
         </td>
         <td><p>Load LAGOSNE data from disk</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="locus.html">locus</a></code> </p>
+          <p><code><a href="locus_characteristics.html">locus_characteristics</a></code> </p>
         </td>
-        <td><p>Metadata for all lakes &gt; 1ha</p></td>
+        <td><p>LAGOSUS Lake characteristics</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="lulc.html">lulc</a></code> </p>
+          <p><code><a href="locus_information.html">locus_information</a></code> </p>
         </td>
-        <td><p>Land Use Land Cover (LULC) Data Frames</p></td>
+        <td><p>LAGOSUS Lake information</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="locus_ws.html">locus_ws</a></code> </p>
+        </td>
+        <td><p>LAGOSUS Lake watersheds</p></td>
       </tr><tr>
         
         <td>
@@ -321,28 +263,27 @@
         <td>
           <p><code><a href="query_lagos_names.html">query_lagos_names()</a></code> </p>
         </td>
-        <td><p>Query LAGOSNE names</p></td>
+        <td><p>Query LAGOSUS names</p></td>
       </tr>
     </tbody>
     </table>
   </div>
 
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-all-functions">All functions</a></li>
-    </ul>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
 
       <footer>
       <div class="copyright">
-  <p>Developed by Joseph Stachelek, Samantha Oliver, Farzan Masrour.</p>
+  <p>Developed by Joseph Stachelek.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>

@@ -1,7 +1,8 @@
-pandoc: '2.2'
-pkgdown: 1.4.0
+pandoc: 2.7.3
+pkgdown: 1.5.1
 pkgdown_sha: ~
 articles:
   lagosne_structure: lagosne_structure.html
   working_with_lagosne: working_with_lagosne.html
+last_built: 2020-05-22T14:28Z
 
