@@ -1,34 +1,32 @@
+library(LAGOSUS)
 library(readxl)
-library(tidyxl)
 library(dplyr)
-library(unpivotr)
+library(googledrive)
 
-# read wholesale ----
+# lg <- lagosus_load(modules = c("locus", "depth"))
+# names(lg$locus)
 
-fpath <- "taxonomy/locus_taxonomy_njs_20191121.xlsx"
-dt    <- readxl::read_excel(fpath, skip = 24, col_names = FALSE) %>%
-  dplyr::select(2:3) %>%
-  setNames(c("variable", "description"))
+fpath <- "data-raw/locus_metadata_NOTMASTER.xlsx"
+if (!file.exists(fpath)) {
+  drive_download("locus_metadata_NOTMASTER.xlsx",
+                 path = fpath, overwrite = TRUE)
+}
+dt_raw <- readxl::read_excel(fpath)
+# unique(dt_raw$table_name)
 
-# chunk excel file by filled headers ----
-x_raw       <- xlsx_cells(fpath)
-formats     <- xlsx_formats(fpath)
-header_rows <- x_raw[
-  x_raw$local_format_id %in% which(!is.na(
-    formats$local$fill$patternFill$patternType)), c("address", "character")] %>%
-  dplyr::filter(!is.na(character)) %>%
-  mutate(address = gsub("A", "", address)) %>%
-  pull(address)
-header_rows <- header_rows[(length(header_rows) - 4):length(header_rows)]
-x         <- dplyr::filter(x_raw, row >= as.numeric(header_rows[1])) %>%
-  dplyr::filter(!(col == 1 & !(row %in% header_rows))) %>%
-  rectify() %>% dplyr::select(2:4) %>%
-  janitor::remove_empty("rows") %>%
-  dplyr::filter(`2(B)` != "New" | is.na(`2(B)`)) %>%
-  setNames(c("table_name", "variable", "description")) %>%
-  tidyr::fill(table_name) %>% dplyr::filter(!is.na(variable)) %>%
-  dplyr::mutate(table_name = trimws(stringr::str_extract(table_name, "Lake\\s\\w*\\s")))
+table_name_ <- "lake_characteristics"
+dt <- dt_raw %>%
+  dplyr::filter(table_name == table_name_) %>%
+  dplyr::select(variable_name, variable_description, units)
+dt <- setNames(dt,
+               snakecase::to_any_case(names(dt), "sentence"))
+dt <- mutate(dt, across(everything(), ~ case_when(. == "NA"~ "", TRUE ~ .)))
+# nrow(dt)
+# ncol(lg$locus$locus_characteristics)
+# names(lg$locus$locus_characteristics)
+# dt$variable_name
 
+# see jsta::tabular
 tabular <- function(df, ...) {
   stopifnot(is.data.frame(df))
 
@@ -38,10 +36,20 @@ tabular <- function(df, ...) {
   cols <- lapply(df, format, ...)
   contents <- do.call("paste",
                       c(cols, list(sep = " \\tab ", collapse = "\\cr\n  ")))
+  col_names <- paste0("\\bold{",
+                      do.call("paste",
+                              c(names(df), list(sep = "} \\tab \\bold{", collapse = "\\cr\n  "))),
+                      "} \\cr")
 
-  paste("\\tabular{", paste(col_align, collapse = ""), "}{\n  ",
+  paste("\\tabular{", paste(col_align, collapse = ""), "}{\n",
+        col_names,
+        "\n",
         contents, "\n}\n", sep = "")
 }
+
+# paste into LAGOSUS-package.R
+res <- paste0("#' ", readLines(textConnection(tabular(dt))))
+clipr::write_clip(res)
 
 res <- data.frame(dplyr::filter(x, table_name == "Lake information"))[,2:3]
 res <- paste0("#' ", readLines(textConnection(tabular(res))))
