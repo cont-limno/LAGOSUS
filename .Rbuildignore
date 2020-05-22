@@ -30,3 +30,4 @@ export_script
 taxonomy
 pkgdown
 ^.*\.xlsx$
+^\.github$
