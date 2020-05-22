@@ -149,31 +149,31 @@
 
     
 <table class='table'>
-<tr><td><b>variable_name</b></td><td><b>variable_description</b></td><td><b>units</b>
-lagoslakeid</td></tr>
-<tr><td>unique lake identifier developed by LAGOS-US</td><td>NA</td><td>lake_waterarea_ha</td></tr>
-<tr><td>surface area of lake waterbody polygon from NHD (excludes islands)</td><td>hectare</td><td>lake_totalarea_ha</td></tr>
-<tr><td>surface area within outer boundary of lake waterbody polygon from NHD (includes islands)</td><td>hectare</td><td>lake_islandarea_ha</td></tr>
-<tr><td>surface area of islands within outer boundary of lake waterbody polygon from NHD</td><td>hectare</td><td>lake_perimeter_m</td></tr>
-<tr><td>perimeter of outer boundary of lake waterbody polygon from the NHD (excludes islands)</td><td>meter</td><td>lake_islandperimeter_m</td></tr>
-<tr><td>perimeter of islands within the lake waterbody polygon from the NHD</td><td>meter</td><td>lake_shorelinedevfactor</td></tr>
-<tr><td>shoreline development factor = lake_perimeter / (2*√(π*waterarea))</td><td>NA</td><td>lake_mbgconhull_length_m</td></tr>
-<tr><td>the longest distance entirely within the lake polygon between any two vertices of the minimum bounding geometry convex hull that encloses the lake polygon</td><td>meter</td><td>lake_mbgconhull_width_m</td></tr>
-<tr><td>the shortest distance entirely within the lake polygon between any two vertices of the minimum bounding geometry convex hull that encloses the lake polygon</td><td>meter</td><td>lake_mbgconhull_orientation_deg</td></tr>
-<tr><td>orientation (from 0 to 180 decimal degrees clockwise from north) of the longest line connecting two vertices entirely within both the convex hull and the lake polygon</td><td>degree</td><td>lake_mbgrect_length_m</td></tr>
-<tr><td>length of the minimum bounding geometry rectangle by area enclosing the lake polygon</td><td>meter</td><td>lake_mbgrect_width_m</td></tr>
-<tr><td>width of the minimum bounding geometry rectangle by area enclosing the lake polygon</td><td>meter</td><td>lake_mbgrect_arearatio</td></tr>
-<tr><td>ratio between lake_waterarea_ha (* 10000 m^2/ha) and the area of the minimum bounding rectangle by area of the lake polygon; value near 1 indicates lake shape is rectangular</td><td>NA</td><td>lake_meanwidth_m</td></tr>
-<tr><td>mean width of the lake calculated as lake water area (lake_area_ha* 10000 m^2/ha) divided by the convex hull length of the focal lake polygon (lake_mbgconhull_length_m)</td><td>meter</td><td>lake_connectivity_class</td></tr>
-<tr><td>hydrologic connectivity class of the focal lake determined from the NHD network considering both permanent and intermittent/ephemeral flow</td><td>NA</td><td>lake_connectivity_fluctuates</td></tr>
-<tr><td>indicates whether the lake's connectivity classification depends on non-permanent flow</td><td>NA</td><td>lake_connectivity_permanent</td></tr>
-<tr><td>hydrologic connectivity class of the focal lake determined from the NHD network considering only permanent flow</td><td>NA</td><td>lake_lakes1ha_upstream_ha</td></tr>
-<tr><td>total area of lakes &gt;= 1 ha upstream of the focal lake, connected via surface streams</td><td>hectare</td><td>lake_lakes4ha_upstream_ha</td></tr>
-<tr><td>total area of lakes &gt;= 4 ha upstream of the focal lake, connected via surface streams</td><td>hectare</td><td>lake_lakes10ha_upstream_ha</td></tr>
-<tr><td>total area of lakes &gt;= 10 ha upstream of the focal lake, connected via surface streams</td><td>hectare</td><td>lake_lakes1ha_upstream_n</td></tr>
-<tr><td>count of lakes &gt;= 1 ha upstream of the focal lake, connected via surface streams</td><td>count</td><td>lake_lakes4ha_upstream_n</td></tr>
-<tr><td>count of lakes &gt;= 4 ha upstream of the focal lake, connected via surface streams</td><td>count</td><td>lake_lakes10ha_upstream_n</td></tr>
-<tr><td>count of lakes &gt;= 10 ha upstream of the focal lake, connected via surface streams</td><td>count</td><td>lake_glaciatedlatewisc</td></tr>
+<tr><td><b>Variable name</b></td><td><b>Variable description</b></td><td><b>Units</b></td></tr>
+<tr><td>lagoslakeid</td><td>unique lake identifier developed by LAGOS-US</td><td>NA</td></tr>
+<tr><td>lake_waterarea_ha</td><td>surface area of lake waterbody polygon from NHD (excludes islands)</td><td>hectare</td></tr>
+<tr><td>lake_totalarea_ha</td><td>surface area within outer boundary of lake waterbody polygon from NHD (includes islands)</td><td>hectare</td></tr>
+<tr><td>lake_islandarea_ha</td><td>surface area of islands within outer boundary of lake waterbody polygon from NHD</td><td>hectare</td></tr>
+<tr><td>lake_perimeter_m</td><td>perimeter of outer boundary of lake waterbody polygon from the NHD (excludes islands)</td><td>meter</td></tr>
+<tr><td>lake_islandperimeter_m</td><td>perimeter of islands within the lake waterbody polygon from the NHD</td><td>meter</td></tr>
+<tr><td>lake_shorelinedevfactor</td><td>shoreline development factor = lake_perimeter / (2*√(π*waterarea))</td><td>NA</td></tr>
+<tr><td>lake_mbgconhull_length_m</td><td>the longest distance entirely within the lake polygon between any two vertices of the minimum bounding geometry convex hull that encloses the lake polygon</td><td>meter</td></tr>
+<tr><td>lake_mbgconhull_width_m</td><td>the shortest distance entirely within the lake polygon between any two vertices of the minimum bounding geometry convex hull that encloses the lake polygon</td><td>meter</td></tr>
+<tr><td>lake_mbgconhull_orientation_deg</td><td>orientation (from 0 to 180 decimal degrees clockwise from north) of the longest line connecting two vertices entirely within both the convex hull and the lake polygon</td><td>degree</td></tr>
+<tr><td>lake_mbgrect_length_m</td><td>length of the minimum bounding geometry rectangle by area enclosing the lake polygon</td><td>meter</td></tr>
+<tr><td>lake_mbgrect_width_m</td><td>width of the minimum bounding geometry rectangle by area enclosing the lake polygon</td><td>meter</td></tr>
+<tr><td>lake_mbgrect_arearatio</td><td>ratio between lake_waterarea_ha (* 10000 m^2/ha) and the area of the minimum bounding rectangle by area of the lake polygon; value near 1 indicates lake shape is rectangular</td><td>NA</td></tr>
+<tr><td>lake_meanwidth_m</td><td>mean width of the lake calculated as lake water area (lake_area_ha* 10000 m^2/ha) divided by the convex hull length of the focal lake polygon (lake_mbgconhull_length_m)</td><td>meter</td></tr>
+<tr><td>lake_connectivity_class</td><td>hydrologic connectivity class of the focal lake determined from the NHD network considering both permanent and intermittent/ephemeral flow</td><td>NA</td></tr>
+<tr><td>lake_connectivity_fluctuates</td><td>indicates whether the lake's connectivity classification depends on non-permanent flow</td><td>NA</td></tr>
+<tr><td>lake_connectivity_permanent</td><td>hydrologic connectivity class of the focal lake determined from the NHD network considering only permanent flow</td><td>NA</td></tr>
+<tr><td>lake_lakes1ha_upstream_ha</td><td>total area of lakes &gt;= 1 ha upstream of the focal lake, connected via surface streams</td><td>hectare</td></tr>
+<tr><td>lake_lakes4ha_upstream_ha</td><td>total area of lakes &gt;= 4 ha upstream of the focal lake, connected via surface streams</td><td>hectare</td></tr>
+<tr><td>lake_lakes10ha_upstream_ha</td><td>total area of lakes &gt;= 10 ha upstream of the focal lake, connected via surface streams</td><td>hectare</td></tr>
+<tr><td>lake_lakes1ha_upstream_n</td><td>count of lakes &gt;= 1 ha upstream of the focal lake, connected via surface streams</td><td>count</td></tr>
+<tr><td>lake_lakes4ha_upstream_n</td><td>count of lakes &gt;= 4 ha upstream of the focal lake, connected via surface streams</td><td>count</td></tr>
+<tr><td>lake_lakes10ha_upstream_n</td><td>count of lakes &gt;= 10 ha upstream of the focal lake, connected via surface streams</td><td>count</td></tr>
+<tr><td>lake_glaciatedlatewisc</td><td>glaciation status during the Late Wisconsin glaciation (status = Glaciated if any part of the lake polygon is inside the glacial extent)</td><td>NA</td></tr>
 </table>
 
 
