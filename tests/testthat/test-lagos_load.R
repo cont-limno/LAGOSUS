@@ -11,17 +11,17 @@ test_that("lagos_load fails well", {
     fixed = TRUE)
 })
 
-test_that("reachcodes have non-scientific notation", {
-
-  skip_on_cran()
-  skip_on_travis()
-  skip_on_appveyor()
-
-  lakes_limno <- lagosus_load("locus")$locus$locus_information
-  expect_gt(
-    nchar(lakes_limno[lakes_limno$lagoslakeid == 448,]$lake_reachcode),
-    13)# [1] "4.51733E+12"
-})
+# test_that("reachcodes have non-scientific notation", {
+#
+#   skip_on_cran()
+#   skip_on_travis()
+#   skip_on_appveyor()
+#
+#   lakes_limno <- lagosus_load("locus")$locus$locus_information
+#   expect_gt(
+#     nchar(lakes_limno[lakes_limno$lagoslakeid == 448,]$lake_reachcode),
+#     13)# [1] "4.51733E+12"
+# })
 
 # test_that("sampledate is parsed correctly", {
 #
