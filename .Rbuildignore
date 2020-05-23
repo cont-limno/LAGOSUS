@@ -31,3 +31,5 @@ taxonomy
 pkgdown
 ^.*\.xlsx$
 ^\.github$
+lagosne_structure.Rmd
+working_with_lagos.Rmd
