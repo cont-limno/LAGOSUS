@@ -16,8 +16,7 @@ test_that("lake_info works", {
 
 test_that("lake_info works with the full export", {
   skip_on_cran()
-  skip_on_travis()
-  skip_on_appveyor()
+  skip_on_ci()
 
   llids <- c("6992", "7026")
   expect_equal(nrow(
@@ -27,8 +26,7 @@ test_that("lake_info works with the full export", {
 
 test_that("lake_info works with corner cases", {
   skip_on_cran()
-  skip_on_travis()
-  skip_on_appveyor()
+  skip_on_ci()
 
   # multiple matches
   expect_equal(nrow(
