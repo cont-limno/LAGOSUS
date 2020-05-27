@@ -1,4 +1,4 @@
-#' Load LAGOSNE data from disk
+#' Load LAGOSUS data from disk
 #'
 #' A wrapper for \code{\link[utils]{read.table}} with a default set of parameters.
 #'
