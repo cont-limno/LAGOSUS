@@ -27,7 +27,7 @@ lagosus_load <- function(modules = NULL,
                                           geo_tables = NA,
                                           fpath = NA){
 
-  if(is.na(fpath)){fpath <- lagosus_path()}
+  if (is.na(fpath)) {fpath <- lagosus_path()}
 
   # error if no modules specified
   if(is.null(modules)){

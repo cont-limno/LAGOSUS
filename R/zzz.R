@@ -6,7 +6,7 @@
   gigascience_cite <-
   "https://lagoslakes.org"
 
-  if(interactive()){
+  if (interactive()) {
     packageStartupMessage(paste0("Welcome to the LAGOSUS R package. To cite LAGOSUS in publications see: \n ",
     gigascience_cite))
   }

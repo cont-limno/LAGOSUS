@@ -7,7 +7,7 @@
 #' @importFrom progress progress_bar
 #' @examples \dontrun{
 #'lg <- lagos_ingest(
-#'  locus_version = "0",
+#'  locus_version = "1.1",
 #'  locus_folder = "~/Downloads/LAGOS-US-LOCUS-EXPORT")
 #'}
 lagos_ingest <- function(locus_version = NA, locus_folder = NA,
@@ -22,46 +22,43 @@ lagos_ingest <- function(locus_version = NA, locus_folder = NA,
 
   if(!is.na(locus_folder)){
     # Importing LAGOS locus data ####
-    locus_information <- load_lagos_txt(
-      list.files(locus_folder, pattern = "information_\\d*.csv",
-                 include.dirs = TRUE, full.names = TRUE),
-      na.strings = c("NA", "NULL"), sep = ",")
-
-    locus_ws <- load_lagos_txt(
-      list.files(locus_folder, pattern = "watersheds_ws_\\d*.csv",
-                 include.dirs = TRUE, full.names = TRUE), sep = ",")
-
-    locus_nws <- load_lagos_txt(
-      list.files(locus_folder, pattern = "watersheds_nws_\\d*.csv",
+    locus_link <- load_lagos_txt(
+      list.files(locus_folder, pattern = "link.csv",
                  include.dirs = TRUE, full.names = TRUE), sep = ",")
 
     locus_characteristics <- load_lagos_txt(
-      list.files(locus_folder, pattern = "characteristics_\\d*.csv",
+      list.files(locus_folder, pattern = "characteristics.csv",
                  include.dirs = TRUE, full.names = TRUE), sep = ",")
 
-    if(length(list.files(locus_folder, pattern = "Link_v2_\\d*.csv") > 0)){
-      locus_link <- load_lagos_txt(
-        list.files(locus_folder, pattern = "Link_v2_\\d*.csv",
-                   include.dirs = TRUE, full.names = TRUE), sep = ",")
+    locus_watersheds <- load_lagos_txt(
+      list.files(locus_folder, pattern = "watersheds.csv",
+                 include.dirs = TRUE, full.names = TRUE), sep = ",")
 
-      locus <- list(locus_information = locus_information,
-                    locus_ws = locus_ws,
-                    locus_nws = locus_nws,
-                    locus_characteristics = locus_characteristics,
-                    locus_link = locus_link
-                    )
-    }else{
-      locus <- list(locus_information = locus_information,
-                    locus_ws = locus_ws,
-                    locus_nws = locus_nws,
-                    locus_characteristics = locus_characteristics
-      )
-    }
+    locus_information <- load_lagos_txt(
+      list.files(locus_folder, pattern = "information.csv",
+                 include.dirs = TRUE, full.names = TRUE), sep = ",")
+
+    locus_dictionary <- load_lagos_txt(
+      list.files(locus_folder, pattern = "data_dictionary.*.csv",
+                 include.dirs = TRUE, full.names = TRUE),
+      na.strings = c("", "NA"), sep = ",")
+
+    locus_source <- load_lagos_txt(
+      list.files(locus_folder, pattern = "source_table.*.csv",
+                 include.dirs = TRUE, full.names = TRUE), sep = ",")
+
+    locus <- list(locus_link = locus_link,
+                  locus_characteristics = locus_characteristics,
+                  locus_watersheds = locus_watersheds,
+                  locus_information = locus_information,
+                  locus_dictionary = locus_dictionary,
+                  locus_source = locus_source
+                  )
 
     return(locus)
   }
 
-  if(!is.na(depth_folder)){
+  if (!is.na(depth_folder)) {
     # Importing LAGOS depth data ####
     depth <- load_lagos_txt(
       list.files(depth_folder, pattern = "lagosus_depth.csv",

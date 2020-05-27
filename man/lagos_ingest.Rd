@@ -38,7 +38,7 @@ Ingest LAGOSUS data from component flat files
 \examples{
 \dontrun{
 lg <- lagos_ingest(
- locus_version = "0",
+ locus_version = "1.1",
  locus_folder = "~/Downloads/LAGOS-US-LOCUS-EXPORT")
 }
 }

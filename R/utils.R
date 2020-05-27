@@ -2,6 +2,7 @@
 #'
 #' A wrapper for \code{\link[utils]{read.table}} with a default set of parameters.
 #'
+#' @noRd
 #' @param file_name character
 #' @param sep character separator (tab or comma separated values)
 #' @param ... Options passed on to \code{\link[utils]{read.table}}
@@ -83,7 +84,7 @@ query_lagos_names <- function(grep_string, scale = NA, dt){
   }
 }
 
-#' Query columnnames
+#' Query column names
 #'
 #' Return a vector of column names, given a table name and grep query string.
 #'
@@ -295,3 +296,23 @@ key_state <- function(x){
                      by = c("state.name"))
 }
 
+# copied from jsta::tabular
+tabular <- function(df, ...) {
+  stopifnot(is.data.frame(df))
+
+  align <- function(x) if (is.numeric(x)) "r" else "l"
+  col_align <- vapply(df, align, character(1))
+
+  cols <- lapply(df, format, ...)
+  contents <- do.call("paste",
+                      c(cols, list(sep = " \\tab ", collapse = "\\cr\n  ")))
+  col_names <- paste0("\\bold{",
+                      do.call("paste",
+                              c(names(df), list(sep = "} \\tab \\bold{", collapse = "\\cr\n  "))),
+                      "} \\cr")
+
+  paste("\\tabular{", paste(col_align, collapse = ""), "}{\n",
+        col_names,
+        "\n",
+        contents, "\n}\n", sep = "")
+}

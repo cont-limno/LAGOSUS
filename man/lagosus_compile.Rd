@@ -54,7 +54,7 @@ Compile LAGOSUS data from component flat files. This function should rarely be c
 \examples{
 \dontrun{
 lagosus_compile(
- locus_version = "0",
+ locus_version = "1.1",
  locus_folder = "~/Downloads/LAGOS-US-LOCUS-EXPORT",
  depth_version = "0",
  depth_folder = "~/Downloads/LAGOS-US-DEPTH-EXPORT",
