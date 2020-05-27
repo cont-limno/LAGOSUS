@@ -14,7 +14,7 @@ NULL
 #' lagosus_version()
 lagosus_version <- function(){
   data.frame(modules = c("locus", "limno", "geo", "depth"),
-             versions = c("0","0","0","0"),
+             versions = c("1.1","0","0","0"),
              stringsAsFactors = FALSE)
   }
 
