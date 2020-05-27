@@ -38,23 +38,22 @@
 
 lake_info <- function(lagoslakeid = NA, name = NA, state = NA,
                                        lg = lagosus_load("locus"), max_distance = 0){
-
-  if(class(lg) != "list"){
+  if (class(lg) != "list") {
     stop("lg must be a list (created by the lagosus_load function).")
   }
 
-  if((all(is.na(name)) & !all(is.na(state))) |
-     (!all(is.na(name)) & all(is.na(state)))){
+  if ((all(is.na(name)) & !all(is.na(state))) |
+     (!all(is.na(name)) & all(is.na(state)))) {
     stop("Must provide either a name AND state OR lagoslakeid.")
   }
 
-  if(any(is.na(lagoslakeid)) &
-     any(!(tolower(state) %in% tolower(datasets::state.name)))){
+  if (any(is.na(lagoslakeid)) &
+     any(!(tolower(state) %in% tolower(datasets::state.name)))) {
     stop("The state variable must by an unabbreivated character string from datasets::state.name")
   }
 
   # create data.frame of lake and state names
-  if(!all(is.na(lagoslakeid))){
+  if (!all(is.na(lagoslakeid))) {
     name_state <- data.frame(lagoslakeid = as.integer(lagoslakeid),
                              stringsAsFactors = FALSE)
 
@@ -89,7 +88,7 @@ lake_info <- function(lagoslakeid = NA, name = NA, state = NA,
 
   locus_state_iws <- suppressMessages(dplyr::left_join(
     locus_state_conn,
-    dplyr::select(lg$locus$locus_ws,
+    dplyr::select(lg$locus$locus_watersheds,
                   .data$lagoslakeid, .data$ws_area_ha),
     by = c("lagoslakeid" = "lagoslakeid")
   ))
@@ -124,7 +123,7 @@ lake_info_ <- function(dt, name, state, llid, max_distance){
   dt_filter       <- dt[dt$lake_centroidstate %in%
                           as.character(state),]
 
-  if(is.na(llid)){
+  if (is.na(llid)) {
     filter_criteria <- lazyeval::interp(~ agrepl(name,
                                                  lake_namegnis,
                                                  ignore.case = TRUE,
@@ -135,7 +134,7 @@ lake_info_ <- function(dt, name, state, llid, max_distance){
     dt_filter <- dplyr::filter(dt, lagoslakeid == as.numeric(llid))
   }
 
-  if(nrow(dt_filter) == 0){
+  if (nrow(dt_filter) == 0) {
     filter_criteria <- lazyeval::interp(~ agrepl(name, lake_namegnis,
                                                  ignore.case = TRUE,
                                     max.distance = list(all = max_distance)))

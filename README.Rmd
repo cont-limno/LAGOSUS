@@ -111,7 +111,7 @@ mapview(coordinatize(lake_info(name = "Pine Lake", state = "Michigan")))
 # lookup which table(s) contain a column name 
 query_lagos_names("ws_meanwidth", dt = lg)
 # load help file for a table
-?locus_ws
+?locus_watersheds
 ```
 
 <!-- ```{r load printr, echo=FALSE,message=FALSE,results='hide', eval=FALSE} -->
