@@ -13,7 +13,7 @@ llids <- dplyr::select(dt$locus$locus_information,
   dplyr::filter(lagoslakeid %in% c(3201, 4510))
 
 dt_subset_locus <- purrr::map(dt$locus, function(x){
-  if("lagoslakeid" %in% names(x)){
+  if ("lagoslakeid" %in% names(x)) {
     dplyr::filter(x,
                   lagoslakeid %in% llids$lagoslakeid) %>%
       group_by(lagoslakeid) %>%
