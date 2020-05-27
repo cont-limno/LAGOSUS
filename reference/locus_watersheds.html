@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>LAGOSUS Lake characteristics — locus_characteristics • LAGOSUS</title>
+<title>LAGOSUS Lake watersheds — locus_watersheds • LAGOSUS</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,8 @@
 
 
 
-<meta property="og:title" content="LAGOSUS Lake characteristics — locus_characteristics" />
-<meta property="og:description" content="LAGOSUS Lake characteristics" />
+<meta property="og:title" content="LAGOSUS Lake watersheds — locus_watersheds" />
+<meta property="og:description" content="LAGOSUS Lake watersheds" />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -134,13 +134,13 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>LAGOSUS Lake characteristics</h1>
+    <h1>LAGOSUS Lake watersheds</h1>
     <small class="dont-index">Source: <a href='https://github.com/cont-limno/LAGOSUS/blob/master/R/LAGOSUS-package.R'><code>R/LAGOSUS-package.R</code></a></small>
-    <div class="hidden name"><code>locus_characteristics.Rd</code></div>
+    <div class="hidden name"><code>locus_watersheds.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>LAGOSUS Lake characteristics</p>
+    <p>LAGOSUS Lake watersheds</p>
     </div>
 
 
@@ -151,29 +151,43 @@
 <table class='table'>
 <tr><td><b>Variable name</b></td><td><b>Variable description</b></td><td><b>Units</b></td></tr>
 <tr><td>lagoslakeid</td><td>unique lake identifier developed by LAGOS-US</td><td></td></tr>
-<tr><td>lake_waterarea_ha</td><td>surface area of lake waterbody polygon from NHD (excludes islands)</td><td>hectare</td></tr>
-<tr><td>lake_totalarea_ha</td><td>surface area within outer boundary of lake waterbody polygon from NHD (includes islands)</td><td>hectare</td></tr>
-<tr><td>lake_islandarea_ha</td><td>surface area of islands within outer boundary of lake waterbody polygon from NHD</td><td>hectare</td></tr>
-<tr><td>lake_perimeter_m</td><td>perimeter of outer boundary of lake waterbody polygon from the NHD (excludes islands)</td><td>meter</td></tr>
-<tr><td>lake_islandperimeter_m</td><td>perimeter of islands within the lake waterbody polygon from the NHD</td><td>meter</td></tr>
-<tr><td>lake_shorelinedevfactor</td><td>shoreline development factor = lake_perimeter / (2*?(?*waterarea))</td><td></td></tr>
-<tr><td>lake_mbgconhull_length_m</td><td>the longest distance entirely within the lake polygon between any two vertices of the minimum bounding geometry convex hull that encloses the lake polygon</td><td>meter</td></tr>
-<tr><td>lake_mbgconhull_width_m</td><td>the shortest distance entirely within the lake polygon between any two vertices of the minimum bounding geometry convex hull that encloses the lake polygon</td><td>meter</td></tr>
-<tr><td>lake_mbgconhull_orientation_deg</td><td>orientation (from 0 to 180 decimal degrees clockwise from north) of the longest line connecting two vertices entirely within both the convex hull and the lake polygon</td><td>degree</td></tr>
-<tr><td>lake_mbgrect_length_m</td><td>length of the minimum bounding geometry rectangle by area enclosing the lake polygon</td><td>meter</td></tr>
-<tr><td>lake_mbgrect_width_m</td><td>width of the minimum bounding geometry rectangle by area enclosing the lake polygon</td><td>meter</td></tr>
-<tr><td>lake_mbgrect_arearatio</td><td>ratio between lake_waterarea_ha (* 10000 m^2/ha) and the area of the minimum bounding rectangle by area of the lake polygon; value near 1 indicates lake shape is rectangular</td><td></td></tr>
-<tr><td>lake_meanwidth_m</td><td>mean width of the lake calculated as lake water area (lake_area_ha* 10000 m^2/ha) divided by the convex hull length of the focal lake polygon (lake_mbgconhull_length_m)</td><td>meter</td></tr>
-<tr><td>lake_connectivity_class</td><td>hydrologic connectivity class of the focal lake determined from the NHD network considering both permanent and intermittent/ephemeral flow</td><td></td></tr>
-<tr><td>lake_connectivity_fluctuates</td><td>indicates whether the lake's connectivity classification depends on non-permanent flow</td><td></td></tr>
-<tr><td>lake_connectivity_permanent</td><td>hydrologic connectivity class of the focal lake determined from the NHD network considering only permanent flow</td><td></td></tr>
-<tr><td>lake_lakes1ha_upstream_ha</td><td>total area of lakes &gt;= 1 ha upstream of the focal lake, connected via surface streams</td><td>hectare</td></tr>
-<tr><td>lake_lakes4ha_upstream_ha</td><td>total area of lakes &gt;= 4 ha upstream of the focal lake, connected via surface streams</td><td>hectare</td></tr>
-<tr><td>lake_lakes10ha_upstream_ha</td><td>total area of lakes &gt;= 10 ha upstream of the focal lake, connected via surface streams</td><td>hectare</td></tr>
-<tr><td>lake_lakes1ha_upstream_n</td><td>count of lakes &gt;= 1 ha upstream of the focal lake, connected via surface streams</td><td>count</td></tr>
-<tr><td>lake_lakes4ha_upstream_n</td><td>count of lakes &gt;= 4 ha upstream of the focal lake, connected via surface streams</td><td>count</td></tr>
-<tr><td>lake_lakes10ha_upstream_n</td><td>count of lakes &gt;= 10 ha upstream of the focal lake, connected via surface streams</td><td>count</td></tr>
-<tr><td>lake_glaciatedlatewisc</td><td>glaciation status during the Late Wisconsin glaciation (status = Glaciated if any part of the lake polygon is inside the glacial extent)</td><td></td></tr>
+<tr><td>ws_zoneid</td><td>unique watershed identifier assigned by LAGOS-US, equivalent to the focal lake lagoslakeid</td><td></td></tr>
+<tr><td>nws_zoneid</td><td>unique network watershed identifier assigned by LAGOS-US, equivalent to the focal lake lagoslakeid</td><td></td></tr>
+<tr><td>ws_subtype</td><td>LAGOS watershed subtype class for the watershed (LC=local catchment, DWS=drainage-watershed, IDWS=inter-drainage-lake watershed)</td><td></td></tr>
+<tr><td>ws_equalsnws</td><td>flag indicating that the ws is equivalent to the nws (=Y where there are no upstream lakes &gt; 10 ha and where lake connectivity class does not equal drainagelk)</td><td></td></tr>
+<tr><td>ws_onlandborder</td><td>flag indicating zone is adjacent to or crosses the border with Canada or Mexico</td><td></td></tr>
+<tr><td>ws_oncoast</td><td>flag indicating the zone is adjacent to the coastline</td><td></td></tr>
+<tr><td>ws_inusa_pct</td><td>percent of the zone (i.e., polygon) that is within the US border</td><td>percent</td></tr>
+<tr><td>ws_includeshu4inlet</td><td>flag indicating the ws extends beyond the focal HU4 and is connected via an inlet to an adjoining HU4</td><td></td></tr>
+<tr><td>ws_ismultipart</td><td>flag indicating that the focal zone polygon is multipart</td><td></td></tr>
+<tr><td>ws_sliverflag</td><td>flag indicating extreme cases where the watershed is comprised of slivers due to flat or constrained terrain that may not accurately reflect surface drainage</td><td></td></tr>
+<tr><td>nws_onlandborder</td><td>flag indicating zone is adjacent to or crosses the border with Canada or Mexico</td><td></td></tr>
+<tr><td>nws_oncoast</td><td>flag indicating the zone is adjacent to the coastline</td><td></td></tr>
+<tr><td>nws_inusa_pct</td><td>percent of the zone (i.e., polygon) that is within the US border</td><td>percent</td></tr>
+<tr><td>nws_includeshu4inlet</td><td>flag indicating the nws extends beyond the focal HU4 and is connected via an inlet to an adjoining HU4</td><td></td></tr>
+<tr><td>nws_ismultipart</td><td>flag indicating that the focal zone polygon is multipart</td><td></td></tr>
+<tr><td>ws_states</td><td>abbreviation(s) of state(s) intersecting the zone polygon</td><td></td></tr>
+<tr><td>ws_focallakewaterarea_ha</td><td>surface area of focal lake for which the watershed (WS) is calculated</td><td>hectare</td></tr>
+<tr><td>ws_area_ha</td><td>area of zone polygon</td><td>hectare</td></tr>
+<tr><td>ws_perimeter_m</td><td>perimeter of zone polygon including perimeters of any internal 'holes'</td><td>meter</td></tr>
+<tr><td>ws_lake_arearatio</td><td>ratio between watershed area and lake water area</td><td></td></tr>
+<tr><td>ws_mbgconhull_length_m</td><td>the longest distance entirely within the ws polygon between any two vertices of the minimum bounding geometry convex hull that encloses the ws polygon</td><td>meter</td></tr>
+<tr><td>ws_mbgconhull_width_m</td><td>the shortest distance entirely within the ws polygon between any two vertices of the minimum bounding geometry convex hull that encloses the ws polygon</td><td>meter</td></tr>
+<tr><td>ws_mbgconhull_orientation_deg</td><td>orientation (from 0 to 180 decimal degrees clockwise from north) of the longest line connecting two vertices entirely within both the convex hull and the ws polygon</td><td>degree</td></tr>
+<tr><td>ws_meanwidth_m</td><td>mean width of the ws calculated as ws area (ws_area_ha* 10000 m^2/ha) divided by the convex hull length of the focal ws polygon (ws_mbgconhull_length_m)</td><td>meter</td></tr>
+<tr><td>ws_lat_decdeg</td><td>latitude of the centroid of the focal lake polygon in decimal degrees (NAD83)</td><td>decimaldegree</td></tr>
+<tr><td>ws_lon_decdeg</td><td>longitude of the centroid of the focal lake polygon in decimal degrees (NAD83)</td><td>decimaldegree</td></tr>
+<tr><td>nws_states</td><td>abbreviation(s) of state(s) intersecting the zone polygon</td><td></td></tr>
+<tr><td>nws_focallakewaterarea_ha</td><td>surface area of focal lake for which the network watershed (NWS) is calculated</td><td>hectare</td></tr>
+<tr><td>nws_area_ha</td><td>area of zone polygon</td><td>hectare</td></tr>
+<tr><td>nws_perimeter_m</td><td>perimeter of zone polygon including perimeters of any internal 'holes'</td><td>meter</td></tr>
+<tr><td>nws_lake_arearatio</td><td>ratio between network watershed area and lake water area</td><td></td></tr>
+<tr><td>nws_mbgconhull_length_m</td><td>the longest distance entirely within the nws polygon between any two vertices of the minimum bounding geometry convex hull that encloses the nws polygon</td><td>meter</td></tr>
+<tr><td>nws_mbgconhull_width_m</td><td>the shortest distance entirely within the nws polygon between any two vertices of the minimum bounding geometry convex hull that encloses the nws polygon</td><td>meter</td></tr>
+<tr><td>nws_mbgconhull_orientation_deg</td><td>orientation (from 0 to 180 decimal degrees clockwise from north) of the longest line connecting two vertices entirely within both the convex hull and the nws polygon</td><td>degree</td></tr>
+<tr><td>nws_meanwidth_m</td><td>mean width of the nws calculated as nws area (nws_area_ha* 10000 m^2/ha) divided by the convex hull length of the focal nws polygon (nws_mbgconhull_length_m)</td><td>meter</td></tr>
+<tr><td>nws_lat_decdeg</td><td>latitude of the centroid of the focal lake polygon in decimal degrees (NAD83)</td><td>decimal degree</td></tr>
+<tr><td>nws_lon_decdeg</td><td>longitude of the centroid of the focal lake polygon in decimal degrees (NAD83)</td><td>decimal degree</td></tr>
 </table>
 
 

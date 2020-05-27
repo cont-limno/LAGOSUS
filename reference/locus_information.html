@@ -149,37 +149,41 @@
 
     
 <table class='table'>
-<tr><td>lagoslakeid</td><td>LAGOS sourced unique identifier for the focal lake</td></tr>
-<tr><td>lake_nhdid</td><td>the unique 'Permanent_identifier' from the NHD for each LAGOS lake</td></tr>
-<tr><td>lake_nhdfcode</td><td>NHD five-digit integer code with feature code plus additional characteristics/values</td></tr>
-<tr><td>lake_nhdftype</td><td>NHD three-digit integer code providing a unique identifier of feature type for the waterbody</td></tr>
-<tr><td>lake_reachcode</td><td>NHD reachcode for stream reach intersecting the lake from NHD stream network</td></tr>
-<tr><td>lake_namegnis</td><td>lake name from the gnis database</td></tr>
-<tr><td>lake_namelagos</td><td>lake name from a combination of data sources (gnis, wqp, etc.)</td></tr>
-<tr><td>♦</td><td>flag indicating zone is adjacent to or crosses the border with Canada or Mexico</td></tr>
-<tr><td>lake_ismultipart</td><td>flag indicating that the focal lake polygon is multipart</td></tr>
-<tr><td>lake_missingws</td><td>flag indicating that the lake's watershed (ws or nws) was not delineated</td></tr>
-<tr><td>lake_shapeflag</td><td>flag indicating lake polygon shape is excessively angular (e.g., triangle, rectangle) or elongate (very thin relative to length)</td></tr>
-<tr><td>lake_lat_decdeg</td><td>latitude of centroid of the NHD lake polygon in decimal degrees (NAD83)</td></tr>
-<tr><td>lake_lon_decdeg</td><td>longitude of  centroid of the NHD lake polygon in decimal degrees (NAD83)</td></tr>
-<tr><td>lake_centroidstate</td><td>abbreviation of state containing the lake centroid</td></tr>
-<tr><td>lake_states</td><td>abbreviation(s) of state(s) intersecting the zone polygon</td></tr>
-<tr><td>lake_huc12</td><td>HUC12 of the WBD HU12 watershed containing the lake</td></tr>
-<tr><td>buff100_zoneid</td><td>unique 100m buffer zone identifier equivalent to the focal lake lagoslakeid assigned by LAGOS</td></tr>
-<tr><td>buff500_zoneid</td><td>unique 500m buffer zone identifier equivalent to the focal lake lagoslakeid assigned by LAGOS</td></tr>
-<tr><td>ws_zoneid</td><td>unique zone identifier equivalent to the focal lake lagoslakeid assigned by LAGOS</td></tr>
-<tr><td>nws_zoneid</td><td>unique zone identifier equivalent to the focal lake lagoslakeid assigned by LAGOS</td></tr>
-<tr><td>hu12_zoneid</td><td>unique HU12 zone identifier assigned by LAGOS for zone containing the focal lake</td></tr>
-<tr><td>hu8_zoneid</td><td>unique HU8 zone identifier assigned by LAGOS for zone containing the focal lake</td></tr>
-<tr><td>hu4_zoneid</td><td>unique HU4 zone identifier assigned by LAGOS for zone containing the focal lake</td></tr>
-<tr><td>county_zoneid</td><td>unique county zone identifier assigned by LAGOS for zone containing the focal lake</td></tr>
-<tr><td>state_zoneid</td><td>unique state zone identifier assigned by LAGOS for zone containing the focal lake</td></tr>
-<tr><td>epanutr_zoneid</td><td>unique EPA Nutrient Ecoregion zone identifier assigned by LAGOS for zone containing the focal lake</td></tr>
-<tr><td>omernik3_zoneid</td><td>unique Omernik Level III Ecoregion zone identifier assigned by LAGOS for zone containing the focal lake</td></tr>
-<tr><td>wwf_zoneid</td><td>unique WWF zone identifier assigned by LAGOS for zone containing the focal lake</td></tr>
-<tr><td>mlra_zoneid</td><td>unique Major Land Resource Area zone identifier assigned by LAGOS for zone containing the focal lake</td></tr>
-<tr><td>bailey_zoneid</td><td>unique Bailey Ecoregion zone identifier assigned by LAGOS for zone containing the focal lake</td></tr>
-<tr><td>neon_zoneid</td><td>unique NEON zone identifier assigned by LAGOS for zone containing the focal lake</td></tr>
+<tr><td><b>Variable name</b></td><td><b>Variable description</b></td><td><b>Units</b></td></tr>
+<tr><td>lagoslakeid</td><td>unique lake identifier developed by LAGOS-US</td><td></td></tr>
+<tr><td>lake_nhdid</td><td>the unique 'Permanent_identifier' from the NHD for each LAGOS lake</td><td></td></tr>
+<tr><td>lake_nhdfcode</td><td>NHD five-digit integer code with feature code plus additional characteristics/values</td><td></td></tr>
+<tr><td>lake_nhdftype</td><td>NHD three-digit integer code providing a unique identifier of feature type for the waterbody</td><td></td></tr>
+<tr><td>lake_reachcode</td><td>reach code assigned to the water feature by the NHD</td><td></td></tr>
+<tr><td>lake_namegnis</td><td>lake name from the gnis database</td><td></td></tr>
+<tr><td>lake_namelagos</td><td>lake name from a combination of data sources (gnis, wqp, etc.)</td><td></td></tr>
+<tr><td>lake_onlandborder</td><td>flag indicating lake polygon is adjacent to or crosses the border with Canada or Mexico</td><td></td></tr>
+<tr><td>lake_ismultipart</td><td>flag indicating that the focal lake polygon is multipart</td><td></td></tr>
+<tr><td>lake_missingws</td><td>flag indicating that the lake's watershed (both ws and nws) was not delineated</td><td></td></tr>
+<tr><td>lake_shapeflag</td><td>flag indicating lake polygon shape is excessively angular (e.g., triangle, rectangle) or elongate (very thin relative to length); may indicate the lake is not natural in origin (angular) or is more riverine (elongate)</td><td></td></tr>
+<tr><td>lake_lat_decdeg</td><td>latitude of centroid of the NHD lake polygon in decimal degrees (NAD83)</td><td>decimal degree</td></tr>
+<tr><td>lake_lon_decdeg</td><td>longitude of  centroid of the NHD lake polygon in decimal degrees (NAD83)</td><td>decimal degree</td></tr>
+<tr><td>lake_elevation_m</td><td>the elevation of the lake polygon centroid, in meters (referenced to the North American Vertical Datum of 1988 (NAVD88) and obtained from the National Elevation Dataset)</td><td>meter</td></tr>
+<tr><td>lake_centroidstate</td><td>abbreviation of state containing the lake centroid</td><td></td></tr>
+<tr><td>lake_states</td><td>abbreviation(s) of state(s) intersecting the focal lake polygon</td><td></td></tr>
+<tr><td>lake_county</td><td>NULLme of county containing the focal lake polygon centroid</td><td></td></tr>
+<tr><td>lake_countyfips</td><td>Federal Information Processing Standard (FIPS) code for the county containing the focal lake polygon centroid</td><td></td></tr>
+<tr><td>lake_huc12</td><td>the code for the HUC12 containing the lake centroid</td><td></td></tr>
+<tr><td>buff100_zoneid</td><td>unique 100 m buffer identifier assigned by LAGOS-US, equivalent to the focal lake lagoslakeid</td><td></td></tr>
+<tr><td>buff500_zoneid</td><td>unique 500 m buffer identifier assigned by LAGOS-US, equivalent to the focal lake lagoslakeid</td><td></td></tr>
+<tr><td>ws_zoneid</td><td>unique watershed identifier assigned by LAGOS-US, equivalent to the focal lake lagoslakeid</td><td></td></tr>
+<tr><td>nws_zoneid</td><td>unique network watershed identifier assigned by LAGOS-US, equivalent to the focal lake lagoslakeid</td><td></td></tr>
+<tr><td>hu12_zoneid</td><td>unique identifier assigned by LAGOS-US for zones in the spatial division HU12</td><td></td></tr>
+<tr><td>hu8_zoneid</td><td>unique identifier assigned by LAGOS-US for zones in the spatial division HU8</td><td></td></tr>
+<tr><td>hu4_zoneid</td><td>unique identifier assigned by LAGOS-US for zones in the spatial division HU4</td><td></td></tr>
+<tr><td>county_zoneid</td><td>unique identifier assigned by LAGOS-US for zones in the spatial division county</td><td></td></tr>
+<tr><td>state_zoneid</td><td>unique identifier assigned by LAGOS-US for zones in the spatial division state</td><td></td></tr>
+<tr><td>epanutr_zoneid</td><td>unique identifier assigned by LAGOS-US for zones in the spatial division EPA Nutrient Ecoregions</td><td></td></tr>
+<tr><td>omernik3_zoneid</td><td>unique identifier assigned by LAGOS-US for zones in the spatial division Omernik Level III Ecoregions</td><td></td></tr>
+<tr><td>wwf_zoneid</td><td>unique identifier assigned by LAGOS-US for zones in the spatial division World Wildlife Fund ecoregions</td><td></td></tr>
+<tr><td>mlra_zoneid</td><td>unique identifier assigned by LAGOS-US for zones in the spatial division Major Land Areas</td><td></td></tr>
+<tr><td>bailey_zoneid</td><td>unique identifier assigned by LAGOS-US for zones in the spatial division Baileyâ€™s Ecoregions</td><td></td></tr>
+<tr><td>neon_zoneid</td><td>unique identifier assigned by LAGOS-US for zones in the spatial division National Ecological Observation Network</td><td></td></tr>
 </table>
 
 
