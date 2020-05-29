@@ -20,7 +20,7 @@
 display_names <- function(nms_raw){
 
   # nms_raw <- names(lg$locus)
-  if(class(nms_raw) != "character"){
+  if (class(nms_raw) != "character") {
     stop("This function on works on character vectors.")
   }
 
@@ -34,7 +34,7 @@ display_names <- function(nms_raw){
 
   # detect name collisions - if collision + formatted prefixes bk to collisions
   nms_collisions <- as.character(sapply(seq_len(nrow(nms)), function(x){
-    if(length(which(nms$cleaned[x] == nms$cleaned)) > 1){
+    if (length(which(nms$cleaned[x] == nms$cleaned)) > 1) {
       paste0(nms$cleaned[x], " (", gsub("_", "", nms$prefix[x]), ")")
     }}))
 
