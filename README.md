@@ -22,8 +22,8 @@ and physical characteristics for all lakes; ecological context (i.e.,
 the land use, geologic, climatic, and hydrologic setting of lakes) for
 all lakes; and in situ measurements of lake water quality for a subset
 of the lakes from the past 3 decades for approximately Y-Z lakes
-depending on the variable (see Soranno et al. 2017
-[below](https://github.com/cont-limno/LAGOSUS#references)).
+depending on the variable (see
+[References](https://github.com/cont-limno/LAGOSUS#references)).
 
 ## Installation
 
