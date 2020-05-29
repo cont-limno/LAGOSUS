@@ -5,15 +5,53 @@
 #' @noRd
 #' @param file_name character
 #' @param sep character separator (tab or comma separated values)
+#' @param dictionary data.frame linking variable_name(s) to data_type(s)
 #' @param ... Options passed on to \code{\link[utils]{read.table}}
 #'
 #' @return data.frame
-load_lagos_txt <- function(file_name, sep = "\t", ...){
+load_lagos_txt <- function(file_name, sep = "\t", dictionary = NA, ...){
 
-  suppressWarnings(
-    read.table(file_name, header = TRUE, sep = sep, quote = "\"",
-             dec = ".", strip.white = TRUE, comment.char = "",
-             ..., stringsAsFactors = FALSE))
+  if (!inherits(dictionary, "data.frame")) {
+    res <- suppressWarnings(
+      read.table(file_name, header = TRUE, sep = sep, quote = "\"",
+                 dec = ".", strip.white = TRUE, comment.char = "",
+                 ..., stringsAsFactors = FALSE))
+  }else{
+    res <- suppressWarnings(
+      read.table(file_name, header = TRUE, sep = sep, quote = "\"",
+                 dec = ".", strip.white = TRUE, comment.char = "",
+                 colClasses = "character",
+                 ..., stringsAsFactors = FALSE))
+
+    # read column types from data dictionary pass to colClasses argument
+    # possible colClasses : (logical, integer, numeric, complex, character, raw)
+    dictionary     <- dplyr::filter(dictionary, table_name ==
+                    stringr::str_extract(basename(file_name), "^.*(?=.csv)"))
+
+    colClasses_key <- data.frame(
+      data_type = c("char", "factor", "int", "numeric"),
+      r_type = c("character", "factor", "integer", "numeric"),
+      readr_type = c("c", "f", "i", "d"),
+      stringsAsFactors = FALSE)
+    colClasses     <- data.frame(variable_name = names(res),
+                             stringsAsFactors = FALSE) %>%
+      dplyr::left_join(dplyr::select(dictionary, variable_name, data_type),
+                       by = "variable_name") %>%
+      dplyr::left_join(colClasses_key,
+                       by = "data_type") %>%
+      dplyr::pull(r_type)
+    colClasses <- setNames(colClasses, names(res))
+
+    res <- res %>%
+      dplyr::mutate(
+        dplyr::across(names(colClasses[colClasses == "numeric"]), as.numeric)) %>%
+      dplyr::mutate(
+        dplyr::across(names(colClasses[colClasses == "integer"]), as.integer)) %>%
+      dplyr::mutate(
+        dplyr::across(names(colClasses[colClasses == "factor"]), as.factor))
+  }
+
+  res
 }
 
 #' @importFrom curl curl_download
@@ -197,7 +235,7 @@ format_nonscientific <- function(x){
 
 tidy_name_prefixes <- function(nms){
 
-  prefixes_key <- data.frame(prefix      = c("hu4_", "iws_", "state_",
+  prefixes_key <- data.frame(prefix      = c("ws_", "hu4_", "iws_", "state_",
                                              "nhd_", "hu8_", "hu12_",
                                              "edu_", "county_", "hu6_",
                                              "^lakes_",
