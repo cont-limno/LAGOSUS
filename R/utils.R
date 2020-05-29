@@ -8,6 +8,8 @@
 #' @param dictionary data.frame linking variable_name(s) to data_type(s)
 #' @param ... Options passed on to \code{\link[utils]{read.table}}
 #'
+#' @importFrom stats setNames
+#'
 #' @return data.frame
 load_lagos_txt <- function(file_name, sep = "\t", dictionary = NA, ...){
 
@@ -25,7 +27,7 @@ load_lagos_txt <- function(file_name, sep = "\t", dictionary = NA, ...){
 
     # read column types from data dictionary pass to colClasses argument
     # possible colClasses : (logical, integer, numeric, complex, character, raw)
-    dictionary     <- dplyr::filter(dictionary, table_name ==
+    dictionary     <- dplyr::filter(dictionary, .data$table_name ==
                     stringr::str_extract(basename(file_name), "^.*(?=.csv)"))
 
     colClasses_key <- data.frame(
@@ -35,11 +37,11 @@ load_lagos_txt <- function(file_name, sep = "\t", dictionary = NA, ...){
       stringsAsFactors = FALSE)
     colClasses     <- data.frame(variable_name = names(res),
                              stringsAsFactors = FALSE) %>%
-      dplyr::left_join(dplyr::select(dictionary, variable_name, data_type),
+      dplyr::left_join(dplyr::select(dictionary, .data$variable_name, .data$data_type),
                        by = "variable_name") %>%
       dplyr::left_join(colClasses_key,
                        by = "data_type") %>%
-      dplyr::pull(r_type)
+      dplyr::pull(.data$r_type)
     colClasses <- setNames(colClasses, names(res))
 
     res <- res %>%
