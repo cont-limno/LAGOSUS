@@ -42,7 +42,7 @@ function (not `lagosus_get`) and supply the path to their local `locus`,
 example below with the path to each respective folder on your system.
 Most people will have access to these folders through Dropbox. For
 example, the `locus_folder` would be assigned to something like:
-`C:/Users/FWL/Dropbox/LAGOS-US-LOCUS-EXPORT`
+`C:/Users/FWL/Dropbox/CL_LAGOSUS_exports/LAGOSUS_LOCUS`
 
 Files are “compiled” to an `R` data format in the location specified by
 the `dest_folder` argument. Recommended setting is `lagosus_path()`.
@@ -56,9 +56,9 @@ library(LAGOSUS)
 
 lagosus_compile(
   locus_version = "1.1",
-  locus_folder = "~/Downloads/LAGOS-US-LOCUS-EXPORT",
+  locus_folder = "~/Downloads/LAGOSUS_LOCUS",
   depth_version = "0",
-  depth_folder = "~/Downloads/LAGOS-US-DEPTH-EXPORT", 
+  depth_folder = "~/Downloads/LAGOSUS_DEPTH", 
   dest_folder = lagosus_path())
 ```
 
