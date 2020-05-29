@@ -30,7 +30,7 @@ lagosus_load <- function(modules = NULL,
   if (is.na(fpath)) {fpath <- lagosus_path()}
 
   # error if no modules specified
-  if(is.null(modules)){
+  if (is.null(modules)) {
     stop("Must specify one or more modules by name: locus, depth, geo, limno.")
   }
 
@@ -38,7 +38,7 @@ lagosus_load <- function(modules = NULL,
   modules_query <- modules_raw[modules_raw %in% modules]
 
   # sanity check of specified module names
-  if(any(!(modules %in% c("locus", "limno", "geo", "depth")))){
+  if (any(!(modules %in% c("locus", "limno", "geo", "depth")))) {
     # are they true module names?
     stop(paste0("Module '",  modules, "' not found. Please specify one or more modules by name: locus, depth, geo, limno. Alternatively, try running the `lagosus_get` command."))
   }
@@ -46,13 +46,13 @@ lagosus_load <- function(modules = NULL,
   # have versions been specified for all requested modules?
 
   # error if length > 0 but not equal to modules
-  if(length(versions) != 0 & length(versions) != length(modules)){
+  if (length(versions) != 0 & length(versions) != length(modules)) {
     stop("Specified versions must be of the same length as requested modules.
   Passing a value of NA for a position will default to the latest version.")
   }
 
   # assign defaults and message if length == 0
-  if(length(versions) == 0){
+  if (length(versions) == 0) {
     versions <- dplyr::pull(
       dplyr::filter(lagosus_version(), modules == modules_query),
       versions)
