@@ -12,6 +12,7 @@ tables <- data.frame(export = unique(dt_raw$table_name),
                      stringsAsFactors = FALSE)
 
 get_table_metadata <- function(dt_raw, table_name_){
+  # table_name_ <- tables$export[2]
   dt <- dt_raw %>%
     dplyr::filter(table_name == !!table_name_) %>%
     dplyr::select(variable_name, variable_description, units)
@@ -28,21 +29,21 @@ names(res) <- tables$inpackage
 
 # paste into LAGOSUS-package.R @details tags
 clipr::write_clip(
-  paste0("#' ", readLines(textConnection(tabular(res$locus_information))))
+  paste0("#' ", readLines(textConnection(LAGOSUS:::tabular(res$locus_information))))
 )
 
 clipr::write_clip(
-  paste0("#' ", readLines(textConnection(tabular(res$locus_characteristics))))
+  paste0("#' ", readLines(textConnection(LAGOSUS:::tabular(res$locus_characteristics))))
 )
 
 clipr::write_clip(
-  paste0("#' ", readLines(textConnection(tabular(res$locus_watersheds))))
+  paste0("#' ", readLines(textConnection(LAGOSUS:::tabular(res$locus_watersheds))))
 )
 
 clipr::write_clip(
-  paste0("#' ", readLines(textConnection(tabular(res$locus_link))))
+  paste0("#' ", readLines(textConnection(LAGOSUS:::tabular(res$locus_link))))
 )
 
 clipr::write_clip(
-  paste0("#' ", readLines(textConnection(tabular(res$locus_source))))
+  paste0("#' ", readLines(textConnection(LAGOSUS:::tabular(res$locus_source))))
 )
