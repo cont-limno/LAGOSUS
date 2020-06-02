@@ -11,6 +11,13 @@
 #' @importFrom stats setNames
 #'
 #' @return data.frame
+#' @examples \dontrun{
+#' locus_dictionary <- load_lagos_txt(
+#'   list.files("~/Downloads/LAGOS-US-LOCUS-EXPORT",
+#'              pattern = "data_dictionary.*.csv",
+#'              include.dirs = TRUE, full.names = TRUE),
+#'   na.strings = c(""), sep = ",")
+#' }
 load_lagos_txt <- function(file_name, sep = "\t", dictionary = NA, ...){
 
   if (!inherits(dictionary, "data.frame")) {
@@ -18,6 +25,7 @@ load_lagos_txt <- function(file_name, sep = "\t", dictionary = NA, ...){
       read.table(file_name, header = TRUE, sep = sep, quote = "\"",
                  dec = ".", strip.white = TRUE, comment.char = "",
                  ..., stringsAsFactors = FALSE))
+    # dplyr::filter(res, variable_name == "lake_shorelinedevfactor")
   }else{
     res <- suppressWarnings(
       read.table(file_name, header = TRUE, sep = sep, quote = "\"",
