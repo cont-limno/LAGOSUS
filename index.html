@@ -100,7 +100,7 @@
 <a href="#lagosus-" class="anchor"></a>LAGOSUS <img src="reference/figures/logo.png" align="right" height="140/">
 </h1></div>
 <p>The <code>LAGOSUS</code> package provides an R interface to download LAGOS-US data, store this data locally, and perform a variety of filtering and subsetting operations.</p>
-<p>LAGOS-US contains data for X lakes and reservoirs larger than 1 ha in continental US. The database includes 3 data modules for: lake location and physical characteristics for all lakes; ecological context (i.e., the land use, geologic, climatic, and hydrologic setting of lakes) for all lakes; and in situ measurements of lake water quality for a subset of the lakes from the past 3 decades for approximately Y-Z lakes depending on the variable (see Soranno et al. 2017 <a href="https://github.com/cont-limno/LAGOSUS#references">below</a>).</p>
+<p>LAGOS-US contains data for X lakes and reservoirs larger than 1 ha in continental US. The database includes 3 data modules for: lake location and physical characteristics for all lakes; ecological context (i.e., the land use, geologic, climatic, and hydrologic setting of lakes) for all lakes; and in situ measurements of lake water quality for a subset of the lakes from the past 3 decades for approximately Y-Z lakes depending on the variable (see <a href="https://github.com/cont-limno/LAGOSUS#references">References</a>).</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
@@ -110,19 +110,15 @@
 <div id="data" class="section level3">
 <h3 class="hasAnchor">
 <a href="#data" class="anchor"></a>Data</h3>
-<p>The <code>lagosus_get</code> function downloads the LAGOSUS files corresponding to the specified version from the <a href="https://portal.edirepository.org/nis/home.jsp">EDI data repository</a>. Files are stored in a temporary directory before being “compiled” to an <code>R</code> data format in the location specified by the <code>dest_folder</code> argument. Recommended setting is <code><a href="reference/lagosus_path.html">lagosus_path()</a></code>. Data only needs to be downloaded one time per version per machine. Each <code>LAGOSUS</code> <a href="https://cont-limno.github.io/LAGOSUS/articles/lagosus_structure.html">module</a> has a unique version number.</p>
-</div>
-<div id="data-1" class="section level3">
-<h3 class="hasAnchor">
-<a href="#data-1" class="anchor"></a>Data</h3>
-<p>Until the LAGOS-US datasets have been made available in a public repository, LAGOSUS users will need to use the <code>lagosus_compile</code> function (not <code>lagosus_get</code>) and supply the path to their local <code>locus</code>, <code>limno</code>, <code>geo</code>, and <code>depth</code> data folders. Replace the paths in the example below with the path to each respective folder on your system. Most people will have access to these folders through Dropbox. For example, the <code>locus_folder</code> would be assigned to something like: <code>C:/Users/FWL/Dropbox/LAGOS-US-LOCUS-EXPORT</code></p>
+<p>Until the LAGOS-US datasets have been made available in a public repository, LAGOSUS users will need to use the <code>lagosus_compile</code> function (not <code>lagosus_get</code>) and supply the path to their local <code>locus</code>, <code>limno</code>, <code>geo</code>, and <code>depth</code> data folders. Replace the paths in the example below with the path to each respective folder on your system. Most people will have access to these folders through Dropbox. For example, the <code>locus_folder</code> would be assigned to something like: <code>C:/Users/FWL/Dropbox/CL_LAGOSUS_exports/LAGOSUS_LOCUS</code></p>
+<p>Files are “compiled” to an <code>R</code> data format in the location specified by the <code>dest_folder</code> argument. Recommended setting is <code><a href="reference/lagosus_path.html">lagosus_path()</a></code>. Data only needs to be downloaded one time per version per machine. Each <code>LAGOSUS</code> <a href="https://cont-limno.github.io/LAGOSUS/articles/lagosus_structure.html">module</a> has a unique version number.</p>
 <div class="sourceCode" id="cb2"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">LAGOSUS</span>)
 
 <span class="fu"><a href="reference/lagosus_compile.html">lagosus_compile</a></span>(
   <span class="kw">locus_version</span> <span class="kw">=</span> <span class="st">"1.1"</span>,
-  <span class="kw">locus_folder</span> <span class="kw">=</span> <span class="st">"~/Downloads/LAGOS-US-LOCUS-EXPORT"</span>,
+  <span class="kw">locus_folder</span> <span class="kw">=</span> <span class="st">"~/Downloads/LAGOSUS_LOCUS"</span>,
   <span class="kw">depth_version</span> <span class="kw">=</span> <span class="st">"0"</span>,
-  <span class="kw">depth_folder</span> <span class="kw">=</span> <span class="st">"~/Downloads/LAGOS-US-DEPTH-EXPORT"</span>,
+  <span class="kw">depth_folder</span> <span class="kw">=</span> <span class="st">"~/Downloads/LAGOSUS_DEPTH"</span>,
   <span class="kw">dest_folder</span> <span class="kw">=</span> <span class="fu"><a href="reference/lagosus_path.html">lagosus_path</a></span>())</pre></div>
 </div>
 </div>
@@ -175,7 +171,7 @@
 <div class="sourceCode" id="cb8"><pre class="r"><span class="co"># lookup which table(s) contain a column name </span>
 <span class="fu"><a href="reference/query_lagos_names.html">query_lagos_names</a></span>(<span class="st">"ws_meanwidth"</span>, <span class="kw">dt</span> <span class="kw">=</span> <span class="no">lg</span>)
 <span class="co"># load help file for a table</span>
-?<span class="no">locus_ws</span></pre></div>
+?<span class="no">locus_watersheds</span></pre></div>
 <!-- ```{r load printr, echo=FALSE,message=FALSE,results='hide', eval=FALSE} -->
 <!-- loadNamespace("printr") -->
 <!-- ``` -->
