@@ -6,12 +6,10 @@
 \title{LAGOSUS Identifier links}
 \description{
 LAGOSUS Identifier links
-}
-\details{
+
 \tabular{lll}{
 \bold{Variable name} \tab \bold{Variable description} \tab \bold{Units} \cr
-nhdhr_gnisid                     \tab unique identifier assigned by GNIS                                                                                                                        \tab                 \cr
-  lagoslakeid                      \tab unique lake identifier developed by LAGOS-US                                                                                                              \tab                 \cr
+lagoslakeid                      \tab unique lake identifier developed by LAGOS-US                                                                                                              \tab                 \cr
   lake_nhdid                       \tab the unique 'Permanent_identifier' from the NHD for each LAGOS lake                                                                                        \tab                 \cr
   lake_reachcode                   \tab reach code assigned to the water feature by the NHD                                                                                                       \tab                 \cr
   lake_namegnis                    \tab lake name from the gnis database                                                                                                                          \tab                 \cr
@@ -23,6 +21,7 @@ nhdhr_gnisid                     \tab unique identifier assigned by GNIS        
   lake_centroidstate               \tab abbreviation of state containing the lake centroid                                                                                                        \tab                 \cr
   nhdhr_area_sqkm                  \tab NHD feature area in square kilometers                                                                                                                     \tab square kilometer\cr
   nhdhr_fdate                      \tab date of last feature modification in National Hydrography Dataset                                                                                         \tab                 \cr
+  nhdhr_gnisid                     \tab unique identifier assigned by GNIS                                                                                                                        \tab                 \cr
   lagosus_legacysiteid             \tab Unique site/lake identifier from the original LAGOS-US water quality source dataset. This is not standardized and each source dataset has its own system. \tab                 \cr
   lagosus_legacysitelabel          \tab the column/field name used by the source dataset to label the legacy lake identifier                                                                      \tab                 \cr
   lagosus_legacyprogram            \tab the program name assigned in LAGOS_US to identify the source dataset provider                                                                             \tab                 \cr
@@ -39,7 +38,7 @@ nhdhr_gnisid                     \tab unique identifier assigned by GNIS        
   nhdplusv2_lakes_n                \tab count of WQP sites within the LAGOS-US lake                                                                                                               \tab count           \cr
   lagosne_lakes_n                  \tab count of NHDPlusV2 polygons matching the LAGOS-US lagoslakeid                                                                                             \tab count           \cr
   wqp_sites_n                      \tab count of LAGOS-NE lagoslakeids matching the LAGOS-US lagoslakeid                                                                                          \tab count           \cr
-  lagosus_legacyids_n              \tab count of all LAGOS-US legacy (original) sampling site identifiers linked to the lagoslakeid in this table                                                 \tab count
+  lagosus_legacyids_n              \tab count of all LAGOS-US legacy (original) sampling site identifiers linked to the lagoslakeid in this table                                                 \tab count           
 }
 }
 \keyword{datasets}

@@ -6,8 +6,7 @@
 \title{LAGOSUS Lake characteristics}
 \description{
 LAGOSUS Lake characteristics
-}
-\details{
+
 \tabular{lll}{
 \bold{Variable name} \tab \bold{Variable description} \tab \bold{Units} \cr
 lagoslakeid                     \tab unique lake identifier developed by LAGOS-US                                                                                                                                    \tab        \cr
@@ -34,7 +33,7 @@ lagoslakeid                     \tab unique lake identifier developed by LAGOS-U
   lake_lakes1ha_upstream_n        \tab count of lakes >= 1 ha upstream of the focal lake, connected via surface streams                                                                                                \tab count  \cr
   lake_lakes4ha_upstream_n        \tab count of lakes >= 4 ha upstream of the focal lake, connected via surface streams                                                                                                \tab count  \cr
   lake_lakes10ha_upstream_n       \tab count of lakes >= 10 ha upstream of the focal lake, connected via surface streams                                                                                               \tab count  \cr
-  lake_glaciatedlatewisc          \tab glaciation status during the Late Wisconsin glaciation (status = Glaciated if any part of the lake polygon is inside the glacial extent)                                        \tab
+  lake_glaciatedlatewisc          \tab glaciation status during the Late Wisconsin glaciation (status = Glaciated if any part of the lake polygon is inside the glacial extent)                                        \tab        
 }
 }
 \keyword{datasets}

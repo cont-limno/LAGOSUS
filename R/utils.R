@@ -364,3 +364,27 @@ tabular <- function(df, ...) {
         "\n",
         contents, "\n}\n", sep = "")
 }
+
+rd_data_description <- function() {
+  c(
+    "@description", paste("adf", "11")
+  )
+}
+
+get_table_metadata <- function(table_name_){
+  lg          <- lagosus_load(modules = c("locus"))
+  dt_raw      <- lg$locus$locus_dictionary
+  # table_name_ <- unique(dt_raw$table_name)[2]
+
+  dt <- dt_raw %>%
+    dplyr::filter(table_name == !!table_name_) %>%
+    dplyr::select(variable_name, variable_description, units)
+  dt <- setNames(dt,
+                 snakecase::to_any_case(names(dt), "sentence"))
+  dt <- dplyr::mutate(dt, dplyr::across(everything(), ~
+                                          dplyr::case_when(. == "NA"~ "",
+                                                    is.na(.) ~ "",
+                                                    TRUE ~ .)))
+
+  paste0(readLines(textConnection(LAGOSUS:::tabular(dt))))
+}

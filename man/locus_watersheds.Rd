@@ -7,8 +7,7 @@
 \title{LAGOSUS Lake watersheds}
 \description{
 LAGOSUS Lake watersheds
-}
-\details{
+
 \tabular{lll}{
 \bold{Variable name} \tab \bold{Variable description} \tab \bold{Units} \cr
 lagoslakeid                    \tab unique lake identifier developed by LAGOS-US                                                                                                                          \tab               \cr

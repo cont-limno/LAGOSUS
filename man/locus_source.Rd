@@ -6,8 +6,7 @@
 \title{LAGOSUS Data sources}
 \description{
 LAGOSUS Data sources
-}
-\details{
+
 \tabular{lll}{
 \bold{Variable name} \tab \bold{Variable description} \tab \bold{Units} \cr
 source_code               \tab a short codename used for the source dataset in LAGOS-US variables or metadata                                                   \tab \cr
@@ -21,7 +20,7 @@ source_code               \tab a short codename used for the source dataset in L
   source_spatial_resolution \tab the spatial resolution of the source dataset, if applicable                                                                      \tab \cr
   source_time_period        \tab the time period captured by the source dataset, if applicable                                                                    \tab \cr
   source_access_date        \tab the date(s) the source dataset was acquired for use in creating LAGOS-US                                                         \tab \cr
-  source_data_type          \tab the data value type contained in the source dataset, if applicable                                                               \tab
+  source_data_type          \tab the data value type contained in the source dataset, if applicable                                                               \tab 
 }
 }
 \keyword{datasets}

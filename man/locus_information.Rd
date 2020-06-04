@@ -6,8 +6,7 @@
 \title{LAGOSUS Lake information}
 \description{
 LAGOSUS Lake information
-}
-\details{
+
 \tabular{lll}{
 \bold{Variable name} \tab \bold{Variable description} \tab \bold{Units} \cr
 lagoslakeid        \tab unique lake identifier developed by LAGOS-US                                                                                                                                                                              \tab               \cr
@@ -42,8 +41,8 @@ lagoslakeid        \tab unique lake identifier developed by LAGOS-US            
   omernik3_zoneid    \tab unique identifier assigned by LAGOS-US for zones in the spatial division Omernik Level III Ecoregions                                                                                                                     \tab               \cr
   wwf_zoneid         \tab unique identifier assigned by LAGOS-US for zones in the spatial division World Wildlife Fund ecoregions                                                                                                                   \tab               \cr
   mlra_zoneid        \tab unique identifier assigned by LAGOS-US for zones in the spatial division Major Land Areas                                                                                                                                 \tab               \cr
-  bailey_zoneid      \tab unique identifier assigned by LAGOS-US for zones in the spatial division Baileyâ€™s Ecoregions                                                                                                                            \tab               \cr
-  neon_zoneid        \tab unique identifier assigned by LAGOS-US for zones in the spatial division National Ecological Observation Network                                                                                                          \tab
+  bailey_zoneid      \tab unique identifier assigned by LAGOS-US for zones in the spatial division Bailey’s Ecoregions                                                                                                                              \tab               \cr
+  neon_zoneid        \tab unique identifier assigned by LAGOS-US for zones in the spatial division National Ecological Observation Network                                                                                                          \tab               
 }
 }
 \keyword{datasets}
