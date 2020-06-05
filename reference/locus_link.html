@@ -47,42 +47,10 @@
 
 
 <meta property="og:title" content="LAGOSUS Identifier links — locus_link" />
-<meta property="og:description" content="LAGOSUS Identifier links
-
-Variable nameVariable descriptionUnits
-lagoslakeidunique lake identifier developed by LAGOS-US
-lake_nhdidthe unique 'Permanent_identifier' from the NHD for each LAGOS lake
-lake_reachcodereach code assigned to the water feature by the NHD
-lake_namegnislake name from the gnis database
-lake_namelagoslake name from a combination of data sources (gnis, wqp, etc.)
-lake_countyNULLme of county containing the focal lake polygon centroid
-lake_countyfipsFederal Information Processing Standard (FIPS) code for the county containing the focal lake polygon centroid
-lake_lat_decdeglatitude of centroid of the NHD lake polygon in decimal degrees (NAD83)decimal degree
-lake_lon_decdeglongitude of  centroid of the NHD lake polygon in decimal degrees (NAD83)decimal degree
-lake_centroidstateabbreviation of state containing the lake centroid
-nhdhr_area_sqkmNHD feature area in square kilometerssquare kilometer
-nhdhr_fdatedate of last feature modification in National Hydrography Dataset
-nhdhr_gnisidunique identifier assigned by GNIS
-lagosus_legacysiteidUnique site/lake identifier from the original LAGOS-US water quality source dataset. This is not standardized and each source dataset has its own system.
-lagosus_legacysitelabelthe column/field name used by the source dataset to label the legacy lake identifier
-lagosus_legacyprogramthe program name assigned in LAGOS_US to identify the source dataset provider
-wqp_monitoringlocationidentifiera designator used to describe the unique name, number, or code assigned to identify the monitoring location
-wqp_monitoringlocationnamethe designator specified by the sampling organization for the site at which sampling or other activities are conducted
-wqp_providernamethe source system that provided data to the Water Quality Portal (NWIS, STORET, STEWARDS, etc)
-nhdplusv2_comidcommon identifier of the NHD Waterbody feature
-nhdplusv2_reachcodeNHDplus v2 reach code assigned to the water feature.
-nhdplusv2_area_sqkmNHD feature area in square kilometerssquare kilometer
-lagosne_lagoslakeidunique lake identifier developed for LAGOS-NE
-lagosne_legacysiteidUnique site/lake identifier from the original LAGOS-NE water quality source dataset. This is not standardized and each source dataset has its own system.
-nla2007_siteidlake site identifier from National Lakes Assessment 2007 survey
-nla2012_siteidlake site identifier from National Lakes Assessment 2012 survey
-nhdplusv2_lakes_ncount of WQP sites within the LAGOS-US lakecount
-lagosne_lakes_ncount of NHDPlusV2 polygons matching the LAGOS-US lagoslakeidcount
-wqp_sites_ncount of LAGOS-NE lagoslakeids matching the LAGOS-US lagoslakeidcount
-lagosus_legacyids_ncount of all LAGOS-US legacy (original) sampling site identifiers linked to the lagoslakeid in this tablecount
-
-
-" />
+<meta property="og:description" content="Includes single or multiple identifiers per lake from other commonly used
+ national-scale data products including: Water Quality Portal (WQP),
+ Geographic Names Information System (GNIS), NHD MR Plusv2, LAGOS-NE, and
+ the EPA National Lake Assessment surveys from 2007 and 2012." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -175,7 +143,17 @@ lagosus_legacyids_ncount of all LAGOS-US legacy (original) sampling site identif
     </div>
 
     <div class="ref-description">
-    <p>LAGOSUS Identifier links</p>
+    <p>Includes single or multiple identifiers per lake from other commonly used
+ national-scale data products including: Water Quality Portal (WQP),
+ Geographic Names Information System (GNIS), NHD MR Plusv2, LAGOS-NE, and
+ the EPA National Lake Assessment surveys from 2007 and 2012.</p>
+    </div>
+
+
+
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    
 <table class='table'>
 <tr><td><b>Variable name</b></td><td><b>Variable description</b></td><td><b>Units</b></td></tr>
 <tr><td>lagoslakeid</td><td>unique lake identifier developed by LAGOS-US</td><td></td></tr>
@@ -209,10 +187,6 @@ lagosus_legacyids_ncount of all LAGOS-US legacy (original) sampling site identif
 <tr><td>wqp_sites_n</td><td>count of LAGOS-NE lagoslakeids matching the LAGOS-US lagoslakeid</td><td>count</td></tr>
 <tr><td>lagosus_legacyids_n</td><td>count of all LAGOS-US legacy (original) sampling site identifiers linked to the lagoslakeid in this table</td><td>count</td></tr>
 </table>
-
-
-    </div>
-
 
 
 

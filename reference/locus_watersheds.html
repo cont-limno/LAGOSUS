@@ -47,50 +47,8 @@
 
 
 <meta property="og:title" content="LAGOSUS Lake watersheds — locus_watersheds" />
-<meta property="og:description" content="LAGOSUS Lake watersheds
-
-Variable nameVariable descriptionUnits
-lagoslakeidunique lake identifier developed by LAGOS-US
-ws_zoneidunique watershed identifier assigned by LAGOS-US, equivalent to the focal lake lagoslakeid
-nws_zoneidunique network watershed identifier assigned by LAGOS-US, equivalent to the focal lake lagoslakeid
-ws_subtypeLAGOS watershed subtype class for the watershed (LC=local catchment, DWS=drainage-watershed, IDWS=inter-drainage-lake watershed)
-ws_equalsnwsflag indicating that the ws is equivalent to the nws (=Y where there are no upstream lakes &amp;gt; 10 ha and where lake connectivity class does not equal drainagelk)
-ws_onlandborderflag indicating zone is adjacent to or crosses the border with Canada or Mexico
-ws_oncoastflag indicating the zone is adjacent to the coastline
-ws_inusa_pctpercent of the zone (i.e., polygon) that is within the US borderpercent
-ws_includeshu4inletflag indicating the ws extends beyond the focal HU4 and is connected via an inlet to an adjoining HU4
-ws_ismultipartflag indicating that the focal zone polygon is multipart
-ws_sliverflagflag indicating extreme cases where the watershed is comprised of slivers due to flat or constrained terrain that may not accurately reflect surface drainage
-nws_onlandborderflag indicating zone is adjacent to or crosses the border with Canada or Mexico
-nws_oncoastflag indicating the zone is adjacent to the coastline
-nws_inusa_pctpercent of the zone (i.e., polygon) that is within the US borderpercent
-nws_includeshu4inletflag indicating the nws extends beyond the focal HU4 and is connected via an inlet to an adjoining HU4
-nws_ismultipartflag indicating that the focal zone polygon is multipart
-ws_statesabbreviation(s) of state(s) intersecting the zone polygon
-ws_focallakewaterarea_hasurface area of focal lake for which the watershed (WS) is calculatedhectare
-ws_area_haarea of zone polygonhectare
-ws_perimeter_mperimeter of zone polygon including perimeters of any internal 'holes'meter
-ws_lake_arearatioratio between watershed area and lake water area
-ws_mbgconhull_length_mthe longest distance entirely within the ws polygon between any two vertices of the minimum bounding geometry convex hull that encloses the ws polygonmeter
-ws_mbgconhull_width_mthe shortest distance entirely within the ws polygon between any two vertices of the minimum bounding geometry convex hull that encloses the ws polygonmeter
-ws_mbgconhull_orientation_degorientation (from 0 to 180 decimal degrees clockwise from north) of the longest line connecting two vertices entirely within both the convex hull and the ws polygondegree
-ws_meanwidth_mmean width of the ws calculated as ws area (ws_area_ha* 10000 m^2/ha) divided by the convex hull length of the focal ws polygon (ws_mbgconhull_length_m)meter
-ws_lat_decdeglatitude of the centroid of the focal lake polygon in decimal degrees (NAD83)decimaldegree
-ws_lon_decdeglongitude of the centroid of the focal lake polygon in decimal degrees (NAD83)decimaldegree
-nws_statesabbreviation(s) of state(s) intersecting the zone polygon
-nws_focallakewaterarea_hasurface area of focal lake for which the network watershed (NWS) is calculatedhectare
-nws_area_haarea of zone polygonhectare
-nws_perimeter_mperimeter of zone polygon including perimeters of any internal 'holes'meter
-nws_lake_arearatioratio between network watershed area and lake water area
-nws_mbgconhull_length_mthe longest distance entirely within the nws polygon between any two vertices of the minimum bounding geometry convex hull that encloses the nws polygonmeter
-nws_mbgconhull_width_mthe shortest distance entirely within the nws polygon between any two vertices of the minimum bounding geometry convex hull that encloses the nws polygonmeter
-nws_mbgconhull_orientation_degorientation (from 0 to 180 decimal degrees clockwise from north) of the longest line connecting two vertices entirely within both the convex hull and the nws polygondegree
-nws_meanwidth_mmean width of the nws calculated as nws area (nws_area_ha* 10000 m^2/ha) divided by the convex hull length of the focal nws polygon (nws_mbgconhull_length_m)meter
-nws_lat_decdeglatitude of the centroid of the focal lake polygon in decimal degrees (NAD83)decimal degree
-nws_lon_decdeglongitude of the centroid of the focal lake polygon in decimal degrees (NAD83)decimal degree
-
-
-" />
+<meta property="og:description" content="Includes identifiers, location, and geometry for the calculated watersheds (WS) and network
+watersheds (NWS)." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -183,7 +141,15 @@ nws_lon_decdeglongitude of the centroid of the focal lake polygon in decimal deg
     </div>
 
     <div class="ref-description">
-    <p>LAGOSUS Lake watersheds</p>
+    <p>Includes identifiers, location, and geometry for the calculated watersheds (WS) and network
+watersheds (NWS).</p>
+    </div>
+
+
+
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    
 <table class='table'>
 <tr><td><b>Variable name</b></td><td><b>Variable description</b></td><td><b>Units</b></td></tr>
 <tr><td>lagoslakeid</td><td>unique lake identifier developed by LAGOS-US</td><td></td></tr>
@@ -225,10 +191,6 @@ nws_lon_decdeglongitude of the centroid of the focal lake polygon in decimal deg
 <tr><td>nws_lat_decdeg</td><td>latitude of the centroid of the focal lake polygon in decimal degrees (NAD83)</td><td>decimal degree</td></tr>
 <tr><td>nws_lon_decdeg</td><td>longitude of the centroid of the focal lake polygon in decimal degrees (NAD83)</td><td>decimal degree</td></tr>
 </table>
-
-
-    </div>
-
 
 
 

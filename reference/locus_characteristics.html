@@ -47,36 +47,10 @@
 
 
 <meta property="og:title" content="LAGOSUS Lake characteristics — locus_characteristics" />
-<meta property="og:description" content="LAGOSUS Lake characteristics
-
-Variable nameVariable descriptionUnits
-lagoslakeidunique lake identifier developed by LAGOS-US
-lake_waterarea_hasurface area of lake waterbody polygon from NHD (excludes islands)hectare
-lake_totalarea_hasurface area within outer boundary of lake waterbody polygon from NHD (includes islands)hectare
-lake_islandarea_hasurface area of islands within outer boundary of lake waterbody polygon from NHDhectare
-lake_perimeter_mperimeter of outer boundary of lake waterbody polygon from the NHD (excludes islands)meter
-lake_islandperimeter_mperimeter of islands within the lake waterbody polygon from the NHDmeter
-lake_shorelinedevfactorshoreline development factor = lake_perimeter / (2*?(?*waterarea))
-lake_mbgconhull_length_mthe longest distance entirely within the lake polygon between any two vertices of the minimum bounding geometry convex hull that encloses the lake polygonmeter
-lake_mbgconhull_width_mthe shortest distance entirely within the lake polygon between any two vertices of the minimum bounding geometry convex hull that encloses the lake polygonmeter
-lake_mbgconhull_orientation_degorientation (from 0 to 180 decimal degrees clockwise from north) of the longest line connecting two vertices entirely within both the convex hull and the lake polygondegree
-lake_mbgrect_length_mlength of the minimum bounding geometry rectangle by area enclosing the lake polygonmeter
-lake_mbgrect_width_mwidth of the minimum bounding geometry rectangle by area enclosing the lake polygonmeter
-lake_mbgrect_arearatioratio between lake_waterarea_ha (* 10000 m^2/ha) and the area of the minimum bounding rectangle by area of the lake polygon; value near 1 indicates lake shape is rectangular
-lake_meanwidth_mmean width of the lake calculated as lake water area (lake_area_ha* 10000 m^2/ha) divided by the convex hull length of the focal lake polygon (lake_mbgconhull_length_m)meter
-lake_connectivity_classhydrologic connectivity class of the focal lake determined from the NHD network considering both permanent and intermittent/ephemeral flow
-lake_connectivity_fluctuatesindicates whether the lake's connectivity classification depends on non-permanent flow
-lake_connectivity_permanenthydrologic connectivity class of the focal lake determined from the NHD network considering only permanent flow
-lake_lakes1ha_upstream_hatotal area of lakes &amp;gt;= 1 ha upstream of the focal lake, connected via surface streamshectare
-lake_lakes4ha_upstream_hatotal area of lakes &amp;gt;= 4 ha upstream of the focal lake, connected via surface streamshectare
-lake_lakes10ha_upstream_hatotal area of lakes &amp;gt;= 10 ha upstream of the focal lake, connected via surface streamshectare
-lake_lakes1ha_upstream_ncount of lakes &amp;gt;= 1 ha upstream of the focal lake, connected via surface streamscount
-lake_lakes4ha_upstream_ncount of lakes &amp;gt;= 4 ha upstream of the focal lake, connected via surface streamscount
-lake_lakes10ha_upstream_ncount of lakes &amp;gt;= 10 ha upstream of the focal lake, connected via surface streamscount
-lake_glaciatedlatewiscglaciation status during the Late Wisconsin glaciation (status = Glaciated if any part of the lake polygon is inside the glacial extent)
-
-
-" />
+<meta property="og:description" content="Includes derived metrics for each lake such as lake geometry (e.g., area,
+ perimeter, shape metrics), lake connectivity (e.g., lake connectivity
+ class, number of upstream lakes), and whether the lake is located within an
+ area that was glaciated during the Late Wisconsin glaciation." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -169,7 +143,17 @@ lake_glaciatedlatewiscglaciation status during the Late Wisconsin glaciation (st
     </div>
 
     <div class="ref-description">
-    <p>LAGOSUS Lake characteristics</p>
+    <p>Includes derived metrics for each lake such as lake geometry (e.g., area,
+ perimeter, shape metrics), lake connectivity (e.g., lake connectivity
+ class, number of upstream lakes), and whether the lake is located within an
+ area that was glaciated during the Late Wisconsin glaciation.</p>
+    </div>
+
+
+
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    
 <table class='table'>
 <tr><td><b>Variable name</b></td><td><b>Variable description</b></td><td><b>Units</b></td></tr>
 <tr><td>lagoslakeid</td><td>unique lake identifier developed by LAGOS-US</td><td></td></tr>
@@ -197,10 +181,6 @@ lake_glaciatedlatewiscglaciation status during the Late Wisconsin glaciation (st
 <tr><td>lake_lakes10ha_upstream_n</td><td>count of lakes &gt;= 10 ha upstream of the focal lake, connected via surface streams</td><td>count</td></tr>
 <tr><td>lake_glaciatedlatewisc</td><td>glaciation status during the Late Wisconsin glaciation (status = Glaciated if any part of the lake polygon is inside the glacial extent)</td><td></td></tr>
 </table>
-
-
-    </div>
-
 
 
 
