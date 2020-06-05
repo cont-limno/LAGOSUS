@@ -6,7 +6,8 @@
 \title{LAGOSUS Depth data}
 \description{
 LAGOSUS Depth data
-
+}
+\details{
 \tabular{lll}{
 \bold{Variable name} \tab \bold{Variable description} \tab \bold{Units} \cr
 lagoslakeid              \tab unique lake identifier developed for LAGOS-US                                                                                                     \tab               \cr

@@ -6,8 +6,10 @@
 \alias{watersheds}
 \title{LAGOSUS Lake watersheds}
 \description{
-LAGOSUS Lake watersheds
-
+Includes identifiers, location, and geometry for the calculated watersheds (WS) and network
+watersheds (NWS).
+}
+\details{
 \tabular{lll}{
 \bold{Variable name} \tab \bold{Variable description} \tab \bold{Units} \cr
 lagoslakeid                    \tab unique lake identifier developed by LAGOS-US                                                                                                                          \tab               \cr

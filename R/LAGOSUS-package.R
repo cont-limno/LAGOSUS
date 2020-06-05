@@ -20,7 +20,12 @@ lagosus_version <- function(){
 
 #' LAGOSUS Lake information
 #'
-#' @eval get_table_metadata("locus", "lake_information")
+#' Includes information about lake identifiers used in LAGOS-US, information
+#' about lake location (i.e., lat, lon, and elevation), and the zone IDs for
+#' each spatial division containing the lake (e.g., state, county, hydrologic
+#' unit).
+#'
+#' @eval c("@details", get_table_metadata("locus", "lake_information"))
 #'
 #' @name locus_information
 #' @docType data
@@ -29,7 +34,12 @@ NULL
 
 #' LAGOSUS Lake characteristics
 #'
-#' @eval get_table_metadata("locus", "lake_characteristics")
+#' Includes derived metrics for each lake such as lake geometry (e.g., area,
+#'  perimeter, shape metrics), lake connectivity (e.g., lake connectivity
+#'  class, number of upstream lakes), and whether the lake is located within an
+#'  area that was glaciated during the Late Wisconsin glaciation.
+#'
+#' @eval c("@details", get_table_metadata("locus", "lake_characteristics"))
 #'
 #' @name locus_characteristics
 #' @docType data
@@ -38,7 +48,10 @@ NULL
 
 #' LAGOSUS Lake watersheds
 #'
-#' @eval get_table_metadata("locus", "lake_watersheds")
+#' Includes identifiers, location, and geometry for the calculated watersheds (WS) and network
+#' watersheds (NWS).
+#'
+#' @eval c("@details", get_table_metadata("locus", "lake_watersheds"))
 #'
 #' @name locus_watersheds
 #' @docType data
@@ -48,7 +61,12 @@ NULL
 
 #' LAGOSUS Identifier links
 #'
-#' @eval get_table_metadata("locus", "lake_link")
+#' @description Includes single or multiple identifiers per lake from other commonly used
+#'  national-scale data products including: Water Quality Portal (WQP),
+#'  Geographic Names Information System (GNIS), NHD MR Plusv2, LAGOS-NE, and
+#'  the EPA National Lake Assessment surveys from 2007 and 2012.
+#'
+#' @eval c("@details", get_table_metadata("locus", "lake_link"))
 #'
 #' @name locus_link
 #' @docType data
@@ -66,7 +84,7 @@ NULL
 
 #' LAGOSUS Depth data
 #'
-#' @eval get_table_metadata("depth", "depth")
+#' @eval c("@details", get_table_metadata("depth", "depth"))
 #'
 #' @name depth
 #' @docType data

@@ -5,8 +5,12 @@
 \alias{locus_link}
 \title{LAGOSUS Identifier links}
 \description{
-LAGOSUS Identifier links
-
+Includes single or multiple identifiers per lake from other commonly used
+ national-scale data products including: Water Quality Portal (WQP),
+ Geographic Names Information System (GNIS), NHD MR Plusv2, LAGOS-NE, and
+ the EPA National Lake Assessment surveys from 2007 and 2012.
+}
+\details{
 \tabular{lll}{
 \bold{Variable name} \tab \bold{Variable description} \tab \bold{Units} \cr
 lagoslakeid                      \tab unique lake identifier developed by LAGOS-US                                                                                                              \tab                 \cr

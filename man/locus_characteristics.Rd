@@ -5,8 +5,12 @@
 \alias{locus_characteristics}
 \title{LAGOSUS Lake characteristics}
 \description{
-LAGOSUS Lake characteristics
-
+Includes derived metrics for each lake such as lake geometry (e.g., area,
+ perimeter, shape metrics), lake connectivity (e.g., lake connectivity
+ class, number of upstream lakes), and whether the lake is located within an
+ area that was glaciated during the Late Wisconsin glaciation.
+}
+\details{
 \tabular{lll}{
 \bold{Variable name} \tab \bold{Variable description} \tab \bold{Units} \cr
 lagoslakeid                     \tab unique lake identifier developed by LAGOS-US                                                                                                                                    \tab        \cr

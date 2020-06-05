@@ -5,8 +5,12 @@
 \alias{locus_information}
 \title{LAGOSUS Lake information}
 \description{
-LAGOSUS Lake information
-
+Includes information about lake identifiers used in LAGOS-US, information
+about lake location (i.e., lat, lon, and elevation), and the zone IDs for
+each spatial division containing the lake (e.g., state, county, hydrologic
+unit).
+}
+\details{
 \tabular{lll}{
 \bold{Variable name} \tab \bold{Variable description} \tab \bold{Units} \cr
 lagoslakeid        \tab unique lake identifier developed by LAGOS-US                                                                                                                                                                              \tab               \cr
