@@ -365,16 +365,13 @@ tabular <- function(df, ...) {
         contents, "\n}\n", sep = "")
 }
 
-rd_data_description <- function() {
-  c(
-    "@description", paste("adf", "11")
-  )
-}
-
-get_table_metadata <- function(table_name_){
-  lg          <- lagosus_load(modules = c("locus"))
-  dt_raw      <- lg$locus$locus_dictionary
-  # table_name_ <- unique(dt_raw$table_name)[2]
+# get_table_metadata("depth", "depth")
+get_table_metadata <- function(module_name_, table_name_){
+  # module_name_ <- "locus"
+  # table_name_ <- "lake_characteristics"
+  lg          <- lagosus_load(modules = c(module_name_))
+  dt_raw      <- lg[[module_name_]]
+  dt_raw      <- dt_raw[[grep("dictionary", names(dt_raw))]]
 
   dt <- dt_raw %>%
     dplyr::filter(table_name == !!table_name_) %>%

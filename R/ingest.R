@@ -66,11 +66,18 @@ lagos_ingest <- function(locus_version = NA, locus_folder = NA,
 
   if (!is.na(depth_folder)) {
     # Importing LAGOS depth data ####
+
+    depth_dictionary <- load_lagos_txt(
+      list.files(depth_folder, pattern = "taxonomy.csv",
+                 include.dirs = TRUE, full.names = TRUE),
+      na.strings = c(""), sep = ",")
+
     depth <- load_lagos_txt(
       list.files(depth_folder, pattern = "lagosus_depth.csv",
                  include.dirs = TRUE, full.names = TRUE), sep = ",")
 
-    depth <- list(depth = depth)
+    depth <- list(depth = depth,
+                  depth_dictionary = depth_dictionary)
 
     return(depth)
   }
