@@ -27,7 +27,8 @@ Imports: dplyr (>= 0.8.99),
     memoise,
     rlang,
     progress,
-    qs
+    qs,
+    snakecase
 Suggests: testthat,
     knitr,
     rmarkdown,

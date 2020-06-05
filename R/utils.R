@@ -366,6 +366,7 @@ tabular <- function(df, ...) {
 }
 
 # get_table_metadata("depth", "depth")
+#' @importFrom snakecase to_any_case
 get_table_metadata <- function(module_name_, table_name_){
   # module_name_ <- "locus"
   # table_name_ <- "lake_characteristics"
@@ -373,15 +374,14 @@ get_table_metadata <- function(module_name_, table_name_){
   dt_raw      <- lg[[module_name_]]
   dt_raw      <- dt_raw[[grep("dictionary", names(dt_raw))]]
 
-  dt <- dt_raw %>%
-    dplyr::filter(table_name == !!table_name_) %>%
-    dplyr::select(variable_name, variable_description, units)
+  dt <- dt_raw[dt_raw$table_name == {{table_name_}},] %>%
+    dplyr::select("variable_name", "variable_description", "units")
   dt <- setNames(dt,
                  snakecase::to_any_case(names(dt), "sentence"))
-  dt <- dplyr::mutate(dt, dplyr::across(everything(), ~
+  dt <- dplyr::mutate(dt, dplyr::across(dplyr::everything(), ~
                                           dplyr::case_when(. == "NA"~ "",
                                                     is.na(.) ~ "",
                                                     TRUE ~ .)))
 
-  paste0(readLines(textConnection(LAGOSUS:::tabular(dt))))
+  paste0(readLines(textConnection(tabular(dt))))
 }
