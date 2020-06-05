@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 
 The `LAGOSUS` package provides an R interface to download LAGOS-US data, store this data locally, and perform a variety of filtering and subsetting operations.
 
-LAGOS-US contains data for X lakes and reservoirs larger than 1 ha in continental US. The database includes 3 data modules for: lake location and physical characteristics for all lakes; ecological context (i.e., the land use, geologic, climatic, and hydrologic setting of lakes) for all lakes; and in situ measurements of lake water quality for a subset of the lakes from the past 3 decades for approximately Y-Z lakes depending on the variable (see [References](https://github.com/cont-limno/LAGOSUS#references)).
+LAGOS-US contains data for 479,950 lakes and reservoirs larger than 1 ha in continental US. The database includes 4 data modules for: lake location and physical characteristics for all lakes; ecological context (i.e., the land use, geologic, climatic, and hydrologic setting of lakes) for all lakes; in situ measurements of lake water quality for a subset of the lakes from the past 3 decades for approximately Y-Z lakes depending on the variable (see [References](https://github.com/cont-limno/LAGOSUS#references)); and depth for a subset of all lakes (forthcoming).
 
 ## Installation
 
