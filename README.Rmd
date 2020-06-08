@@ -25,7 +25,7 @@ LAGOS-US contains data for 479,950 lakes and reservoirs larger than 1 ha in cont
 ```{r install,eval=FALSE}
 # install development version from Github
 # install devtools if not found - install.packages("devtools")
-devtools::install_github("cont-limno/LAGOSUS", update_dependencies = TRUE)
+devtools::install_git("cont-limno/LAGOSUS", dependencies = TRUE)
 ```
  
 ### Data
