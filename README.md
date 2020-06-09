@@ -31,7 +31,8 @@ depth for a subset of all lakes (forthcoming).
 ``` r
 # install development version from Github
 # install devtools if not found - install.packages("devtools")
-devtools::install_github("cont-limno/LAGOSUS", dependencies = TRUE)
+devtools::install_git(
+  "https://gitlab.msu.edu/stachel2/lagosus", dependencies = TRUE)
 ```
 
 ### Data
