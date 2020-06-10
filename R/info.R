@@ -7,7 +7,7 @@
 #' @param name character lake name not caps sensitive
 #' @param state character state name not caps sensitive
 #' @param lagoslakeid numeric lake id
-#' @param max_distance passed to the \code{\link[base]{agrepl}} "all" parameter
+#' @param max_distance passed to \code{agrepl} "all" parameter
 #' to control fuzzy matching lake name. Defaults to exact matching.
 #' @importFrom dplyr filter
 #' @importFrom lazyeval interp
