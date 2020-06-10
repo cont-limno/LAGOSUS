@@ -58,7 +58,7 @@ library(LAGOSUS)
 
 lagosus_compile(
   locus_version = "1.1",
-  locus_folder = "~/Downloads/LAGOSUS_LOCUS",
+  locus_folder = "~/Downloads/LAGOSUS_LOCUS/LOCUS_v1.1",
   depth_version = "0",
   depth_folder = "~/Downloads/LAGOSUS_DEPTH", 
   dest_folder = lagosus_path())
