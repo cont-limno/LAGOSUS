@@ -21,7 +21,7 @@ lake_info(
 
 \item{lg}{list of data.frames. output of \code{\link[LAGOSUS]{lagosus_load}}.}
 
-\item{max_distance}{passed to the \code{\link{agrepl}} "all" parameter
+\item{max_distance}{passed to \code{agrepl} "all" parameter
 to control fuzzy matching lake name. Defaults to exact matching.}
 }
 \description{

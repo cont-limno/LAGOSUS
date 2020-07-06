@@ -10,19 +10,19 @@ LAGOSUS Depth data
 \details{
 \tabular{lll}{
 \bold{Variable name} \tab \bold{Variable description} \tab \bold{Units} \cr
-lagoslakeid              \tab unique lake identifier developed for LAGOS-US                                                                                                     \tab               \cr
-  lake_namegnis            \tab lake name from the gnis database by way of the LAGOS-US LOCUS module                                                                              \tab               \cr
-  lake_states              \tab abbreviation(s) of state(s) intersecting the lake polygon from the LAGOS-US LOCUS module                                                          \tab               \cr
-  lake_state               \tab abbreviation of the state used to search for a lake's depth                                                                                       \tab               \cr
-  lake_lat_decdeg          \tab the latitude of the lake center point (NAD83) from the LAGOS-US LOCUS module                                                                      \tab decimal degree\cr
-  lake_lon_decdeg          \tab the longitude of the lake center point (NAD83) from the LAGOS-US LOCUS module                                                                     \tab decimal degree\cr
-  lake_maxdepth_m          \tab lake maximum depth in meters                                                                                                                      \tab meter         \cr
-  lake_meandepth_m         \tab lake mean depth in meters                                                                                                                         \tab meter         \cr
-  lake_waterarea_ha        \tab surface area of lake waterbody polygon from NHD (excludes islands) by way of the LAGOS-US LOCUS module                                            \tab hectare       \cr
-  sourcename_depth         \tab name of the source of depth data                                                                                                                  \tab               \cr
-  sourceurl_depth          \tab url link of the source of depth data                                                                                                              \tab               \cr
-  lagos_effort             \tab name of depth searching effort used for internal tracking; one of LAGOSNE, LAGOSUS, bathymetry, NLA                                               \tab               \cr
-  lagos_effort_reliability \tab reliability of depth searching effort used for quality assurance and de-duplication; values are in ascending order with 1 being the most reliable \tab               
+lagoslakeid              \tab unique lake identifier developed for the LAGOS-US: LOCUS v1.0 module                                                                                                                                             \tab               \cr
+  lake_namegnis            \tab lake name from the gnis database by way of the LAGOS-US: LOCUS v1.0 module                                                                                                                                       \tab               \cr
+  lake_states              \tab abbreviation(s) of state(s) intersecting the lake polygon from the LAGOS-US: LOCUS v1.0 module                                                                                                                   \tab               \cr
+  lake_state               \tab abbreviation of the state used to search for a lake's depth                                                                                                                                                      \tab               \cr
+  lake_lat_decdeg          \tab the latitude of the lake center point (NAD83) from the LAGOS-US: LOCUS v1.0 module                                                                                                                               \tab decimal degree\cr
+  lake_lon_decdeg          \tab the longitude of the lake center point (NAD83) from the LAGOS-US: LOCUS v1.0 module                                                                                                                              \tab decimal degree\cr
+  lake_maxdepth_m          \tab lake maximum depth in meters                                                                                                                                                                                     \tab meter         \cr
+  lake_meandepth_m         \tab lake mean depth in meters                                                                                                                                                                                        \tab meter         \cr
+  lake_waterarea_ha        \tab surface area of lake waterbody polygon from NHD (excludes islands) by way of the LAGOS-US: LOCUS v1.0 module                                                                                                     \tab hectare       \cr
+  sourcename_depth         \tab name of the source of lake depth data                                                                                                                                                                            \tab               \cr
+  sourceurl_depth          \tab url link of the source of lake depth data                                                                                                                                                                        \tab               \cr
+  lagos_effort             \tab name representing one of four different depth searching efforts; used for quality assurance and de-duplication; one of LAGOSNE, LAGOSUS, bathymetry, or NLA; corresponds with values of lagos_effort_reliability \tab               \cr
+  lagos_effort_reliability \tab reliability of each lagos_effort; used for quality assurance and de-duplication; values are in ascending order (1 = most reliable, 2 = reliable, 3 = less reliable, 4 = questionable)                            \tab               
 }
 }
 \keyword{datasets}
