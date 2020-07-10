@@ -81,7 +81,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">LAGOSUS</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.2</span>
       </span>
     </div>
 
@@ -149,7 +149,8 @@
   <span class='no'>dt</span>,
   <span class='kw'>latname</span> <span class='kw'>=</span> <span class='st'>"lake_lat_decdeg"</span>,
   <span class='kw'>longname</span> <span class='kw'>=</span> <span class='st'>"lake_lon_decdeg"</span>,
-  <span class='kw'>crs</span> <span class='kw'>=</span> <span class='fl'>4326</span>
+  <span class='kw'>crs_in</span> <span class='kw'>=</span> <span class='fl'>4326</span>,
+  <span class='kw'>crs_out</span> <span class='kw'>=</span> <span class='fu'>albers_conic</span>()
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -168,8 +169,12 @@
       <td><p>character name of longitude column; default is "lake_lon_decdeg"</p></td>
     </tr>
     <tr>
-      <th>crs</th>
+      <th>crs_in</th>
       <td><p>numeric epsg code; default is 4326 WGS84-lat-long</p></td>
+    </tr>
+    <tr>
+      <th>crs_out</th>
+      <td><p>numeric epsg code; default is albers_conic</p></td>
     </tr>
     </table>
 

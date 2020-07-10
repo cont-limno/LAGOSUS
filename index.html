@@ -40,7 +40,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">LAGOSUS</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.2</span>
       </span>
     </div>
 
@@ -106,7 +106,8 @@
 <a href="#installation" class="anchor"></a>Installation</h2>
 <div class="sourceCode" id="cb1"><pre class="r"><span class="co"># install development version from Github</span>
 <span class="co"># install devtools if not found - install.packages("devtools")</span>
-<span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"cont-limno/LAGOSUS"</span>, <span class="kw">update_dependencies</span> <span class="kw">=</span> <span class="fl">TRUE</span>)</pre></div>
+<span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_git</a></span>(
+  <span class="st">"https://gitlab.msu.edu/stachel2/lagosus"</span>, <span class="kw">dependencies</span> <span class="kw">=</span> <span class="fl">TRUE</span>)</pre></div>
 <div id="data" class="section level3">
 <h3 class="hasAnchor">
 <a href="#data" class="anchor"></a>Data</h3>
@@ -116,7 +117,7 @@
 
 <span class="fu"><a href="reference/lagosus_compile.html">lagosus_compile</a></span>(
   <span class="kw">locus_version</span> <span class="kw">=</span> <span class="st">"1.1"</span>,
-  <span class="kw">locus_folder</span> <span class="kw">=</span> <span class="st">"~/Downloads/LAGOSUS_LOCUS"</span>,
+  <span class="kw">locus_folder</span> <span class="kw">=</span> <span class="st">"~/Downloads/LAGOSUS_LOCUS/LOCUS_v1.1"</span>,
   <span class="kw">depth_version</span> <span class="kw">=</span> <span class="st">"0"</span>,
   <span class="kw">depth_folder</span> <span class="kw">=</span> <span class="st">"~/Downloads/LAGOSUS_DEPTH"</span>,
   <span class="kw">dest_folder</span> <span class="kw">=</span> <span class="fu"><a href="reference/lagosus_path.html">lagosus_path</a></span>())</pre></div>
