@@ -8,7 +8,8 @@ coordinatize(
   dt,
   latname = "lake_lat_decdeg",
   longname = "lake_lon_decdeg",
-  crs = 4326
+  crs_in = 4326,
+  crs_out = albers_conic()
 )
 }
 \arguments{
@@ -18,7 +19,9 @@ coordinatize(
 
 \item{longname}{character name of longitude column; default is "lake_lon_decdeg"}
 
-\item{crs}{numeric epsg code; default is 4326 WGS84-lat-long}
+\item{crs_in}{numeric epsg code; default is 4326 WGS84-lat-long}
+
+\item{crs_out}{numeric epsg code; default is albers_conic}
 }
 \description{
 This function turns a data.frame into a spatial object using a reasonable
