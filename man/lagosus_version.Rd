@@ -9,6 +9,26 @@ lagosus_version()
 \description{
 Latest LAGOSUS module versions
 }
+\details{
+Defaults to the latest release version of each data module. Can be
+overridden using the `LAGOSUS_LOCUS_VER`, `LAGOSUS_LIMNO_VER`,
+`LAGOSUS_GEO_VER`, or `LAGOSUS_DEPTH_VER` environment variables; see example
+below. Using different environment variables for the same module in a single
+interactive session will not invalidate the `lagosus_load` cache. Manually
+specify module version numbers if needing to load multiple different module
+versions.
+}
 \examples{
+\dontrun{
+# use defaults
 lagosus_version()
+
+# custom setting
+Sys.setenv(LAGOSUS_DEPTH_VER = 0)
+lagosus_version()
+
+# revert to defaults
+Sys.setenv(LAGOSUS_DEPTH_VER = "")
+lagosus_version()
+}
 }

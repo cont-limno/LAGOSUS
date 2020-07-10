@@ -57,10 +57,17 @@ lagosus_load <- function(modules = NULL,
       dplyr::filter(lagosus_version(), modules == modules_query),
       versions)
 
-    message(paste0(
-      "Module version(s) not specified, defaulting to ",
-      paste0(paste0(modules_query, " = ", versions), collapse = " and ")
+    if("defaults" %in% names(lagosus_version())){
+      message(paste0(
+        "Module version(s) not specified, reading from environment variable(s) as ",
+        paste0(paste0(modules_query, " = ", versions), collapse = " and ")
       ))
+    }else{
+      message(paste0(
+        "Module version(s) not specified, defaulting to ",
+        paste0(paste0(modules_query, " = ", versions), collapse = " and ")
+        ))
+    }
   }
 
   # TODO assign defaults to NA values (and print message)

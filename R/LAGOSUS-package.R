@@ -8,15 +8,55 @@
 NULL
 
 #' Latest LAGOSUS module versions
+#'
 #' @name lagosus_version
+#' @details Defaults to the latest release version of each data module. Can be
+#' overridden using the `LAGOSUS_LOCUS_VER`, `LAGOSUS_LIMNO_VER`,
+#' `LAGOSUS_GEO_VER`, or `LAGOSUS_DEPTH_VER` environment variables; see example
+#' below. Using different environment variables for the same module in a single
+#' interactive session will not invalidate the `lagosus_load` cache. Manually
+#' specify module version numbers if needing to load multiple different module
+#' versions.
 #' @export
-#' @examples
+#'
+#' @examples \dontrun{
+#' # use defaults
 #' lagosus_version()
+#'
+#' # custom setting
+#' Sys.setenv(LAGOSUS_DEPTH_VER = 0)
+#' lagosus_version()
+#'
+#' # revert to defaults
+#' Sys.setenv(LAGOSUS_DEPTH_VER = "")
+#' lagosus_version()
+#' }
 lagosus_version <- function(){
-  data.frame(modules = c("locus", "limno", "geo", "depth"),
-             versions = c("1.1","0","0","0.1"),
-             stringsAsFactors = FALSE)
+  res_defaults <- data.frame(
+    modules = c("locus", "limno", "geo", "depth"),
+    versions = c("1.1","0","0","0.1"),
+    stringsAsFactors = FALSE)
+
+  env_vars <- Sys.getenv(
+    paste0("LAGOSUS_", c("LOCUS", "LIMNO", "GEO", "DEPTH"), "_VER"), "")
+  env_vars <- data.frame(
+    modules = tolower(stringr::str_extract(names(env_vars),
+                                           "(?<=LAGOSUS_)(.*)(?=_VER)")),
+    versions = as.character(env_vars),
+    stringsAsFactors = FALSE)
+
+  if (any(!env_vars$versions == "")) {
+    env_vars$defaults <- res_defaults$versions
+    res               <- dplyr::mutate(env_vars,
+                                       versions = dplyr::case_when(
+                                         versions == "" ~ defaults,
+                                         TRUE ~ versions))
+  }else{
+    res <- res_defaults
   }
+
+  res
+}
 
 #' LAGOSUS Lake information
 #'
