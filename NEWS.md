@@ -7,6 +7,8 @@
 ## MINOR IMPROVEMENTS
 
  * `coordinatize` function has a default projection (#12)
+ 
+ * Added ability to specify module versions using an environment variable (#9)
 
 # LAGOSUS 0.0.1
 
