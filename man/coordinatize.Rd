@@ -25,7 +25,7 @@ coordinatize(
 }
 \description{
 This function turns a data.frame into a spatial object using a reasonable
- default projection.
+default projection.
 }
 \examples{
 \dontrun{

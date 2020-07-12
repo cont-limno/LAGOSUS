@@ -11,19 +11,19 @@ query_lagos_names(grep_string, scale = NA, dt)
 
 \item{scale}{character filter results by one of:
 \itemize{
-    \item county
-    \item edu
-    \item hu4
-    \item hu8
-    \item hu12
-    \item state
+\item county
+\item edu
+\item hu4
+\item hu8
+\item hu12
+\item state
 }}
 
 \item{dt}{data.frame output of \code{\link[LAGOSUS]{lagosus_load}}}
 }
 \description{
 Return a vector of table names whose associated tables have
- columns that grep to query.
+columns that grep to query.
 }
 \examples{
 \dontrun{

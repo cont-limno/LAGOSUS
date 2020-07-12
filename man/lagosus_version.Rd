@@ -11,10 +11,10 @@ Latest LAGOSUS module versions
 }
 \details{
 Defaults to the latest release version of each data module. Can be
-overridden using the `LAGOSUS_LOCUS_VER`, `LAGOSUS_LIMNO_VER`,
-`LAGOSUS_GEO_VER`, or `LAGOSUS_DEPTH_VER` environment variables; see example
+overridden using the \code{LAGOSUS_LOCUS_VER}, \code{LAGOSUS_LIMNO_VER},
+\code{LAGOSUS_GEO_VER}, or \code{LAGOSUS_DEPTH_VER} environment variables; see example
 below. Using different environment variables for the same module in a single
-interactive session will not invalidate the `lagosus_load` cache. Manually
+interactive session will not invalidate the \code{lagosus_load} cache. Manually
 specify module version numbers if needing to load multiple different module
 versions.
 }
