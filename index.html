@@ -118,8 +118,8 @@
 <span class="fu"><a href="reference/lagosus_compile.html">lagosus_compile</a></span>(
   <span class="kw">locus_version</span> <span class="kw">=</span> <span class="st">"1.1"</span>,
   <span class="kw">locus_folder</span> <span class="kw">=</span> <span class="st">"~/Downloads/LAGOSUS_LOCUS/LOCUS_v1.1"</span>,
-  <span class="kw">depth_version</span> <span class="kw">=</span> <span class="st">"0"</span>,
-  <span class="kw">depth_folder</span> <span class="kw">=</span> <span class="st">"~/Downloads/LAGOSUS_DEPTH"</span>,
+  <span class="kw">depth_version</span> <span class="kw">=</span> <span class="st">"0.1"</span>,
+  <span class="kw">depth_folder</span> <span class="kw">=</span> <span class="st">"~/Downloads/LAGOSUS_DEPTH/DEPTH_v0.1"</span>,
   <span class="kw">dest_folder</span> <span class="kw">=</span> <span class="fu"><a href="reference/lagosus_path.html">lagosus_path</a></span>())</pre></div>
 </div>
 </div>
@@ -184,6 +184,14 @@
 <!-- ``` -->
 </div>
 </div>
+</div>
+<div id="legacy-versions" class="section level2">
+<h2 class="hasAnchor">
+<a href="#legacy-versions" class="anchor"></a>Legacy Versions</h2>
+<p>To install versions of <code>LAGOSUS</code> compatible with older versions of LAGOS-US data modules, review the <a href="https://cont-limno.github.io/LAGOSUS/news/index.html">Changelog</a> to find to package version associated with your desired module version. Run the following command where <code>ref</code> is set to your desired version (in the example, it is version 0.0.1):</p>
+<div class="sourceCode" id="cb9"><pre class="r"><span class="co"># install devtools if not found</span>
+<span class="co"># install.packages("devtools")</span>
+<span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"cont-limno/LAGOSUS"</span>, <span class="kw">ref</span> <span class="kw">=</span> <span class="st">"v0.0.1"</span>)</pre></div>
 </div>
 <div id="references" class="section level2">
 <h2 class="hasAnchor">

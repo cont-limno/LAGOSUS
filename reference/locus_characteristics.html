@@ -48,9 +48,9 @@
 
 <meta property="og:title" content="LAGOSUS Lake characteristics — locus_characteristics" />
 <meta property="og:description" content="Includes derived metrics for each lake such as lake geometry (e.g., area,
- perimeter, shape metrics), lake connectivity (e.g., lake connectivity
- class, number of upstream lakes), and whether the lake is located within an
- area that was glaciated during the Late Wisconsin glaciation." />
+perimeter, shape metrics), lake connectivity (e.g., lake connectivity
+class, number of upstream lakes), and whether the lake is located within an
+area that was glaciated during the Late Wisconsin glaciation." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -144,9 +144,9 @@
 
     <div class="ref-description">
     <p>Includes derived metrics for each lake such as lake geometry (e.g., area,
- perimeter, shape metrics), lake connectivity (e.g., lake connectivity
- class, number of upstream lakes), and whether the lake is located within an
- area that was glaciated during the Late Wisconsin glaciation.</p>
+perimeter, shape metrics), lake connectivity (e.g., lake connectivity
+class, number of upstream lakes), and whether the lake is located within an
+area that was glaciated during the Late Wisconsin glaciation.</p>
     </div>
 
 
@@ -162,13 +162,13 @@
 <tr><td>lake_islandarea_ha</td><td>surface area of islands within outer boundary of lake waterbody polygon from NHD</td><td>hectare</td></tr>
 <tr><td>lake_perimeter_m</td><td>perimeter of outer boundary of lake waterbody polygon from the NHD (excludes islands)</td><td>meter</td></tr>
 <tr><td>lake_islandperimeter_m</td><td>perimeter of islands within the lake waterbody polygon from the NHD</td><td>meter</td></tr>
-<tr><td>lake_shorelinedevfactor</td><td>shoreline development factor = lake_perimeter / (2*?(?*waterarea))</td><td></td></tr>
-<tr><td>lake_mbgconhull_length_m</td><td>the longest distance entirely within the lake polygon between any two vertices of the minimum bounding geometry convex hull that encloses the lake polygon</td><td>meter</td></tr>
-<tr><td>lake_mbgconhull_width_m</td><td>the shortest distance entirely within the lake polygon between any two vertices of the minimum bounding geometry convex hull that encloses the lake polygon</td><td>meter</td></tr>
-<tr><td>lake_mbgconhull_orientation_deg</td><td>orientation (from 0 to 180 decimal degrees clockwise from north) of the longest line connecting two vertices entirely within both the convex hull and the lake polygon</td><td>degree</td></tr>
-<tr><td>lake_mbgrect_length_m</td><td>length of the minimum bounding geometry rectangle by area enclosing the lake polygon</td><td>meter</td></tr>
-<tr><td>lake_mbgrect_width_m</td><td>width of the minimum bounding geometry rectangle by area enclosing the lake polygon</td><td>meter</td></tr>
-<tr><td>lake_mbgrect_arearatio</td><td>ratio between lake_waterarea_ha (* 10000 m^2/ha) and the area of the minimum bounding rectangle by area of the lake polygon; value near 1 indicates lake shape is rectangular</td><td></td></tr>
+<tr><td>lake_shorelinedevfactor</td><td>shoreline development factor = lake_perimeter / (2*?(?<em>waterarea))                                                                                                                      <br />
+lake_mbgconhull_length_m         the longest distance entirely within the lake polygon between any two vertices of the minimum bounding geometry convex hull that encloses the lake polygon                       meter  <br />
+lake_mbgconhull_width_m          the shortest distance entirely within the lake polygon between any two vertices of the minimum bounding geometry convex hull that encloses the lake polygon                      meter  <br />
+lake_mbgconhull_orientation_deg  orientation (from 0 to 180 decimal degrees clockwise from north) of the longest line connecting two vertices entirely within both the convex hull and the lake polygon           degree <br />
+lake_mbgrect_length_m            length of the minimum bounding geometry rectangle by area enclosing the lake polygon                                                                                             meter  <br />
+lake_mbgrect_width_m             width of the minimum bounding geometry rectangle by area enclosing the lake polygon                                                                                              meter  <br />
+lake_mbgrect_arearatio           ratio between lake_waterarea_ha (</em> 10000 m^2/ha) and the area of the minimum bounding rectangle by area of the lake polygon; value near 1 indicates lake shape is rectangular</td><td></td></tr>
 <tr><td>lake_meanwidth_m</td><td>mean width of the lake calculated as lake water area (lake_area_ha* 10000 m^2/ha) divided by the convex hull length of the focal lake polygon (lake_mbgconhull_length_m)</td><td>meter</td></tr>
 <tr><td>lake_connectivity_class</td><td>hydrologic connectivity class of the focal lake determined from the NHD network considering both permanent and intermittent/ephemeral flow</td><td></td></tr>
 <tr><td>lake_connectivity_fluctuates</td><td>indicates whether the lake's connectivity classification depends on non-permanent flow</td><td></td></tr>
