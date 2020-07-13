@@ -2,7 +2,7 @@
 
 ## MODULE UPDATES
 
- * Updated DEPTH module version to 0.1
+ * Updated DEPTH module from 0 to version 0.1
 
 ## BREAKING CHANGES
 
@@ -10,7 +10,7 @@
 
 ## MINOR IMPROVEMENTS
 
- * `coordinatize` function has a default projection (#12)
+ * The `coordinatize` function now has a default projection (#12)
  
  * Added ability to specify module versions using an environment variable (#9)
 
