@@ -60,7 +60,7 @@ lagosus_compile(
   locus_version = "1.1",
   locus_folder = "~/Downloads/LAGOSUS_LOCUS/LOCUS_v1.1",
   depth_version = "0.1",
-  depth_folder = "~/Downloads/LAGOSUS_DEPTH", 
+  depth_folder = "~/Downloads/LAGOSUS_DEPTH/DEPTH_v0.1", 
   dest_folder = lagosus_path())
 ```
 

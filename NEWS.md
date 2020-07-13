@@ -4,6 +4,10 @@
 
  * Updated DEPTH module version to 0.1
 
+## BREAKING CHANGES
+
+ * The names of nearly all data tables have changed to exactly match LAGOSUS schema.
+
 ## MINOR IMPROVEMENTS
 
  * `coordinatize` function has a default projection (#12)

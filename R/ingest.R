@@ -53,12 +53,12 @@ lagos_ingest <- function(locus_version = NA, locus_folder = NA,
                  include.dirs = TRUE, full.names = TRUE),
       sep = ",", dictionary = locus_dictionary)
 
-    locus <- list(locus_link = locus_link,
-                  locus_characteristics = locus_characteristics,
-                  locus_watersheds = locus_watersheds,
-                  locus_information = locus_information,
-                  locus_dictionary = locus_dictionary,
-                  locus_source = locus_source
+    locus <- list(lake_link = locus_link,
+                  lake_characteristics = locus_characteristics,
+                  lake_watersheds = locus_watersheds,
+                  lake_information = locus_information,
+                  data_dictionary_locus = locus_dictionary,
+                  source_table_locus = locus_source
                   )
 
     return(locus)
@@ -68,7 +68,7 @@ lagos_ingest <- function(locus_version = NA, locus_folder = NA,
     # Importing LAGOS depth data ####
 
     depth_dictionary <- load_lagos_txt(
-      list.files(depth_folder, pattern = "taxonomy.csv",
+      list.files(depth_folder, pattern = "data_dictionary.*.csv",
                  include.dirs = TRUE, full.names = TRUE),
       na.strings = c(""), sep = ",")
 
@@ -76,8 +76,8 @@ lagos_ingest <- function(locus_version = NA, locus_folder = NA,
       list.files(depth_folder, pattern = "lake_depth.csv",
                  include.dirs = TRUE, full.names = TRUE), sep = ",")
 
-    depth <- list(depth = depth,
-                  depth_dictionary = depth_dictionary)
+    depth <- list(lake_depth = depth,
+                  data_dictionary_depth = depth_dictionary)
 
     return(depth)
   }
