@@ -6,7 +6,7 @@
 
 ## BREAKING CHANGES
 
- * The names of nearly all data tables have changed to exactly match LAGOSUS schema.
+ * The names of nearly all data tables have changed to exactly match LAGOSUS schema (#11)
 
 ## MINOR IMPROVEMENTS
 
