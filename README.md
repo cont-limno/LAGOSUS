@@ -59,7 +59,7 @@ library(LAGOSUS)
 lagosus_compile(
   locus_version = "1.1",
   locus_folder = "~/Downloads/LAGOSUS_LOCUS/LOCUS_v1.1",
-  depth_version = "0",
+  depth_version = "0.1",
   depth_folder = "~/Downloads/LAGOSUS_DEPTH", 
   dest_folder = lagosus_path())
 ```
@@ -152,6 +152,21 @@ query_lagos_names("ws_meanwidth", dt = lg)
 <!-- unloadNamespace("printr") -->
 
 <!-- ``` -->
+
+## Legacy Versions
+
+To install versions of `LAGOSUS` compatible with older versions of
+LAGOS-US data modules, review the
+[Changelog](https://cont-limno.github.io/LAGOSUS/news/index.html) to
+find to package version associated with your desired module version. Run
+the following command where `ref` is set to your desired version (in the
+example, it is version 0.0.1):
+
+``` r
+# install devtools if not found
+# install.packages("devtools")
+devtools::install_github("cont-limno/LAGOSUS", ref = "v0.0.1")
+```
 
 ## References
 
