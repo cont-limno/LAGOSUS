@@ -30,7 +30,7 @@ default projection.
 \examples{
 \dontrun{
 dt <- lagosus_load("locus")
-res <- coordinatize(dt$locus$locus_information)
+res <- coordinatize(dt$locus$lake_information)
 
 library(maps)
 map("state", xlim = c(-97.90363, -66.99892), ylim = c(34.61761, 49.41941))

@@ -8,6 +8,6 @@ test_that("display_names works", {
   lg <- lagosus_load("locus")
 
   expect_equal(
-    display_names(names(lg$locus$locus_information))[22],
+    display_names(names(lg$locus$lake_information))[22],
     "ID (ws)")
 })

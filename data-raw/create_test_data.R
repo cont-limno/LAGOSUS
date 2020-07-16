@@ -6,7 +6,7 @@ dt        <- LAGOSUS::lagosus_load(modules = c("locus", "depth"))
 
 # id 2 llids with non-missing chla data in two different states
 set.seed(5)
-llids <- dplyr::select(dt$locus$locus_information,
+llids <- dplyr::select(dt$locus$lake_information,
                        lake_centroidstate, lagoslakeid) %>%
   dplyr::filter(lake_centroidstate %in% c("MA", "IA")) %>%
   group_by(lake_centroidstate) %>%

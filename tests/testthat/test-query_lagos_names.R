@@ -6,6 +6,6 @@ test_that("query_lagos_names works", {
   dt <- readRDS("lagos_test_subset.rds")
   expect_equal(
     query_lagos_names("namegnis", dt = dt),
-    c("locus_link", "locus_information"))
+    c("lake_link", "lake_information"))
 
 })

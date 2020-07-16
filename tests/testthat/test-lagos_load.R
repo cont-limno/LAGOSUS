@@ -16,7 +16,7 @@ test_that("reachcodes have non-scientific notation", {
   skip_on_cran()
   skip_on_ci()
 
-  lakes_limno <- lagosus_load("locus")$locus$locus_information
+  lakes_limno <- lagosus_load("locus")$locus$lake_information
   expect_gt(
     nchar(lakes_limno[lakes_limno$lagoslakeid == 448,]$lake_reachcode),
     12)# [1] nchar("4.51733E+12")

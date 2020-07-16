@@ -108,7 +108,7 @@ names(lg)
 #### Preview a table
 
 ``` r
-head(lg$locus$locus_characteristics)
+head(lg$locus$lake_characteristics)
 ```
 
 #### Preview a specific lake

@@ -60,7 +60,7 @@ lake_info <- function(lagoslakeid = NA, name = NA, state = NA,
     suppressWarnings(
     name_state <- dplyr::left_join(
       name_state,
-      dplyr::select(lg$locus$locus_information, .data$lagoslakeid,
+      dplyr::select(lg$locus$lake_information, .data$lagoslakeid,
                     .data$lake_centroidstate, .data$lake_namegnis,
                     .data$state_zoneid),
                                by = "lagoslakeid"))
@@ -79,8 +79,8 @@ lake_info <- function(lagoslakeid = NA, name = NA, state = NA,
   }
 
   locus_state_conn <- suppressMessages(dplyr::left_join(
-    lg$locus$locus_information,
-    dplyr::select(lg$locus$locus_characteristics,
+    lg$locus$lake_information,
+    dplyr::select(lg$locus$lake_characteristics,
                   .data$lake_connectivity_permanent, .data$lagoslakeid,
                   .data$lake_totalarea_ha),
     by = c("lagoslakeid" = "lagoslakeid")
@@ -88,7 +88,7 @@ lake_info <- function(lagoslakeid = NA, name = NA, state = NA,
 
   locus_state_iws <- suppressMessages(dplyr::left_join(
     locus_state_conn,
-    dplyr::select(lg$locus$locus_watersheds,
+    dplyr::select(lg$locus$lake_watersheds,
                   .data$lagoslakeid, .data$ws_area_ha),
     by = c("lagoslakeid" = "lagoslakeid")
   ))

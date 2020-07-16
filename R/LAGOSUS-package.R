@@ -67,7 +67,7 @@ lagosus_version <- function(){
 #'
 #' @eval c("@details", get_table_metadata("locus", "lake_information"))
 #'
-#' @name locus_information
+#' @name lake_information
 #' @docType data
 #' @keywords datasets
 NULL
@@ -81,7 +81,7 @@ NULL
 #'
 #' @eval c("@details", get_table_metadata("locus", "lake_characteristics"))
 #'
-#' @name locus_characteristics
+#' @name lake_characteristics
 #' @docType data
 #' @keywords datasets
 NULL
@@ -93,7 +93,7 @@ NULL
 #'
 #' @eval c("@details", get_table_metadata("locus", "lake_watersheds"))
 #'
-#' @name locus_watersheds
+#' @name lake_watersheds
 #' @docType data
 #' @keywords datasets
 #' @aliases watersheds
@@ -108,7 +108,7 @@ NULL
 #'
 #' @eval c("@details", get_table_metadata("locus", "lake_link"))
 #'
-#' @name locus_link
+#' @name lake_link
 #' @docType data
 #' @keywords datasets
 NULL
@@ -117,7 +117,7 @@ NULL
 #'
 #' @eval get_table_metadata("locus", "source_table_locus")
 #'
-#' @name locus_source
+#' @name source_table_locus
 #' @docType data
 #' @keywords datasets
 NULL
