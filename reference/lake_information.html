@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>LAGOSUS Lake characteristics — lake_characteristics • LAGOSUS</title>
+<title>LAGOSUS Lake information — lake_information • LAGOSUS</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,11 +46,11 @@
 
 
 
-<meta property="og:title" content="LAGOSUS Lake characteristics — lake_characteristics" />
-<meta property="og:description" content="Includes derived metrics for each lake such as lake geometry (e.g., area,
-perimeter, shape metrics), lake connectivity (e.g., lake connectivity
-class, number of upstream lakes), and whether the lake is located within an
-area that was glaciated during the Late Wisconsin glaciation." />
+<meta property="og:title" content="LAGOSUS Lake information — lake_information" />
+<meta property="og:description" content="Includes information about lake identifiers used in LAGOS-US, information
+about lake location (i.e., lat, lon, and elevation), and the zone IDs for
+each spatial division containing the lake (e.g., state, county, hydrologic
+unit)." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -137,16 +137,16 @@ area that was glaciated during the Late Wisconsin glaciation." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>LAGOSUS Lake characteristics</h1>
+    <h1>LAGOSUS Lake information</h1>
     <small class="dont-index">Source: <a href='https://github.com/cont-limno/LAGOSUS/blob/master/R/LAGOSUS-package.R'><code>R/LAGOSUS-package.R</code></a></small>
-    <div class="hidden name"><code>lake_characteristics.Rd</code></div>
+    <div class="hidden name"><code>lake_information.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Includes derived metrics for each lake such as lake geometry (e.g., area,
-perimeter, shape metrics), lake connectivity (e.g., lake connectivity
-class, number of upstream lakes), and whether the lake is located within an
-area that was glaciated during the Late Wisconsin glaciation.</p>
+    <p>Includes information about lake identifiers used in LAGOS-US, information
+about lake location (i.e., lat, lon, and elevation), and the zone IDs for
+each spatial division containing the lake (e.g., state, county, hydrologic
+unit).</p>
     </div>
 
 
@@ -157,29 +157,39 @@ area that was glaciated during the Late Wisconsin glaciation.</p>
 <table class='table'>
 <tr><td><b>Variable name</b></td><td><b>Variable description</b></td><td><b>Units</b></td></tr>
 <tr><td>lagoslakeid</td><td>unique lake identifier developed by LAGOS-US</td><td></td></tr>
-<tr><td>lake_waterarea_ha</td><td>surface area of lake waterbody polygon from NHD comprised of open water; islands are excluded</td><td>hectare</td></tr>
-<tr><td>lake_totalarea_ha</td><td>total area of the lake waterbody polygon from the NHD; includes combined area of open water and any islands within the outer boundary</td><td>hectare</td></tr>
-<tr><td>lake_islandarea_ha</td><td>surface area of any islands contained within the outer boundary of the lake waterbody polygon from NHD</td><td>hectare</td></tr>
-<tr><td>lake_perimeter_m</td><td>perimeter of outer boundary of lake waterbody polygon from the NHD; excludes perimeter of any islands</td><td>meter</td></tr>
-<tr><td>lake_islandperimeter_m</td><td>perimeter of islands contained within the outer boundary of the lake waterbody polygon from the NHD</td><td>meter</td></tr>
-<tr><td>lake_shorelinedevfactor</td><td>shoreline development factor; calculated as lake_perimeter_m divided by the product of 2 times the square root of pi times lake_waterarea_ha</td><td></td></tr>
-<tr><td>lake_mbgconhull_length_m</td><td>the maximum possible distance between any two vertices of the minimum bounding geometry convex hull that encloses the lake polygon</td><td>meter</td></tr>
-<tr><td>lake_mbgconhull_width_m</td><td>the maximum width of the lake convex hull polygon along an axis perpendicular to the axis defined by the convex hull length</td><td>meter</td></tr>
-<tr><td>lake_mbgconhull_orientation_deg</td><td>orientation of the line defining the convex hull length; calculated as decimal degrees clockwise from north</td><td>degree</td></tr>
-<tr><td>lake_mbgrect_length_m</td><td>length of the minimum bounding geometry rectangle by area enclosing the lake polygon</td><td>meter</td></tr>
-<tr><td>lake_mbgrect_width_m</td><td>width of the minimum bounding geometry rectangle by area enclosing the lake polygon</td><td>meter</td></tr>
-<tr><td>lake_mbgrect_arearatio</td><td>ratio between lake_waterarea_ha converted to meters squared and the product of lake_mbgrect_length_m and lake_mbgrect_width_m; values near 1 indicate rectangular lake shape</td><td></td></tr>
-<tr><td>lake_meanwidth_m</td><td>mean width of the lake; calculated as lake_waterarea_ha converted to meters squared divided by lake_mbgconhull_length_m</td><td>meter</td></tr>
-<tr><td>lake_connectivity_class</td><td>maximum hydrologic connectivity class of the focal lake determined from the NHD network considering both permanent and intermittent-ephemeral flow</td><td></td></tr>
-<tr><td>lake_connectivity_fluctuates</td><td>indicates whether the lake connectivity classification depends on non-permanent flow</td><td></td></tr>
-<tr><td>lake_connectivity_permanent</td><td>hydrologic connectivity class of the focal lake determined from the NHD network considering only permanent flow</td><td></td></tr>
-<tr><td>lake_lakes1ha_upstream_ha</td><td>total area of lakes greater than or equal to 1 ha upstream of the focal lake, connected via surface streams</td><td>hectare</td></tr>
-<tr><td>lake_lakes4ha_upstream_ha</td><td>total area of lakes greater than or equal to 4 ha upstream of the focal lake, connected via surface streams</td><td>hectare</td></tr>
-<tr><td>lake_lakes10ha_upstream_ha</td><td>total area of lakes greater than or equal to 10 ha upstream of the focal lake, connected via surface streams</td><td>hectare</td></tr>
-<tr><td>lake_lakes1ha_upstream_n</td><td>count of lakes greater than or equal to 1 ha upstream of the focal lake, connected via surface streams</td><td>count</td></tr>
-<tr><td>lake_lakes4ha_upstream_n</td><td>count of lakes greater than or equal to 4 ha upstream of the focal lake, connected via surface streams</td><td>count</td></tr>
-<tr><td>lake_lakes10ha_upstream_n</td><td>count of lakes greater than or equal to 10 ha upstream of the focal lake, connected via surface streams</td><td>count</td></tr>
-<tr><td>lake_glaciatedlatewisc</td><td>glaciation status during the Late Wisconsin glaciation; Glaciated status is assigned if any part of the lake polygon is inside the glacial extent</td><td></td></tr>
+<tr><td>lake_nhdid</td><td>the unique Permanent_Identifier from the NHD for each LAGOS lake</td><td></td></tr>
+<tr><td>lake_nhdfcode</td><td>NHD five-digit integer code with feature code plus additional characteristics or values</td><td></td></tr>
+<tr><td>lake_nhdftype</td><td>NHD three-digit integer code providing a unique identifier of feature type for the waterbody</td><td></td></tr>
+<tr><td>lake_reachcode</td><td>reach code assigned to the water feature by the NHD</td><td></td></tr>
+<tr><td>lake_namegnis</td><td>lake name from the GNIS database</td><td></td></tr>
+<tr><td>lake_namelagos</td><td>lake name from a combination of data sources; examples are GNIS, WQP, etc.</td><td></td></tr>
+<tr><td>lake_onlandborder</td><td>flag indicating lake polygon is adjacent to or crosses the border with Canada or Mexico</td><td></td></tr>
+<tr><td>lake_ismultipart</td><td>flag indicating that the focal lake polygon is multipart</td><td></td></tr>
+<tr><td>lake_missingws</td><td>flag indicating that the WS for the lake was not delineated</td><td></td></tr>
+<tr><td>lake_shapeflag</td><td>flag indicating lake polygon shape is angular, either triangular or rectangular, or is elongate and very thin relative to length; respectively may indicate the lake is less likely to be natural in origin or is more riverine</td><td></td></tr>
+<tr><td>lake_lat_decdeg</td><td>latitude of centroid of the NHD lake polygon in decimal degrees; NAD83 projection</td><td>decimal degree</td></tr>
+<tr><td>lake_lon_decdeg</td><td>longitude of  centroid of the NHD lake polygon in decimal degrees; NAD83 projection</td><td>decimal degree</td></tr>
+<tr><td>lake_elevation_m</td><td>the elevation of the lake polygon centroid, in meters; referenced to the North American Vertical Datum of 1988 or NAVD88 and obtained from the National Elevation Dataset</td><td>meter</td></tr>
+<tr><td>lake_centroidstate</td><td>two-letter postal abbreviation of the state containing the lake centroid</td><td></td></tr>
+<tr><td>lake_states</td><td>two-letter postal abbreviations of all states intersecting the focal lake polygon</td><td></td></tr>
+<tr><td>lake_county</td><td>name of county containing the focal lake polygon centroid</td><td></td></tr>
+<tr><td>lake_countyfips</td><td>Federal Information Processing Standard, FIPS, code for the county containing the focal lake polygon centroid</td><td></td></tr>
+<tr><td>lake_huc12</td><td>the NHD code for the HUC12 containing the lake centroid</td><td></td></tr>
+<tr><td>buff100_zoneid</td><td>unique 100 m buffer identifier assigned by LAGOS-US; identifier is equivalent to the focal lake lagoslakeid</td><td></td></tr>
+<tr><td>buff500_zoneid</td><td>unique 500 m buffer identifier assigned by LAGOS-US; identifier is equivalent to the focal lake lagoslakeid</td><td></td></tr>
+<tr><td>ws_zoneid</td><td>unique WS watershed identifier assigned by LAGOS-US; identifier is equivalent to the focal lake lagoslakeid</td><td></td></tr>
+<tr><td>nws_zoneid</td><td>unique NWS watershed identifier assigned by LAGOS-US; identifier is equivalent to the focal lake lagoslakeid</td><td></td></tr>
+<tr><td>hu12_zoneid</td><td>unique identifier assigned by LAGOS-US for zones in the spatial division HU12</td><td></td></tr>
+<tr><td>hu8_zoneid</td><td>unique identifier assigned by LAGOS-US for zones in the spatial division HU8</td><td></td></tr>
+<tr><td>hu4_zoneid</td><td>unique identifier assigned by LAGOS-US for zones in the spatial division HU4</td><td></td></tr>
+<tr><td>county_zoneid</td><td>unique identifier assigned by LAGOS-US for zones in the spatial division county</td><td></td></tr>
+<tr><td>state_zoneid</td><td>unique identifier assigned by LAGOS-US for zones in the spatial division state</td><td></td></tr>
+<tr><td>epanutr_zoneid</td><td>unique identifier assigned by LAGOS-US for zones in the spatial division EPA Nutrient Ecoregions</td><td></td></tr>
+<tr><td>omernik3_zoneid</td><td>unique identifier assigned by LAGOS-US for zones in the spatial division Omernik Level III Ecoregions</td><td></td></tr>
+<tr><td>wwf_zoneid</td><td>unique identifier assigned by LAGOS-US for zones in the spatial division World Wildlife Fund ecoregions</td><td></td></tr>
+<tr><td>mlra_zoneid</td><td>unique identifier assigned by LAGOS-US for zones in the spatial division Major Land Areas</td><td></td></tr>
+<tr><td>bailey_zoneid</td><td>unique identifier assigned by LAGOS-US for zones in the spatial division Bailey’s Ecoregions</td><td></td></tr>
+<tr><td>neon_zoneid</td><td>unique identifier assigned by LAGOS-US for zones in the spatial division National Ecological Observation Network</td><td></td></tr>
 </table>
 
 

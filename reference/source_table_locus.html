@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>LAGOSUS Lake characteristics — lake_characteristics • LAGOSUS</title>
+<title>LAGOSUS Data sources — source_table_locus • LAGOSUS</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,11 +46,25 @@
 
 
 
-<meta property="og:title" content="LAGOSUS Lake characteristics — lake_characteristics" />
-<meta property="og:description" content="Includes derived metrics for each lake such as lake geometry (e.g., area,
-perimeter, shape metrics), lake connectivity (e.g., lake connectivity
-class, number of upstream lakes), and whether the lake is located within an
-area that was glaciated during the Late Wisconsin glaciation." />
+<meta property="og:title" content="LAGOSUS Data sources — source_table_locus" />
+<meta property="og:description" content="LAGOSUS Data sources
+
+Variable nameVariable descriptionUnits
+source_codea short codename used for the source dataset in LAGOS-US variables or metadata
+source_namethe name of the source dataset
+source_shortnamethe abbreviated name used to refer to the source dataset in LAGOS-US documentation
+source_descriptiona brief description of the source dataset
+source_providerthe provider of the source dataset (government agency, publication citation, etc.)
+source_citationthe citation for the source dataset, including the download link used to acquire the dataset at the time of LAGOS-US creation
+source_urlThe principal website associated with the source dataset. This may not be the same as the download URL included in the citation.
+source_metadata_urla website URL where metadata and data use guidance for the source dataset can be found
+source_spatial_resolutionthe spatial resolution of the source dataset, if applicable
+source_time_periodthe time period captured by the source dataset, if applicable
+source_access_datethe date(s) the source dataset was acquired for use in creating LAGOS-US
+source_data_typethe data value type contained in the source dataset, if applicable
+
+
+" />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -137,50 +151,32 @@ area that was glaciated during the Late Wisconsin glaciation." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>LAGOSUS Lake characteristics</h1>
+    <h1>LAGOSUS Data sources</h1>
     <small class="dont-index">Source: <a href='https://github.com/cont-limno/LAGOSUS/blob/master/R/LAGOSUS-package.R'><code>R/LAGOSUS-package.R</code></a></small>
-    <div class="hidden name"><code>lake_characteristics.Rd</code></div>
+    <div class="hidden name"><code>source_table_locus.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Includes derived metrics for each lake such as lake geometry (e.g., area,
-perimeter, shape metrics), lake connectivity (e.g., lake connectivity
-class, number of upstream lakes), and whether the lake is located within an
-area that was glaciated during the Late Wisconsin glaciation.</p>
-    </div>
-
-
-
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
-
-    
+    <p>LAGOSUS Data sources</p>
 <table class='table'>
 <tr><td><b>Variable name</b></td><td><b>Variable description</b></td><td><b>Units</b></td></tr>
-<tr><td>lagoslakeid</td><td>unique lake identifier developed by LAGOS-US</td><td></td></tr>
-<tr><td>lake_waterarea_ha</td><td>surface area of lake waterbody polygon from NHD comprised of open water; islands are excluded</td><td>hectare</td></tr>
-<tr><td>lake_totalarea_ha</td><td>total area of the lake waterbody polygon from the NHD; includes combined area of open water and any islands within the outer boundary</td><td>hectare</td></tr>
-<tr><td>lake_islandarea_ha</td><td>surface area of any islands contained within the outer boundary of the lake waterbody polygon from NHD</td><td>hectare</td></tr>
-<tr><td>lake_perimeter_m</td><td>perimeter of outer boundary of lake waterbody polygon from the NHD; excludes perimeter of any islands</td><td>meter</td></tr>
-<tr><td>lake_islandperimeter_m</td><td>perimeter of islands contained within the outer boundary of the lake waterbody polygon from the NHD</td><td>meter</td></tr>
-<tr><td>lake_shorelinedevfactor</td><td>shoreline development factor; calculated as lake_perimeter_m divided by the product of 2 times the square root of pi times lake_waterarea_ha</td><td></td></tr>
-<tr><td>lake_mbgconhull_length_m</td><td>the maximum possible distance between any two vertices of the minimum bounding geometry convex hull that encloses the lake polygon</td><td>meter</td></tr>
-<tr><td>lake_mbgconhull_width_m</td><td>the maximum width of the lake convex hull polygon along an axis perpendicular to the axis defined by the convex hull length</td><td>meter</td></tr>
-<tr><td>lake_mbgconhull_orientation_deg</td><td>orientation of the line defining the convex hull length; calculated as decimal degrees clockwise from north</td><td>degree</td></tr>
-<tr><td>lake_mbgrect_length_m</td><td>length of the minimum bounding geometry rectangle by area enclosing the lake polygon</td><td>meter</td></tr>
-<tr><td>lake_mbgrect_width_m</td><td>width of the minimum bounding geometry rectangle by area enclosing the lake polygon</td><td>meter</td></tr>
-<tr><td>lake_mbgrect_arearatio</td><td>ratio between lake_waterarea_ha converted to meters squared and the product of lake_mbgrect_length_m and lake_mbgrect_width_m; values near 1 indicate rectangular lake shape</td><td></td></tr>
-<tr><td>lake_meanwidth_m</td><td>mean width of the lake; calculated as lake_waterarea_ha converted to meters squared divided by lake_mbgconhull_length_m</td><td>meter</td></tr>
-<tr><td>lake_connectivity_class</td><td>maximum hydrologic connectivity class of the focal lake determined from the NHD network considering both permanent and intermittent-ephemeral flow</td><td></td></tr>
-<tr><td>lake_connectivity_fluctuates</td><td>indicates whether the lake connectivity classification depends on non-permanent flow</td><td></td></tr>
-<tr><td>lake_connectivity_permanent</td><td>hydrologic connectivity class of the focal lake determined from the NHD network considering only permanent flow</td><td></td></tr>
-<tr><td>lake_lakes1ha_upstream_ha</td><td>total area of lakes greater than or equal to 1 ha upstream of the focal lake, connected via surface streams</td><td>hectare</td></tr>
-<tr><td>lake_lakes4ha_upstream_ha</td><td>total area of lakes greater than or equal to 4 ha upstream of the focal lake, connected via surface streams</td><td>hectare</td></tr>
-<tr><td>lake_lakes10ha_upstream_ha</td><td>total area of lakes greater than or equal to 10 ha upstream of the focal lake, connected via surface streams</td><td>hectare</td></tr>
-<tr><td>lake_lakes1ha_upstream_n</td><td>count of lakes greater than or equal to 1 ha upstream of the focal lake, connected via surface streams</td><td>count</td></tr>
-<tr><td>lake_lakes4ha_upstream_n</td><td>count of lakes greater than or equal to 4 ha upstream of the focal lake, connected via surface streams</td><td>count</td></tr>
-<tr><td>lake_lakes10ha_upstream_n</td><td>count of lakes greater than or equal to 10 ha upstream of the focal lake, connected via surface streams</td><td>count</td></tr>
-<tr><td>lake_glaciatedlatewisc</td><td>glaciation status during the Late Wisconsin glaciation; Glaciated status is assigned if any part of the lake polygon is inside the glacial extent</td><td></td></tr>
+<tr><td>source_code</td><td>a short codename used for the source dataset in LAGOS-US variables or metadata</td><td></td></tr>
+<tr><td>source_name</td><td>the name of the source dataset</td><td></td></tr>
+<tr><td>source_shortname</td><td>the abbreviated name used to refer to the source dataset in LAGOS-US documentation</td><td></td></tr>
+<tr><td>source_description</td><td>a brief description of the source dataset</td><td></td></tr>
+<tr><td>source_provider</td><td>the provider of the source dataset (government agency, publication citation, etc.)</td><td></td></tr>
+<tr><td>source_citation</td><td>the citation for the source dataset, including the download link used to acquire the dataset at the time of LAGOS-US creation</td><td></td></tr>
+<tr><td>source_url</td><td>The principal website associated with the source dataset. This may not be the same as the download URL included in the citation.</td><td></td></tr>
+<tr><td>source_metadata_url</td><td>a website URL where metadata and data use guidance for the source dataset can be found</td><td></td></tr>
+<tr><td>source_spatial_resolution</td><td>the spatial resolution of the source dataset, if applicable</td><td></td></tr>
+<tr><td>source_time_period</td><td>the time period captured by the source dataset, if applicable</td><td></td></tr>
+<tr><td>source_access_date</td><td>the date(s) the source dataset was acquired for use in creating LAGOS-US</td><td></td></tr>
+<tr><td>source_data_type</td><td>the data value type contained in the source dataset, if applicable</td><td></td></tr>
 </table>
+
+
+    </div>
+
 
 
 
