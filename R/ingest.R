@@ -9,6 +9,10 @@
 #' lg <- lagos_ingest(
 #'  locus_version = "1.1",
 #'  locus_folder = "~/Downloads/LAGOS-US-LOCUS-EXPORT")
+#'
+#' lg <- lagos_ingest(
+#'  limno_version = "2.1",
+#'  limno_folder = "~/Downloads/LAGOSUS_LIMNO/US/LIMNO_v2.1/Final exports")
 #'}
 lagos_ingest <- function(locus_version = NA, locus_folder = NA,
                          limno_version = NA, limno_folder = NA,
@@ -62,6 +66,59 @@ lagos_ingest <- function(locus_version = NA, locus_folder = NA,
                   )
 
     return(locus)
+  }
+
+  if (!is.na(limno_folder)) {
+    # Importing LAGOS limno data ####
+
+    limno_dictionary <- load_lagos_txt(
+      list.files(limno_folder, pattern = "data_dictionary.*.csv",
+                 include.dirs = TRUE, full.names = TRUE),
+      na.strings = c(""), sep = ",")
+
+    limno_chemicalphysical <- load_lagos_txt(
+      list.files(limno_folder, pattern = "chemicalphysical",
+                 include.dirs = TRUE, full.names = TRUE),
+      sep = ",", dictionary = limno_dictionary)
+
+    # TODO: turn on the claritycarbon table if tss fields are in the dictionary
+    # limno_claritycarbon <- load_lagos_txt(
+    #   list.files(limno_folder, pattern = "claritycarbon",
+    #              include.dirs = TRUE, full.names = TRUE),
+    #   sep = ",", dictionary = limno_dictionary)
+
+    limno_contaminants <- load_lagos_txt(
+      list.files(limno_folder, pattern = "contaminants",
+                 include.dirs = TRUE, full.names = TRUE),
+      sep = ",", dictionary = limno_dictionary)
+
+    limno_information <- load_lagos_txt(
+      list.files(limno_folder, pattern = "information",
+                 include.dirs = TRUE, full.names = TRUE),
+      sep = ",", dictionary = limno_dictionary)
+
+    # TODO: turn on the nutrientsalgae table if microcystin fields are in the dictionary
+    # limno_nutrientsalgae <- load_lagos_txt(
+    #   list.files(limno_folder, pattern = "nutrientsalgae",
+    #              include.dirs = TRUE, full.names = TRUE),
+    #   sep = ",", dictionary = limno_dictionary)
+
+    limno_source <- load_lagos_txt(
+      list.files(limno_folder, pattern = "source_table",
+                 include.dirs = TRUE, full.names = TRUE),
+      sep = ",", dictionary = limno_dictionary)
+
+
+    limno <- list(site_chemicalphysical = limno_chemicalphysical,
+                  # site_claritycarbon = limno_claritycarbon,
+                  site_contaminants = limno_contaminants,
+                  site_information = limno_information,
+                  # site_nutrientsalgae = limno_nutrientsalgae,
+                  data_dictionary_limno = limno_dictionary,
+                  source_table_limno = limno_source
+    )
+
+    return(limno)
   }
 
   if (!is.na(depth_folder)) {

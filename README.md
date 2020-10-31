@@ -57,8 +57,10 @@ has a unique version number.
 library(LAGOSUS)
 
 lagosus_compile(
-  locus_version = "1.1",
-  locus_folder = "~/Downloads/LAGOSUS_LOCUS/LOCUS_v1.1",
+  locus_version = "1.0",
+  locus_folder = "~/Downloads/LAGOSUS_LOCUS/LOCUS_v1.0",
+  limno_version = "2.1",
+  limno_folder = "~/Downloads/LAGOSUS_LIMNO/US/LIMNO_v2.1/Final exports",
   depth_version = "0.1",
   depth_folder = "~/Downloads/LAGOSUS_DEPTH/DEPTH_v0.1", 
   dest_folder = lagosus_path())
@@ -79,30 +81,20 @@ objects. Use the `names()` function to see a list of available data
 frames `names(lg)`.
 
 ``` r
-lg <- lagosus_load(modules = c("locus", "depth"))
+lg <- lagosus_load(modules = c("locus", "limno", "depth"))
 names(lg)
 ```
 
 <!-- ```{r load_data_cached, eval=FALSE, echo=FALSE} -->
-
 <!-- dt <- readRDS(system.file("lagos_test_subset.rds", package = "LAGOSUS")) -->
-
 <!-- names(dt) -->
-
 <!-- ``` -->
-
 <!-- #### Locate tables containing a variable  -->
-
 <!-- ```{r eval=FALSE} -->
-
 <!-- query_lagos_names("secchi") -->
-
 <!-- ``` -->
-
 <!-- ```{r echo=FALSE, eval=FALSE} -->
-
 <!-- query_lagos_names("secchi", dt = dt) -->
-
 <!-- ``` -->
 
 #### Preview a table
@@ -136,21 +128,13 @@ query_lagos_names("ws_meanwidth", dt = lg)
 ```
 
 <!-- ```{r load printr, echo=FALSE,message=FALSE,results='hide', eval=FALSE} -->
-
 <!-- loadNamespace("printr") -->
-
 <!-- ``` -->
-
 <!-- ```{r Read metadata for individual tables, eval=FALSE} -->
-
 <!-- help.search("datasets", package = "LAGOSUS") -->
-
 <!-- ``` -->
-
 <!-- ```{r unload printr, echo=FALSE, eval=FALSE} -->
-
 <!-- unloadNamespace("printr") -->
-
 <!-- ``` -->
 
 ## Legacy Versions

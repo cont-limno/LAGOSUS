@@ -13,30 +13,30 @@ area that was glaciated during the Late Wisconsin glaciation.
 \details{
 \tabular{lll}{
 \bold{Variable name} \tab \bold{Variable description} \tab \bold{Units} \cr
-lagoslakeid                     \tab unique lake identifier developed by LAGOS-US                                                                                                                                 \tab        \cr
+lagoslakeid                     \tab unique lake identifier developed by LAGOS-US                                                                                                                                 \tab NULL   \cr
 lake_waterarea_ha               \tab surface area of lake waterbody polygon from NHD comprised of open water; islands are excluded                                                                                \tab hectare\cr
 lake_totalarea_ha               \tab total area of the lake waterbody polygon from the NHD; includes combined area of open water and any islands within the outer boundary                                        \tab hectare\cr
 lake_islandarea_ha              \tab surface area of any islands contained within the outer boundary of the lake waterbody polygon from NHD                                                                       \tab hectare\cr
 lake_perimeter_m                \tab perimeter of outer boundary of lake waterbody polygon from the NHD; excludes perimeter of any islands                                                                        \tab meter  \cr
 lake_islandperimeter_m          \tab perimeter of islands contained within the outer boundary of the lake waterbody polygon from the NHD                                                                          \tab meter  \cr
-lake_shorelinedevfactor         \tab shoreline development factor; calculated as lake_perimeter_m divided by the product of 2 times the square root of pi times lake_waterarea_ha                                 \tab        \cr
+lake_shorelinedevfactor         \tab shoreline development factor; calculated as lake_perimeter_m divided by the product of 2 times the square root of pi times lake_waterarea_ha                                 \tab NULL   \cr
 lake_mbgconhull_length_m        \tab the maximum possible distance between any two vertices of the minimum bounding geometry convex hull that encloses the lake polygon                                           \tab meter  \cr
 lake_mbgconhull_width_m         \tab the maximum width of the lake convex hull polygon along an axis perpendicular to the axis defined by the convex hull length                                                  \tab meter  \cr
 lake_mbgconhull_orientation_deg \tab orientation of the line defining the convex hull length; calculated as decimal degrees clockwise from north                                                                  \tab degree \cr
 lake_mbgrect_length_m           \tab length of the minimum bounding geometry rectangle by area enclosing the lake polygon                                                                                         \tab meter  \cr
 lake_mbgrect_width_m            \tab width of the minimum bounding geometry rectangle by area enclosing the lake polygon                                                                                          \tab meter  \cr
-lake_mbgrect_arearatio          \tab ratio between lake_waterarea_ha converted to meters squared and the product of lake_mbgrect_length_m and lake_mbgrect_width_m; values near 1 indicate rectangular lake shape \tab        \cr
+lake_mbgrect_arearatio          \tab ratio between lake_waterarea_ha converted to meters squared and the product of lake_mbgrect_length_m and lake_mbgrect_width_m; values near 1 indicate rectangular lake shape \tab NULL   \cr
 lake_meanwidth_m                \tab mean width of the lake; calculated as lake_waterarea_ha converted to meters squared divided by lake_mbgconhull_length_m                                                      \tab meter  \cr
-lake_connectivity_class         \tab maximum hydrologic connectivity class of the focal lake determined from the NHD network considering both permanent and intermittent-ephemeral flow                           \tab        \cr
-lake_connectivity_fluctuates    \tab indicates whether the lake connectivity classification depends on non-permanent flow                                                                                         \tab        \cr
-lake_connectivity_permanent     \tab hydrologic connectivity class of the focal lake determined from the NHD network considering only permanent flow                                                              \tab        \cr
+lake_connectivity_class         \tab maximum hydrologic connectivity class of the focal lake determined from the NHD network considering both permanent and intermittent-ephemeral flow                           \tab NULL   \cr
+lake_connectivity_fluctuates    \tab indicates whether the lake connectivity classification depends on non-permanent flow                                                                                         \tab NULL   \cr
+lake_connectivity_permanent     \tab hydrologic connectivity class of the focal lake determined from the NHD network considering only permanent flow                                                              \tab NULL   \cr
 lake_lakes1ha_upstream_ha       \tab total area of lakes greater than or equal to 1 ha upstream of the focal lake, connected via surface streams                                                                  \tab hectare\cr
 lake_lakes4ha_upstream_ha       \tab total area of lakes greater than or equal to 4 ha upstream of the focal lake, connected via surface streams                                                                  \tab hectare\cr
 lake_lakes10ha_upstream_ha      \tab total area of lakes greater than or equal to 10 ha upstream of the focal lake, connected via surface streams                                                                 \tab hectare\cr
 lake_lakes1ha_upstream_n        \tab count of lakes greater than or equal to 1 ha upstream of the focal lake, connected via surface streams                                                                       \tab count  \cr
 lake_lakes4ha_upstream_n        \tab count of lakes greater than or equal to 4 ha upstream of the focal lake, connected via surface streams                                                                       \tab count  \cr
 lake_lakes10ha_upstream_n       \tab count of lakes greater than or equal to 10 ha upstream of the focal lake, connected via surface streams                                                                      \tab count  \cr
-lake_glaciatedlatewisc          \tab glaciation status during the Late Wisconsin glaciation; Glaciated status is assigned if any part of the lake polygon is inside the glacial extent                            \tab
+lake_glaciatedlatewisc          \tab glaciation status during the Late Wisconsin glaciation; Glaciated status is assigned if any part of the lake polygon is inside the glacial extent                            \tab NULL
 }
 }
 \keyword{datasets}

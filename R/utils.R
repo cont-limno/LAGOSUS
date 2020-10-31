@@ -39,9 +39,9 @@ load_lagos_txt <- function(file_name, sep = "\t", dictionary = NA, ...){
                     stringr::str_extract(basename(file_name), "^.*(?=.csv)"))
 
     colClasses_key <- data.frame(
-      data_type = c("char", "factor", "int", "numeric"),
-      r_type = c("character", "factor", "integer", "numeric"),
-      readr_type = c("c", "f", "i", "d"),
+      data_type = c("char", "factor", "int", "numeric", "date"),
+      r_type = c("character", "factor", "integer", "numeric", "character"),
+      readr_type = c("c", "f", "i", "d", "c"),
       stringsAsFactors = FALSE)
     colClasses     <- data.frame(variable_name = names(res),
                              stringsAsFactors = FALSE) %>%
@@ -51,6 +51,14 @@ load_lagos_txt <- function(file_name, sep = "\t", dictionary = NA, ...){
                        by = "data_type") %>%
       dplyr::pull(.data$r_type)
     colClasses <- setNames(colClasses, names(res))
+
+    if(any(is.na(colClasses))){
+      stop(
+        paste0("Mismatch between the data dictionary and ",
+        paste0(names(colClasses[is.na(colClasses)]), collapse = ", "),
+        " in ", file_name)
+        )
+    }
 
     res <- res %>%
       dplyr::mutate(
@@ -366,15 +374,16 @@ tabular <- function(df, ...) {
 }
 
 # get_table_metadata("depth", "depth")
+# get_table_metadata("limno", "site_chemicalphysical")
 #' @importFrom snakecase to_any_case
 get_table_metadata <- function(module_name_, table_name_){
-  # module_name_ <- "locus"
-  # table_name_ <- "lake_characteristics"
+  # module_name_ <- "limno"
+  # table_name_ <- "site_chemicalphysical"
   lg          <- lagosus_load(modules = c(module_name_))
   dt_raw      <- lg[[module_name_]]
   dt_raw      <- dt_raw[[grep("dictionary", names(dt_raw))]]
 
-  dt <- dt_raw[dt_raw$table_name == {{table_name_}},] %>%
+  dt <- dt_raw[stringr::str_detect(dt_raw$table_name, table_name_),] %>%
     dplyr::select("variable_name", "variable_description", "units")
   dt <- setNames(dt,
                  snakecase::to_any_case(names(dt), "sentence"))

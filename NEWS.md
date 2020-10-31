@@ -1,3 +1,11 @@
+# LAGOSUS 0.0.3
+
+## MODULE UPDATES
+
+ * Added support for the LIMNO module
+ 
+ * Rolled back mistaken default version of LOCUS from 1.1 to 1.0
+
 # LAGOSUS 0.0.2
 
 ## MODULE UPDATES

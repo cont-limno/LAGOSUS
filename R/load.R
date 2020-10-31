@@ -54,7 +54,7 @@ lagosus_load <- function(modules = NULL,
   # assign defaults and message if length == 0
   if (length(versions) == 0) {
     versions <- dplyr::pull(
-      dplyr::filter(lagosus_version(), modules == modules_query),
+      dplyr::filter(lagosus_version(), modules %in% modules_query),
       versions)
 
     if("defaults" %in% names(lagosus_version())){
@@ -89,6 +89,15 @@ lagosus_load <- function(modules = NULL,
                                    ".qs"))
     locus <- qs::qread(locus_path)
     res[["locus"]] <- locus
+  }
+
+  if("limno" %in% modules_query){
+    limno_path <- file.path(fpath,
+                            paste0("limno_",
+                                   versions[which(modules_query == "limno")],
+                                   ".qs"))
+    limno <- qs::qread(limno_path)
+    res[["limno"]] <- limno
   }
 
   if("depth" %in% modules_query){

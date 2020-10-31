@@ -40,5 +40,9 @@ Ingest LAGOSUS data from component flat files
 lg <- lagos_ingest(
  locus_version = "1.1",
  locus_folder = "~/Downloads/LAGOS-US-LOCUS-EXPORT")
+
+lg <- lagos_ingest(
+ limno_version = "2.1",
+ limno_folder = "~/Downloads/LAGOSUS_LIMNO/US/LIMNO_v2.1/Final exports")
 }
 }

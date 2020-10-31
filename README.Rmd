@@ -41,8 +41,10 @@ Files are "compiled" to an `R` data format in the location specified by the `des
 library(LAGOSUS)
 
 lagosus_compile(
-  locus_version = "1.1",
-  locus_folder = "~/Downloads/LAGOSUS_LOCUS/LOCUS_v1.1",
+  locus_version = "1.0",
+  locus_folder = "~/Downloads/LAGOSUS_LOCUS/LOCUS_v1.0",
+  limno_version = "2.1",
+  limno_folder = "~/Downloads/LAGOSUS_LIMNO/US/LIMNO_v2.1/Final exports",
   depth_version = "0.1",
   depth_folder = "~/Downloads/LAGOSUS_DEPTH/DEPTH_v0.1", 
   dest_folder = lagosus_path())
@@ -62,7 +64,7 @@ The `lagosus_load` function returns a named list of `data.frame` objects.
 Use the `names()` function to see a list of available data frames `names(lg)`.
 
 ```{r load_data, eval=FALSE}
-lg <- lagosus_load(modules = c("locus", "depth"))
+lg <- lagosus_load(modules = c("locus", "limno", "depth"))
 names(lg)
 ```
 

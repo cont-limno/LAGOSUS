@@ -34,7 +34,7 @@ NULL
 lagosus_version <- function(){
   res_defaults <- data.frame(
     modules = c("locus", "limno", "geo", "depth"),
-    versions = c("1.1","0","0","0.1"),
+    versions = c("1.0","2.1","0","0.1"),
     stringsAsFactors = FALSE)
 
   env_vars <- Sys.getenv(
@@ -118,6 +118,42 @@ NULL
 #' @eval get_table_metadata("locus", "source_table_locus")
 #'
 #' @name source_table_locus
+#' @docType data
+#' @keywords datasets
+NULL
+
+#' LAGOSUS Chemical and physical data
+#'
+#' @eval get_table_metadata("limno", "site_chemicalphysical")
+#'
+#' @name site_chemicalphysical
+#' @docType data
+#' @keywords datasets
+NULL
+
+#' LAGOSUS Contaminant data
+#'
+#' @eval get_table_metadata("limno", "site_contaminants")
+#'
+#' @name site_contaminants
+#' @docType data
+#' @keywords datasets
+NULL
+
+#' LAGOSUS LIMNO information
+#'
+#' @eval get_table_metadata("limno", "site_information")
+#'
+#' @name site_information
+#' @docType data
+#' @keywords datasets
+NULL
+
+#' LAGOSUS LIMNO Data sources
+#'
+#' @eval get_table_metadata("limno", "source_table_limno")
+#'
+#' @name source_table_limno
 #' @docType data
 #' @keywords datasets
 NULL
