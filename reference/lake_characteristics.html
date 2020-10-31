@@ -83,7 +83,7 @@ area that was glaciated during the Late Wisconsin glaciation." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">LAGOSUS</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.3</span>
       </span>
     </div>
 
@@ -156,30 +156,30 @@ area that was glaciated during the Late Wisconsin glaciation.</p>
     
 <table class='table'>
 <tr><td><b>Variable name</b></td><td><b>Variable description</b></td><td><b>Units</b></td></tr>
-<tr><td>lagoslakeid</td><td>unique lake identifier developed by LAGOS-US</td><td></td></tr>
+<tr><td>lagoslakeid</td><td>unique lake identifier developed by LAGOS-US</td><td>NULL</td></tr>
 <tr><td>lake_waterarea_ha</td><td>surface area of lake waterbody polygon from NHD comprised of open water; islands are excluded</td><td>hectare</td></tr>
 <tr><td>lake_totalarea_ha</td><td>total area of the lake waterbody polygon from the NHD; includes combined area of open water and any islands within the outer boundary</td><td>hectare</td></tr>
 <tr><td>lake_islandarea_ha</td><td>surface area of any islands contained within the outer boundary of the lake waterbody polygon from NHD</td><td>hectare</td></tr>
 <tr><td>lake_perimeter_m</td><td>perimeter of outer boundary of lake waterbody polygon from the NHD; excludes perimeter of any islands</td><td>meter</td></tr>
 <tr><td>lake_islandperimeter_m</td><td>perimeter of islands contained within the outer boundary of the lake waterbody polygon from the NHD</td><td>meter</td></tr>
-<tr><td>lake_shorelinedevfactor</td><td>shoreline development factor; calculated as lake_perimeter_m divided by the product of 2 times the square root of pi times lake_waterarea_ha</td><td></td></tr>
+<tr><td>lake_shorelinedevfactor</td><td>shoreline development factor; calculated as lake_perimeter_m divided by the product of 2 times the square root of pi times lake_waterarea_ha</td><td>NULL</td></tr>
 <tr><td>lake_mbgconhull_length_m</td><td>the maximum possible distance between any two vertices of the minimum bounding geometry convex hull that encloses the lake polygon</td><td>meter</td></tr>
 <tr><td>lake_mbgconhull_width_m</td><td>the maximum width of the lake convex hull polygon along an axis perpendicular to the axis defined by the convex hull length</td><td>meter</td></tr>
 <tr><td>lake_mbgconhull_orientation_deg</td><td>orientation of the line defining the convex hull length; calculated as decimal degrees clockwise from north</td><td>degree</td></tr>
 <tr><td>lake_mbgrect_length_m</td><td>length of the minimum bounding geometry rectangle by area enclosing the lake polygon</td><td>meter</td></tr>
 <tr><td>lake_mbgrect_width_m</td><td>width of the minimum bounding geometry rectangle by area enclosing the lake polygon</td><td>meter</td></tr>
-<tr><td>lake_mbgrect_arearatio</td><td>ratio between lake_waterarea_ha converted to meters squared and the product of lake_mbgrect_length_m and lake_mbgrect_width_m; values near 1 indicate rectangular lake shape</td><td></td></tr>
+<tr><td>lake_mbgrect_arearatio</td><td>ratio between lake_waterarea_ha converted to meters squared and the product of lake_mbgrect_length_m and lake_mbgrect_width_m; values near 1 indicate rectangular lake shape</td><td>NULL</td></tr>
 <tr><td>lake_meanwidth_m</td><td>mean width of the lake; calculated as lake_waterarea_ha converted to meters squared divided by lake_mbgconhull_length_m</td><td>meter</td></tr>
-<tr><td>lake_connectivity_class</td><td>maximum hydrologic connectivity class of the focal lake determined from the NHD network considering both permanent and intermittent-ephemeral flow</td><td></td></tr>
-<tr><td>lake_connectivity_fluctuates</td><td>indicates whether the lake connectivity classification depends on non-permanent flow</td><td></td></tr>
-<tr><td>lake_connectivity_permanent</td><td>hydrologic connectivity class of the focal lake determined from the NHD network considering only permanent flow</td><td></td></tr>
+<tr><td>lake_connectivity_class</td><td>maximum hydrologic connectivity class of the focal lake determined from the NHD network considering both permanent and intermittent-ephemeral flow</td><td>NULL</td></tr>
+<tr><td>lake_connectivity_fluctuates</td><td>indicates whether the lake connectivity classification depends on non-permanent flow</td><td>NULL</td></tr>
+<tr><td>lake_connectivity_permanent</td><td>hydrologic connectivity class of the focal lake determined from the NHD network considering only permanent flow</td><td>NULL</td></tr>
 <tr><td>lake_lakes1ha_upstream_ha</td><td>total area of lakes greater than or equal to 1 ha upstream of the focal lake, connected via surface streams</td><td>hectare</td></tr>
 <tr><td>lake_lakes4ha_upstream_ha</td><td>total area of lakes greater than or equal to 4 ha upstream of the focal lake, connected via surface streams</td><td>hectare</td></tr>
 <tr><td>lake_lakes10ha_upstream_ha</td><td>total area of lakes greater than or equal to 10 ha upstream of the focal lake, connected via surface streams</td><td>hectare</td></tr>
 <tr><td>lake_lakes1ha_upstream_n</td><td>count of lakes greater than or equal to 1 ha upstream of the focal lake, connected via surface streams</td><td>count</td></tr>
 <tr><td>lake_lakes4ha_upstream_n</td><td>count of lakes greater than or equal to 4 ha upstream of the focal lake, connected via surface streams</td><td>count</td></tr>
 <tr><td>lake_lakes10ha_upstream_n</td><td>count of lakes greater than or equal to 10 ha upstream of the focal lake, connected via surface streams</td><td>count</td></tr>
-<tr><td>lake_glaciatedlatewisc</td><td>glaciation status during the Late Wisconsin glaciation; Glaciated status is assigned if any part of the lake polygon is inside the glacial extent</td><td></td></tr>
+<tr><td>lake_glaciatedlatewisc</td><td>glaciation status during the Late Wisconsin glaciation; Glaciated status is assigned if any part of the lake polygon is inside the glacial extent</td><td>NULL</td></tr>
 </table>
 
 

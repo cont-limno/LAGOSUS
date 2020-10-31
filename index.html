@@ -40,7 +40,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">LAGOSUS</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.3</span>
       </span>
     </div>
 
@@ -116,8 +116,10 @@
 <div class="sourceCode" id="cb2"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">LAGOSUS</span>)
 
 <span class="fu"><a href="reference/lagosus_compile.html">lagosus_compile</a></span>(
-  <span class="kw">locus_version</span> <span class="kw">=</span> <span class="st">"1.1"</span>,
-  <span class="kw">locus_folder</span> <span class="kw">=</span> <span class="st">"~/Downloads/LAGOSUS_LOCUS/LOCUS_v1.1"</span>,
+  <span class="kw">locus_version</span> <span class="kw">=</span> <span class="st">"1.0"</span>,
+  <span class="kw">locus_folder</span> <span class="kw">=</span> <span class="st">"~/Downloads/LAGOSUS_LOCUS/LOCUS_v1.0"</span>,
+  <span class="kw">limno_version</span> <span class="kw">=</span> <span class="st">"2.1"</span>,
+  <span class="kw">limno_folder</span> <span class="kw">=</span> <span class="st">"~/Downloads/LAGOSUS_LIMNO/US/LIMNO_v2.1/Final exports"</span>,
   <span class="kw">depth_version</span> <span class="kw">=</span> <span class="st">"0.1"</span>,
   <span class="kw">depth_folder</span> <span class="kw">=</span> <span class="st">"~/Downloads/LAGOSUS_DEPTH/DEPTH_v0.1"</span>,
   <span class="kw">dest_folder</span> <span class="kw">=</span> <span class="fu"><a href="reference/lagosus_path.html">lagosus_path</a></span>())</pre></div>
@@ -135,7 +137,7 @@
 <h3 class="hasAnchor">
 <a href="#load-data" class="anchor"></a>Load data</h3>
 <p>The <code>lagosus_load</code> function returns a named list of <code>data.frame</code> objects. Use the <code><a href="https://rdrr.io/r/base/names.html">names()</a></code> function to see a list of available data frames <code><a href="https://rdrr.io/r/base/names.html">names(lg)</a></code>.</p>
-<div class="sourceCode" id="cb4"><pre class="r"><span class="no">lg</span> <span class="kw">&lt;-</span> <span class="fu"><a href="reference/lagosus_load.html">lagosus_load</a></span>(<span class="kw">modules</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"locus"</span>, <span class="st">"depth"</span>))
+<div class="sourceCode" id="cb4"><pre class="r"><span class="no">lg</span> <span class="kw">&lt;-</span> <span class="fu"><a href="reference/lagosus_load.html">lagosus_load</a></span>(<span class="kw">modules</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"locus"</span>, <span class="st">"limno"</span>, <span class="st">"depth"</span>))
 <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span>(<span class="no">lg</span>)</pre></div>
 <!-- ```{r load_data_cached, eval=FALSE, echo=FALSE} -->
 <!-- dt <- readRDS(system.file("lagos_test_subset.rds", package = "LAGOSUS")) -->
