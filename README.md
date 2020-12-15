@@ -53,6 +53,8 @@ Data only needs to be downloaded one time per version per machine. Each
 [module](https://cont-limno.github.io/LAGOSUS/articles/lagosus_structure.html)
 has a unique version number.
 
+<!-- dir("../../../Downloads/") -->
+
 ``` r
 library(LAGOSUS)
 
@@ -86,15 +88,25 @@ names(lg)
 ```
 
 <!-- ```{r load_data_cached, eval=FALSE, echo=FALSE} -->
+
 <!-- dt <- readRDS(system.file("lagos_test_subset.rds", package = "LAGOSUS")) -->
+
 <!-- names(dt) -->
+
 <!-- ``` -->
+
 <!-- #### Locate tables containing a variable  -->
+
 <!-- ```{r eval=FALSE} -->
+
 <!-- query_lagos_names("secchi") -->
+
 <!-- ``` -->
+
 <!-- ```{r echo=FALSE, eval=FALSE} -->
+
 <!-- query_lagos_names("secchi", dt = dt) -->
+
 <!-- ``` -->
 
 #### Preview a table
@@ -128,13 +140,21 @@ query_lagos_names("ws_meanwidth", dt = lg)
 ```
 
 <!-- ```{r load printr, echo=FALSE,message=FALSE,results='hide', eval=FALSE} -->
+
 <!-- loadNamespace("printr") -->
+
 <!-- ``` -->
+
 <!-- ```{r Read metadata for individual tables, eval=FALSE} -->
+
 <!-- help.search("datasets", package = "LAGOSUS") -->
+
 <!-- ``` -->
+
 <!-- ```{r unload printr, echo=FALSE, eval=FALSE} -->
+
 <!-- unloadNamespace("printr") -->
+
 <!-- ``` -->
 
 ## Legacy Versions

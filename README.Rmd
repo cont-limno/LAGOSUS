@@ -37,6 +37,7 @@ Until the LAGOS-US datasets have been made available in a public repository, LAG
 
 Files are "compiled" to an `R` data format in the location specified by the `dest_folder` argument. Recommended setting is `lagosus_path()`. Data only needs to be downloaded one time per version per machine. Each `LAGOSUS` [module](https://cont-limno.github.io/LAGOSUS/articles/lagosus_structure.html) has a unique version number. 
 
+<!-- dir("../../../Downloads/") -->
 ```{r eval=FALSE}
 library(LAGOSUS)
 
