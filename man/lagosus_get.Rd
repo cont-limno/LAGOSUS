@@ -45,8 +45,8 @@ lagosus_get(
 
 \item{depth_overwrite}{logical overwrite existing data?}
 
-\item{dest_folder}{file.path optional will default to the location returned
-by \code{\link[rappdirs]{user_data_dir}}}
+\item{dest_folder}{file.path recommended to set as the path returned by
+\code{\link[LAGOSUS]{lagosus_path}}}
 }
 \description{
 Retrieve LAGOSNE flat files from EDI.
