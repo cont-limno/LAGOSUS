@@ -6,13 +6,20 @@
 #' @importFrom utils read.table
 #' @importFrom progress progress_bar
 #' @examples \dontrun{
+#' download_path <- "~/"
+#' # download_path <- "../../../"
+#'
 #' lg <- lagos_ingest(
-#'  locus_version = "1.1",
-#'  locus_folder = "~/Downloads/LAGOS-US-LOCUS-EXPORT")
+#'  locus_version = "1.0",
+#'  locus_folder = paste0(download_path, "Downloads/LOCUS_v1.0"))
 #'
 #' lg <- lagos_ingest(
 #'  limno_version = "2.1",
-#'  limno_folder = "~/Downloads/LAGOSUS_LIMNO/US/LIMNO_v2.1/Final exports")
+#'  limno_folder = paste0(download_path, "Downloads/LIMNO_v2.1/Final exports"))
+#'
+#' lg <- lagos_ingest(
+#'  depth_version = "0.1",
+#'  depth_folder = paste0(download_path, "Downloads/DEPTH_v0.1"))
 #'}
 lagos_ingest <- function(locus_version = NA, locus_folder = NA,
                          limno_version = NA, limno_folder = NA,
@@ -28,7 +35,7 @@ lagos_ingest <- function(locus_version = NA, locus_folder = NA,
     # Importing LAGOS locus data ####
 
     locus_dictionary <- load_lagos_txt(
-      list.files(locus_folder, pattern = "data_dictionary.*.csv",
+      list.files(locus_folder, pattern = "data_dictionary_locus.csv",
                  include.dirs = TRUE, full.names = TRUE),
       na.strings = c(""), sep = ",")
 
@@ -72,14 +79,14 @@ lagos_ingest <- function(locus_version = NA, locus_folder = NA,
     # Importing LAGOS limno data ####
 
     limno_dictionary <- load_lagos_txt(
-      list.files(limno_folder, pattern = "data_dictionary.*.csv",
+      file_name = list.files(limno_folder, pattern = "data_dictionary*",
                  include.dirs = TRUE, full.names = TRUE),
       na.strings = c(""), sep = ",")
 
-    limno_chemicalphysical <- load_lagos_txt(
-      list.files(limno_folder, pattern = "chemicalphysical",
-                 include.dirs = TRUE, full.names = TRUE),
-      sep = ",", dictionary = limno_dictionary)
+    # limno_chemicalphysical <- load_lagos_txt(
+    #   list.files(limno_folder, pattern = "chemicalphysical",
+    #              include.dirs = TRUE, full.names = TRUE),
+    #   sep = ",", dictionary = limno_dictionary)
 
     # TODO: turn on the claritycarbon table if tss fields are in the dictionary
     # limno_claritycarbon <- load_lagos_txt(
@@ -87,8 +94,9 @@ lagos_ingest <- function(locus_version = NA, locus_folder = NA,
     #              include.dirs = TRUE, full.names = TRUE),
     #   sep = ",", dictionary = limno_dictionary)
 
+    browser()
     limno_contaminants <- load_lagos_txt(
-      list.files(limno_folder, pattern = "contaminants",
+      list.files(limno_folder, pattern = "*contaminants_epi.csv",
                  include.dirs = TRUE, full.names = TRUE),
       sep = ",", dictionary = limno_dictionary)
 
@@ -109,7 +117,8 @@ lagos_ingest <- function(locus_version = NA, locus_folder = NA,
       sep = ",", dictionary = limno_dictionary)
 
 
-    limno <- list(site_chemicalphysical = limno_chemicalphysical,
+    limno <- list(
+                  # site_chemicalphysical = limno_chemicalphysical,
                   # site_claritycarbon = limno_claritycarbon,
                   site_contaminants = limno_contaminants,
                   site_information = limno_information,
