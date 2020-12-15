@@ -30,6 +30,7 @@ Imports: dplyr (>= 0.8.99),
     qs,
     snakecase
 Suggests: testthat,
+    withr,
     knitr,
     rmarkdown,
     devtools,
