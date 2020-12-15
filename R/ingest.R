@@ -83,10 +83,10 @@ lagos_ingest <- function(locus_version = NA, locus_folder = NA,
                  include.dirs = TRUE, full.names = TRUE),
       na.strings = c(""), sep = ",")
 
-    # limno_chemicalphysical <- load_lagos_txt(
-    #   list.files(limno_folder, pattern = "chemicalphysical",
-    #              include.dirs = TRUE, full.names = TRUE),
-    #   sep = ",", dictionary = limno_dictionary)
+    limno_chemicalphysical <- load_lagos_txt(
+      list.files(limno_folder, pattern = "chemicalphysical",
+                 include.dirs = TRUE, full.names = TRUE),
+      sep = ",", dictionary = limno_dictionary)
 
     # TODO: turn on the claritycarbon table if tss fields are in the dictionary
     # limno_claritycarbon <- load_lagos_txt(
@@ -94,7 +94,6 @@ lagos_ingest <- function(locus_version = NA, locus_folder = NA,
     #              include.dirs = TRUE, full.names = TRUE),
     #   sep = ",", dictionary = limno_dictionary)
 
-    browser()
     limno_contaminants <- load_lagos_txt(
       list.files(limno_folder, pattern = "*contaminants_epi.csv",
                  include.dirs = TRUE, full.names = TRUE),
@@ -118,7 +117,7 @@ lagos_ingest <- function(locus_version = NA, locus_folder = NA,
 
 
     limno <- list(
-                  # site_chemicalphysical = limno_chemicalphysical,
+                  site_chemicalphysical = limno_chemicalphysical,
                   # site_claritycarbon = limno_claritycarbon,
                   site_contaminants = limno_contaminants,
                   site_information = limno_information,

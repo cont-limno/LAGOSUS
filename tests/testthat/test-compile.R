@@ -11,3 +11,17 @@ test_that("locus compile works", {
 
   expect_true(file.exists("locus_1.0.qs"))
 })
+
+test_that("limno compile works", {
+  # Only test lagosus_compile manually via: `test(filter = "compile")`
+  skip_on_ci()
+  skip_on_cran()
+
+  lagosus_compile(
+    limno_version = "2.1",
+    limno_folder = "~/Downloads/LAGOSUS_LIMNO/US/LIMNO_v2.1/Final exports",
+    limno_overwrite = TRUE,
+    dest_folder = ".")
+
+  expect_true(file.exists("limno_2.1.qs"))
+})
