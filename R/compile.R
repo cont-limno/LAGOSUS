@@ -16,8 +16,8 @@
 #'@param depth_version character LAGOSUS database version string
 #'@param depth_folder file.path to depth export folder
 #'@param depth_overwrite logical overwrite existing data?
-#'@param dest_folder file.path optional will default to the location returned
-#'by \code{\link[rappdirs]{user_data_dir}}
+#'@param dest_folder file.path recommended to set as the path returned by
+#' \code{\link[LAGOSUS]{lagosus_path}}
 #'
 #'@importFrom utils read.table
 #'@importFrom rappdirs user_data_dir

@@ -52,7 +52,7 @@ lagos_ingest <- function(locus_version = NA, locus_folder = NA,
     locus_watersheds <- load_lagos_txt(
       list.files(locus_folder, pattern = "watersheds.csv",
                  include.dirs = TRUE, full.names = TRUE),
-      sep = ",", dictionary = locus_dictionary)
+      sep = ",", na.strings = "NULL", dictionary = locus_dictionary)
 
     locus_information <- load_lagos_txt(
       list.files(locus_folder, pattern = "information.csv",
