@@ -37,12 +37,19 @@ Ingest LAGOSUS data from component flat files
 }
 \examples{
 \dontrun{
+download_path <- "~/"
+# download_path <- "../../../"
+
 lg <- lagos_ingest(
- locus_version = "1.1",
- locus_folder = "~/Downloads/LAGOS-US-LOCUS-EXPORT")
+ locus_version = "1.0",
+ locus_folder = paste0(download_path, "Downloads/LOCUS_v1.0"))
 
 lg <- lagos_ingest(
  limno_version = "2.1",
- limno_folder = "~/Downloads/LAGOSUS_LIMNO/US/LIMNO_v2.1/Final exports")
+ limno_folder = paste0(download_path, "Downloads/LIMNO_v2.1/Final exports"))
+
+lg <- lagos_ingest(
+ depth_version = "0.1",
+ depth_folder = paste0(download_path, "Downloads/DEPTH_v0.1"))
 }
 }
