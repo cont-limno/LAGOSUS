@@ -28,7 +28,7 @@ test_that("locus compile works on windows", {
   expect_true(file.exists("locus_1.0.qs"))
 })
 
-test_that("limno compile works", {
+test_that("limno compile works on linux", {
   # Only test lagosus_compile manually via: `test(filter = "compile")`
   skip_on_ci()
   skip_on_cran()
