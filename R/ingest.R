@@ -88,7 +88,7 @@ lagos_ingest <- function(locus_version = NA, locus_folder = NA,
                  include.dirs = TRUE, full.names = TRUE),
       sep = ",", dictionary = limno_dictionary)
 
-    # TODO: turn on the claritycarbon table if tss fields are in the dictionary
+    # TODO: turn on the claritycarbon table if it has a tss_mgl field
     # limno_claritycarbon <- load_lagos_txt(
     #   list.files(limno_folder, pattern = "claritycarbon",
     #              include.dirs = TRUE, full.names = TRUE),
@@ -104,11 +104,10 @@ lagos_ingest <- function(locus_version = NA, locus_folder = NA,
                  include.dirs = TRUE, full.names = TRUE),
       sep = ",", dictionary = limno_dictionary)
 
-    # TODO: turn on the nutrientsalgae table if microcystin fields are in the dictionary
-    # limno_nutrientsalgae <- load_lagos_txt(
-    #   list.files(limno_folder, pattern = "nutrientsalgae",
-    #              include.dirs = TRUE, full.names = TRUE),
-    #   sep = ",", dictionary = limno_dictionary)
+    limno_nutrientsalgae <- load_lagos_txt(
+      list.files(limno_folder, pattern = "nutrientsalgae",
+                 include.dirs = TRUE, full.names = TRUE),
+      sep = ",", dictionary = limno_dictionary)
 
     limno_source <- load_lagos_txt(
       list.files(limno_folder, pattern = "source_table",
@@ -121,7 +120,7 @@ lagos_ingest <- function(locus_version = NA, locus_folder = NA,
                   # site_claritycarbon = limno_claritycarbon,
                   site_contaminants = limno_contaminants,
                   site_information = limno_information,
-                  # site_nutrientsalgae = limno_nutrientsalgae,
+                  site_nutrientsalgae = limno_nutrientsalgae,
                   data_dictionary_limno = limno_dictionary,
                   source_table_limno = limno_source
     )
