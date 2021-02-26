@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>LAGOSUS Depth data — depth • LAGOSUS</title>
+<title>LAGOSUS Terrain data — zone_terrain • LAGOSUS</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,24 @@
 
 
 
-<meta property="og:title" content="LAGOSUS Depth data — depth" />
-<meta property="og:description" content="LAGOSUS Depth data" />
+<meta property="og:title" content="LAGOSUS Terrain data — zone_terrain" />
+<meta property="og:description" content="LAGOSUS Terrain data
+
+Variable nameVariable descriptionUnits
+glaciatedlatewisc_pctglaciation status during the Late Wisconsin glaciationpct
+landform_breaksfoothills_pctpercent of zone with landform described as breaks or foothillspct
+landform_drainagechannel_pctpercent of zone with landform described as drainage channelpct
+landform_escarpment_pctpercent of zone with landform described as escarpmentpct
+landform_flatplain_pctpercent of zone with landform described as flat plainpct
+landform_highmountainscanyons_pctpercent of zone with landform described as high mountains or deep canyonspct
+landform_hills_pctpercent of zone with landform described as hillspct
+landform_irregularplain_pctpercent of zone with landform described as irregular plainpct
+landform_lowhills_pctpercent of zone with landform described as low hillspct
+landform_lowmountains_pctpercent of zone with landform described as low mountainspct
+landform_smoothplain_pctpercent of zone with landform described as smooth plainpct
+
+
+" />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -134,36 +150,31 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>LAGOSUS Depth data</h1>
+    <h1>LAGOSUS Terrain data</h1>
     <small class="dont-index">Source: <a href='https://github.com/cont-limno/LAGOSUS/blob/master/R/LAGOSUS-package.R'><code>R/LAGOSUS-package.R</code></a></small>
-    <div class="hidden name"><code>depth.Rd</code></div>
+    <div class="hidden name"><code>zone_terrain.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>LAGOSUS Depth data</p>
-    </div>
-
-
-
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
-
-    
+    <p>LAGOSUS Terrain data</p>
 <table class='table'>
 <tr><td><b>Variable name</b></td><td><b>Variable description</b></td><td><b>Units</b></td></tr>
-<tr><td>lagoslakeid</td><td>unique lake identifier developed for LAGOS-US LOCUS v1.0</td><td></td></tr>
-<tr><td>lake_namegnis</td><td>lake name from the GNIS database by way of the LAGOS-US LOCUS v1.0 module</td><td></td></tr>
-<tr><td>lake_states</td><td>two-letter postal abbreviation(s) of state(s) intersecting the lake polygon from the LAGOS-US LOCUS v1.0 module</td><td></td></tr>
-<tr><td>lake_depth_state</td><td>two-letter postal abbreviation of the state used to search for a lake's depth</td><td></td></tr>
-<tr><td>lake_lat_decdeg</td><td>the latitude of the lake center point (NAD83) from the LAGOS-US LOCUS v1.0 module</td><td>decimal degree</td></tr>
-<tr><td>lake_lon_decdeg</td><td>the longitude of the lake center point (NAD83) from the LAGOS-US LOCUS v1.0 module</td><td>decimal degree</td></tr>
-<tr><td>lake_maxdepth_m</td><td>lake maximum depth in meters</td><td>meter</td></tr>
-<tr><td>lake_meandepth_m</td><td>lake mean depth in meters</td><td>meter</td></tr>
-<tr><td>lake_waterarea_ha</td><td>surface area of lake waterbody polygon from NHD (excluding islands) by way of the LAGOS-US LOCUS v1.0 module</td><td>hectare</td></tr>
-<tr><td>lake_depth_sourcename</td><td>name of the source of lake depth data</td><td></td></tr>
-<tr><td>lake_depth_sourceurl</td><td>url link of the source of lake depth data</td><td></td></tr>
-<tr><td>lake_depth_effort</td><td>name representing one of four different depth searching efforts (used for quality assurance and de-duplication); one of LAGOSNE, LAGOSUS, bathymetry, or NLA; corresponds with values of lagos_effort_reliability</td><td></td></tr>
-<tr><td>lake_depth_effort_reliability</td><td>reliability of each lagos_effort (used for quality assurance and de-duplication); values are in ascending order (1 = most reliable, 2 = reliable, 3 = less reliable, 4 = questionable)</td><td></td></tr>
+<tr><td>glaciatedlatewisc_pct</td><td>glaciation status during the Late Wisconsin glaciation</td><td>pct</td></tr>
+<tr><td>landform_breaksfoothills_pct</td><td>percent of zone with landform described as breaks or foothills</td><td>pct</td></tr>
+<tr><td>landform_drainagechannel_pct</td><td>percent of zone with landform described as drainage channel</td><td>pct</td></tr>
+<tr><td>landform_escarpment_pct</td><td>percent of zone with landform described as escarpment</td><td>pct</td></tr>
+<tr><td>landform_flatplain_pct</td><td>percent of zone with landform described as flat plain</td><td>pct</td></tr>
+<tr><td>landform_highmountainscanyons_pct</td><td>percent of zone with landform described as high mountains or deep canyons</td><td>pct</td></tr>
+<tr><td>landform_hills_pct</td><td>percent of zone with landform described as hills</td><td>pct</td></tr>
+<tr><td>landform_irregularplain_pct</td><td>percent of zone with landform described as irregular plain</td><td>pct</td></tr>
+<tr><td>landform_lowhills_pct</td><td>percent of zone with landform described as low hills</td><td>pct</td></tr>
+<tr><td>landform_lowmountains_pct</td><td>percent of zone with landform described as low mountains</td><td>pct</td></tr>
+<tr><td>landform_smoothplain_pct</td><td>percent of zone with landform described as smooth plain</td><td>pct</td></tr>
 </table>
+
+
+    </div>
+
 
 
 

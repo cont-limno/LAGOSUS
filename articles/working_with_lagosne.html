@@ -46,7 +46,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -75,7 +75,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/cont-limno/LAGOSUS/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -89,14 +89,13 @@
 
       
 
-      </header><script src="working_with_lagosne_files/header-attrs-2.4.6/header-attrs.js"></script><link href="working_with_lagosne_files/anchor-sections-1.0/anchor-sections.css" rel="stylesheet">
-<script src="working_with_lagosne_files/anchor-sections-1.0/anchor-sections.js"></script><div class="row">
+      </header><script src="working_with_lagosne_files/header-attrs-2.6.6/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Working with LAGOSNE</h1>
                         <h4 class="author">Joseph Stachelek</h4>
             
-            <h4 class="date">2020-10-30</h4>
+            <h4 class="date">2021-02-25</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/cont-limno/LAGOSUS/blob/master/vignettes/working_with_lagosne.Rmd"><code>vignettes/working_with_lagosne.Rmd</code></a></small>
       <div class="hidden name"><code>working_with_lagosne.Rmd</code></div>
@@ -122,13 +121,12 @@
 <span class="no">lg</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="no">lg</span>, !<span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span>(<span class="no">state</span>))</pre></body></html></div>
 <p>Now, the <code>state</code> column is of <code>character</code> type so will be in alphabetical order by default. We need to cast this column as a factor and reorder its levels from East to West in preparation for plotting.</p>
 <div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="no">state_easting</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span>(<span class="no">lg</span>,
-                    <span class="kw">mean_easting</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span>(<span class="no">nhd_long</span>, <span class="kw">na.rm</span> <span class="kw">=</span> <span class="fl">TRUE</span>))</pre></body></html></div>
-<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
-<div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="no">state_easting</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span>(<span class="no">state_easting</span>, <span class="no">mean_easting</span>)
+                    <span class="kw">mean_easting</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span>(<span class="no">nhd_long</span>, <span class="kw">na.rm</span> <span class="kw">=</span> <span class="fl">TRUE</span>))
+<span class="no">state_easting</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span>(<span class="no">state_easting</span>, <span class="no">mean_easting</span>)
 
 <span class="no">lg</span>$<span class="no">state</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span>(<span class="no">lg</span>$<span class="no">state</span>, <span class="kw">levels</span> <span class="kw">=</span> <span class="no">state_easting</span>$<span class="no">state</span>)</pre></body></html></div>
 <p>Finally, we construct a boxplot with <code>ggplot</code>:</p>
-<div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="no">lg</span>) +
+<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="no">lg</span>) +
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span>(<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">x</span> <span class="kw">=</span> <span class="no">state</span>, <span class="kw">y</span> <span class="kw">=</span> <span class="no">chla</span>), <span class="kw">outlier.shape</span> <span class="kw">=</span> <span class="fl">NA</span>) +
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/lims.html">ylim</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0</span>, <span class="fl">80</span>)) + <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span>(<span class="st">"Chlorophyll a (ug/L)"</span>)</pre></body></html></div>
 <p><img src="working_with_lagosne_files/figure-html/unnamed-chunk-2-1.png" width="700"></p>
@@ -137,13 +135,13 @@
 <h2 class="hasAnchor">
 <a href="#map-of-average-chlorophyll-in-pennsylvania" class="anchor"></a>Map of average chlorophyll in Pennsylvania</h2>
 <p>The second analysis involves constructing a map of average lake chlorophyll concentration in Pennsylvania lakes. To begin, we use the <code>maps</code> and <code>sf</code> package to obtain a geographic outline of the state.</p>
-<div class="sourceCode" id="cb7"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">maps</span>)
+<div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">maps</span>)
 <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">sf</span>)
 
 <span class="no">states</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sf/man/st_as_sf.html">st_as_sf</a></span>(<span class="fu"><a href="https://rdrr.io/pkg/maps/man/map.html">map</a></span>(<span class="st">"state"</span>, <span class="kw">plot</span> <span class="kw">=</span> <span class="fl">FALSE</span>, <span class="kw">fill</span> <span class="kw">=</span> <span class="fl">TRUE</span>))
 <span class="no">pa</span>     <span class="kw">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="no">states</span>, <span class="no">ID</span> <span class="kw">==</span> <span class="st">"pennsylvania"</span>)</pre></body></html></div>
 <p>Next, we filter the output from the previous analysis to only include PA lakes and calculate mean chlorophyll for each lake:</p>
-<div class="sourceCode" id="cb8"><html><body><pre class="r"><span class="no">pa_chl</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="no">lg</span>, <span class="no">state</span> <span class="kw">==</span> <span class="st">"PA"</span>)
+<div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="no">pa_chl</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="no">lg</span>, <span class="no">state</span> <span class="kw">==</span> <span class="st">"PA"</span>)
 <span class="no">pa_chl</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span>(<span class="no">pa_chl</span>, <span class="no">lagoslakeid</span>)
 <span class="no">pa_chl</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span>(<span class="no">pa_chl</span>,
                       <span class="kw">mean_chl</span>  <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span>(<span class="no">chla</span>, <span class="kw">na.rm</span> <span class="kw">=</span> <span class="fl">TRUE</span>),
@@ -151,7 +149,7 @@
                       <span class="kw">mean_lat</span>  <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span>(<span class="no">nhd_lat</span>, <span class="kw">na.rm</span> <span class="kw">=</span> <span class="fl">TRUE</span>))
 <span class="no">pa_chl</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="no">pa_chl</span>, !<span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span>(<span class="no">mean_chl</span>))</pre></body></html></div>
 <p>Finally, we turn our <code>data.frame</code> into an sf geospatial object using <code>st_as_sf</code> before constructing a map with <code>ggplot</code> and <code>geom_sf</code>.</p>
-<div class="sourceCode" id="cb9"><html><body><pre class="r"><span class="no">pa_chl</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sf/man/st_as_sf.html">st_as_sf</a></span>(<span class="no">pa_chl</span>, <span class="kw">coords</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"mean_long"</span>, <span class="st">"mean_lat"</span>), <span class="kw">crs</span> <span class="kw">=</span> <span class="fl">4326</span>)
+<div class="sourceCode" id="cb7"><html><body><pre class="r"><span class="no">pa_chl</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sf/man/st_as_sf.html">st_as_sf</a></span>(<span class="no">pa_chl</span>, <span class="kw">coords</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"mean_long"</span>, <span class="st">"mean_lat"</span>), <span class="kw">crs</span> <span class="kw">=</span> <span class="fl">4326</span>)
 
 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>() +
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span>(<span class="kw">data</span> <span class="kw">=</span> <span class="no">pa</span>) +

@@ -48,7 +48,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -77,7 +77,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/cont-limno/LAGOSUS/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -113,6 +113,7 @@
 <a href="#data" class="anchor"></a>Data</h3>
 <p>Until the LAGOS-US datasets have been made available in a public repository, LAGOSUS users will need to use the <code>lagosus_compile</code> function (not <code>lagosus_get</code>) and supply the path to their local <code>locus</code>, <code>limno</code>, <code>geo</code>, and <code>depth</code> data folders. Replace the paths in the example below with the path to each respective folder on your system. Most people will have access to these folders through Dropbox. For example, the <code>locus_folder</code> would be assigned to something like: <code>C:/Users/FWL/Dropbox/CL_LAGOSUS_exports/LAGOSUS_LOCUS</code></p>
 <p>Files are “compiled” to an <code>R</code> data format in the location specified by the <code>dest_folder</code> argument. Recommended setting is <code><a href="reference/lagosus_path.html">lagosus_path()</a></code>. Data only needs to be downloaded one time per version per machine. Each <code>LAGOSUS</code> <a href="https://cont-limno.github.io/LAGOSUS/articles/lagosus_structure.html">module</a> has a unique version number.</p>
+<!-- dir("../../../Downloads/") -->
 <div class="sourceCode" id="cb2"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">LAGOSUS</span>)
 
 <span class="fu"><a href="reference/lagosus_compile.html">lagosus_compile</a></span>(

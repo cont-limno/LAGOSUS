@@ -88,7 +88,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -117,7 +117,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/cont-limno/LAGOSUS/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -212,8 +212,8 @@
     </tr>
     <tr>
       <th>dest_folder</th>
-      <td><p>file.path optional will default to the location returned
-by <code><a href='https://rdrr.io/pkg/rappdirs/man/user_data_dir.html'>user_data_dir</a></code></p></td>
+      <td><p>file.path recommended to set as the path returned by
+<code><a href='lagosus_path.html'>lagosus_path</a></code></p></td>
     </tr>
     </table>
 
@@ -221,11 +221,17 @@ by <code><a href='https://rdrr.io/pkg/rappdirs/man/user_data_dir.html'>user_data
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
 <span class='fu'>lagosus_compile</span>(
- <span class='kw'>locus_version</span> <span class='kw'>=</span> <span class='st'>"1.1"</span>,
- <span class='kw'>locus_folder</span> <span class='kw'>=</span> <span class='st'>"~/Downloads/LAGOS-US-LOCUS-EXPORT"</span>,
- <span class='kw'>depth_version</span> <span class='kw'>=</span> <span class='st'>"0"</span>,
- <span class='kw'>depth_folder</span> <span class='kw'>=</span> <span class='st'>"~/Downloads/LAGOS-US-DEPTH-EXPORT"</span>,
- <span class='kw'>dest_folder</span> <span class='kw'>=</span> <span class='fu'><a href='lagosus_path.html'>lagosus_path</a></span>())
+   <span class='kw'>locus_version</span> <span class='kw'>=</span> <span class='st'>"1.1"</span>,
+   <span class='kw'>locus_folder</span> <span class='kw'>=</span> <span class='st'>"~/Downloads/LAGOS-US-LOCUS-EXPORT"</span>,
+   <span class='kw'>depth_version</span> <span class='kw'>=</span> <span class='st'>"0"</span>,
+   <span class='kw'>depth_folder</span> <span class='kw'>=</span> <span class='st'>"~/Downloads/LAGOS-US-DEPTH-EXPORT"</span>,
+   <span class='kw'>dest_folder</span> <span class='kw'>=</span> <span class='fu'><a href='lagosus_path.html'>lagosus_path</a></span>())
+
+<span class='fu'>lagosus_compile</span>(
+   <span class='kw'>geo_version</span> <span class='kw'>=</span> <span class='st'>"1.0"</span>,
+   <span class='kw'>geo_folder</span> <span class='kw'>=</span> <span class='st'>"~/Downloads/LAGOSUS_GEO/GEO_EXPORT_BETA_v1"</span>,
+   <span class='kw'>dest_folder</span> <span class='kw'>=</span> <span class='fu'><a href='lagosus_path.html'>lagosus_path</a></span>(),
+   <span class='kw'>geo_overwrite</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 }</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
