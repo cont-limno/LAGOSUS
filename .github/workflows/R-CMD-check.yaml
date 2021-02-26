@@ -13,12 +13,21 @@ jobs:
     runs-on: macOS-latest
     steps:
       - uses: actions/checkout@v2
+
       - uses: r-lib/actions/setup-r@master
+
+      - name: install macOS system dependencies
+        if: runner.os == 'macOS'
+        continue-on-error: true
+        run: |
+          brew install udunits
+
       - name: Install dependencies
         run: |
           install.packages(c("remotes", "rcmdcheck"))
           remotes::install_deps(dependencies = TRUE)
         shell: Rscript {0}
+
       - name: Check
         run: rcmdcheck::rcmdcheck(args = "--no-manual", error_on = "error")
         shell: Rscript {0}
