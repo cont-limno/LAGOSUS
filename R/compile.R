@@ -25,14 +25,19 @@
 #'@export
 #'
 #'@examples \dontrun{
-#'lagosus_compile(
-#'  locus_version = "1.1",
-#'  locus_folder = "~/Downloads/LAGOS-US-LOCUS-EXPORT",
-#'  depth_version = "0",
-#'  depth_folder = "~/Downloads/LAGOS-US-DEPTH-EXPORT",
-#'  dest_folder = lagosus_path())
-#' }
+#' lagosus_compile(
+#'    locus_version = "1.1",
+#'    locus_folder = "~/Downloads/LAGOS-US-LOCUS-EXPORT",
+#'    depth_version = "0",
+#'    depth_folder = "~/Downloads/LAGOS-US-DEPTH-EXPORT",
+#'    dest_folder = lagosus_path())
 #'
+#' lagosus_compile(
+#'    geo_version = "1.0",
+#'    geo_folder = "~/Downloads/LAGOSUS_GEO/GEO_EXPORT_BETA_v1",
+#'    dest_folder = lagosus_path(),
+#'    geo_overwrite = TRUE)
+#' }
 lagosus_compile <- function(
   locus_version = NA, locus_folder = NA, locus_overwrite = FALSE,
   limno_version = NA, limno_folder = NA, limno_overwrite = FALSE,
@@ -77,7 +82,7 @@ lagosus_compile <- function(
   if (file.exists(geo_path)){
     message(paste0("geo module version ", geo_version, " already exists at: ",
                    dest_folder))
-    }
+  }
   if (!is.na(geo_folder) & (!file.exists(geo_path) | geo_overwrite)) {
     pb$tick(tokens = list(type = "geo data"))
     geo <- lagos_ingest(geo_folder = geo_folder)

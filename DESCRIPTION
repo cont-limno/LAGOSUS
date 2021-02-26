@@ -1,6 +1,6 @@
 Package: LAGOSUS
 Title: Interface to the Lake Multi-Scaled Geospatial and Temporal Database
-Version: 0.0.3
+Version: 0.0.4
 Authors@R: c(
     person("Joseph", "Stachelek", 
     email = "stachel2@msu.edu", 

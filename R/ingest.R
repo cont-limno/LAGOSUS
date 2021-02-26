@@ -146,4 +146,22 @@ lagos_ingest <- function(locus_version = NA, locus_folder = NA,
     return(depth)
   }
 
+  if (!is.na(geo_folder)){
+    # Importing LAGOS geo data ####
+
+    variable_dictionary_geo <- load_lagos_txt(
+      list.files(geo_folder, pattern = "variable_dictionary.*.csv",
+                 include.dirs = TRUE, full.names = TRUE),
+      na.strings = c(""), sep = ",")
+
+    zone_terrain <- load_lagos_txt(
+      list.files(geo_folder, pattern = "zone_terrain",
+                 include.dirs = TRUE, full.names = TRUE),
+      sep = ",", dictionary = variable_dictionary_geo, parse_units = FALSE)
+
+    geo <- list(zone_terrain = zone_terrain,
+                variable_dictionary_geo = variable_dictionary_geo)
+
+    return(geo)
   }
+}

@@ -54,11 +54,16 @@ Compile LAGOSUS data from component flat files. This function should rarely be c
 \examples{
 \dontrun{
 lagosus_compile(
- locus_version = "1.1",
- locus_folder = "~/Downloads/LAGOS-US-LOCUS-EXPORT",
- depth_version = "0",
- depth_folder = "~/Downloads/LAGOS-US-DEPTH-EXPORT",
- dest_folder = lagosus_path())
-}
+   locus_version = "1.1",
+   locus_folder = "~/Downloads/LAGOS-US-LOCUS-EXPORT",
+   depth_version = "0",
+   depth_folder = "~/Downloads/LAGOS-US-DEPTH-EXPORT",
+   dest_folder = lagosus_path())
 
+lagosus_compile(
+   geo_version = "1.0",
+   geo_folder = "~/Downloads/LAGOSUS_GEO/GEO_EXPORT_BETA_v1",
+   dest_folder = lagosus_path(),
+   geo_overwrite = TRUE)
+}
 }

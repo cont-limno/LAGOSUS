@@ -6,6 +6,7 @@
 #' @param file_name character
 #' @param sep character separator (tab or comma separated values)
 #' @param dictionary data.frame linking variable_name(s) to data_type(s)
+#' @param parse_units logical, coerce all fields according to the dictionary?
 #' @param ... Options passed on to \code{\link[utils]{read.table}}
 #'
 #' @importFrom stats setNames
@@ -18,7 +19,7 @@
 #'              include.dirs = TRUE, full.names = TRUE),
 #'   na.strings = c(""), sep = ",")
 #' }
-load_lagos_txt <- function(file_name, sep = "\t", dictionary = NA, ...){
+load_lagos_txt <- function(file_name, sep = "\t", dictionary = NA, parse_units = TRUE, ...){
 
   if (!inherits(dictionary, "data.frame")) {
     res <- suppressWarnings(
@@ -33,40 +34,42 @@ load_lagos_txt <- function(file_name, sep = "\t", dictionary = NA, ...){
                  colClasses = "character",
                  ..., stringsAsFactors = FALSE))
 
-    # read column types from data dictionary pass to colClasses argument
-    # possible colClasses : (logical, integer, numeric, complex, character, raw)
-    dictionary     <- dplyr::filter(dictionary, .data$table_name ==
-                    stringr::str_extract(basename(file_name), "^.*(?=.csv)"))
+    if(parse_units){
+      # read column types from data dictionary pass to colClasses argument
+      # possible colClasses : (logical, integer, numeric, complex, character, raw)
+      dictionary     <- dplyr::filter(dictionary, .data$table_name ==
+                      stringr::str_extract(basename(file_name), "^.*(?=.csv)"))
 
-    colClasses_key <- data.frame(
-      data_type = c("char", "factor", "int", "numeric", "date"),
-      r_type = c("character", "factor", "integer", "numeric", "character"),
-      readr_type = c("c", "f", "i", "d", "c"),
-      stringsAsFactors = FALSE)
-    colClasses     <- data.frame(variable_name = names(res),
-                             stringsAsFactors = FALSE) %>%
-      dplyr::left_join(dplyr::select(dictionary, .data$variable_name, .data$data_type),
-                       by = "variable_name") %>%
-      dplyr::left_join(colClasses_key,
-                       by = "data_type") %>%
-      dplyr::pull(.data$r_type)
-    colClasses <- setNames(colClasses, names(res))
+      colClasses_key <- data.frame(
+        data_type = c("char", "factor", "int", "numeric", "date"),
+        r_type = c("character", "factor", "integer", "numeric", "character"),
+        readr_type = c("c", "f", "i", "d", "c"),
+        stringsAsFactors = FALSE)
+      colClasses     <- data.frame(variable_name = names(res),
+                               stringsAsFactors = FALSE) %>%
+        dplyr::left_join(dplyr::select(dictionary, .data$variable_name, .data$data_type),
+                         by = "variable_name") %>%
+        dplyr::left_join(colClasses_key,
+                         by = "data_type") %>%
+        dplyr::pull(.data$r_type)
+      colClasses <- setNames(colClasses, names(res))
 
-    if(any(is.na(colClasses))){
-      stop(
-        paste0("Mismatch between the data dictionary and ",
-        paste0(names(colClasses[is.na(colClasses)]), collapse = ", "),
-        " in ", file_name)
-        )
+      if(any(is.na(colClasses))){
+        stop(
+          paste0("Mismatch between the data dictionary and ",
+          paste0(names(colClasses[is.na(colClasses)]), collapse = ", "),
+          " in ", file_name)
+          )
+      }
+
+      res <- res %>%
+        dplyr::mutate(
+          dplyr::across(names(colClasses[colClasses == "numeric"]), as.numeric)) %>%
+        dplyr::mutate(
+          dplyr::across(names(colClasses[colClasses == "integer"]), as.integer)) %>%
+        dplyr::mutate(
+          dplyr::across(names(colClasses[colClasses == "factor"]), as.factor))
     }
-
-    res <- res %>%
-      dplyr::mutate(
-        dplyr::across(names(colClasses[colClasses == "numeric"]), as.numeric)) %>%
-      dplyr::mutate(
-        dplyr::across(names(colClasses[colClasses == "integer"]), as.integer)) %>%
-      dplyr::mutate(
-        dplyr::across(names(colClasses[colClasses == "factor"]), as.factor))
   }
 
   res

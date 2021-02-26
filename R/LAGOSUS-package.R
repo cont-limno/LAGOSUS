@@ -34,7 +34,7 @@ NULL
 lagosus_version <- function(){
   res_defaults <- data.frame(
     modules = c("locus", "limno", "geo", "depth"),
-    versions = c("1.0","2.1","0","0.1"),
+    versions = c("1.0","2.1","1.0","0.1"),
     stringsAsFactors = FALSE)
 
   env_vars <- Sys.getenv(
@@ -163,6 +163,15 @@ NULL
 #' @eval c("@details", get_table_metadata("depth", "depth"))
 #'
 #' @name depth
+#' @docType data
+#' @keywords datasets
+NULL
+
+#' LAGOSUS Terrain data
+#'
+#' @eval get_table_metadata("geo", "zone_terrain")
+#'
+#' @name zone_terrain
 #' @docType data
 #' @keywords datasets
 NULL

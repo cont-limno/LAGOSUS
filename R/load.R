@@ -109,5 +109,14 @@ lagosus_load <- function(modules = NULL,
     res[["depth"]] <- depth
   }
 
+  if("geo" %in% modules_query){
+    geo_path <- file.path(fpath,
+                            paste0("geo_",
+                                   versions[which(modules_query == "geo")],
+                                   ".qs"))
+    geo <- qs::qread(geo_path)
+    res[["geo"]] <- geo
+  }
+
   res
 }
