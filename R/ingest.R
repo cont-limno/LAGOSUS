@@ -159,7 +159,13 @@ lagos_ingest <- function(locus_version = NA, locus_folder = NA,
                  include.dirs = TRUE, full.names = TRUE),
       sep = ",", dictionary = variable_dictionary_geo, parse_units = FALSE)
 
+    zone_soils <- load_lagos_txt(
+      list.files(geo_folder, pattern = "zone_soils",
+                 include.dirs = TRUE, full.names = TRUE),
+      sep = ",", dictionary = variable_dictionary_geo, parse_units = FALSE)
+
     geo <- list(zone_terrain = zone_terrain,
+                zone_soils = zone_soils,
                 variable_dictionary_geo = variable_dictionary_geo)
 
     return(geo)

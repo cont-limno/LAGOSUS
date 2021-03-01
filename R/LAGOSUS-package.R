@@ -175,3 +175,12 @@ NULL
 #' @docType data
 #' @keywords datasets
 NULL
+
+#' LAGOSUS Soils data
+#'
+#' @eval get_table_metadata("geo", "zone_soils")
+#'
+#' @name zone_soils
+#' @docType data
+#' @keywords datasets
+NULL
