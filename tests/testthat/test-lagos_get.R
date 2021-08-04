@@ -3,8 +3,7 @@ context("lagos_get")
 test_that("lagosne_get urls are active", {
 
   skip_on_cran()
-  skip_on_travis()
-  skip_on_appveyor()
+  skip_on_ci()
 
   # LAGOSNE_lakeslocus101.csv
   expect_true(

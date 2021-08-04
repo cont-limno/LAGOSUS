@@ -3,8 +3,7 @@ context("lagos_load")
 test_that("lagos_load fails well", {
 
   skip_on_cran()
-  skip_on_travis()
-  skip_on_appveyor()
+  skip_on_ci()  
 
   expect_error(lagosus_load("gibberish"),
                paste0("Module 'gibberish' not found. Please specify one or more modules by name: locus, depth, geo, limno. Alternatively, try running the `lagosus_get` command."),
@@ -25,8 +24,7 @@ test_that("reachcodes have non-scientific notation", {
 # test_that("sampledate is parsed correctly", {
 #
 #   skip_on_cran()
-#   skip_on_travis()
-#   skip_on_appveyor()
+#   skip_on_ci()
 #
 #   epi_nutr <- lagosus_load("limno")$epi_nutr
 #
