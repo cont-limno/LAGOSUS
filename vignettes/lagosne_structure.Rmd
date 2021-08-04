@@ -1,6 +1,6 @@
 ---
 title: "The Structure of LAGOSNE"
-author: "Samantha Oliver and Joseph Stachelek"
+author: "Samantha Oliver and Jemma Stachelek"
 date: "`r Sys.Date()`"
 output: 
   html_document:

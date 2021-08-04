@@ -3,7 +3,7 @@ citHeader("To cite LAGOSUS in publications use:")
 citEntry(entry = "Manual",
   title        = "LAGOSUS: Interface to the Lake Multi-Scaled Geospatial and Temporal Database",
   author       = personList(
-                   as.person("Joseph Stachelek")),
+                   as.person("Jemma Stachelek")),
   year         = "2020",
   note         = "R package version 0.0.1",
   url          = "https://github.com/cont-limno/LAGOSUS",
