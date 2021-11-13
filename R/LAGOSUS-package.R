@@ -167,20 +167,20 @@ NULL
 #' @keywords datasets
 NULL
 
-#' LAGOSUS Terrain data
-#'
-#' @eval get_table_metadata("geo", "zone_terrain")
-#'
-#' @name zone_terrain
-#' @docType data
-#' @keywords datasets
-NULL
+# #' LAGOSUS Terrain data
+# #'
+# #' @eval get_table_metadata("geo", "zone_terrain")
+# #'
+# #' @name zone_terrain
+# #' @docType data
+# #' @keywords datasets
+# NULL
 
-#' LAGOSUS Soils data
-#'
-#' @eval get_table_metadata("geo", "zone_soils")
-#'
-#' @name zone_soils
-#' @docType data
-#' @keywords datasets
-NULL
+# #' LAGOSUS Soils data
+# #'
+# #' @eval get_table_metadata("geo", "zone_soils")
+# #'
+# #' @name zone_soils
+# #' @docType data
+# #' @keywords datasets
+# NULL
