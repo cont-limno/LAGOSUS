@@ -37,14 +37,15 @@ devtools::install_git(
 
 ### Data
 
-Until the LAGOS-US datasets have been made available in a public
-repository, LAGOSUS users will need to use the `lagosus_compile`
-function (not `lagosus_get`) and supply the path to their local `locus`,
-`limno`, `geo`, and `depth` data folders. Replace the paths in the
-example below with the path to each respective folder on your system.
-Most people will have access to these folders through Dropbox. For
-example, the `locus_folder` would be assigned to something like:
-`C:/Users/FWL/Dropbox/CL_LAGOSUS_exports/LAGOSUS_LOCUS`
+Currently only the “locus” module of LAGOS-US has been released in a
+public repository. Members of the development team who have access to
+unreleased modules (limno, geo, etc), will need to use the the
+`lagosus_compile` function (not `lagosus_get`) and supply the path to
+their local `locus`, `limno`, `geo`, or `depth` data folders. Replace
+the paths in the example below with the path to each respective folder
+on your system. Most people will have access to these folders through
+Dropbox. For example, the `locus_folder` would be assigned to something
+like: `C:/Users/FWL/Dropbox/CL_LAGOSUS_exports/LAGOSUS_LOCUS`
 
 Files are “compiled” to an `R` data format in the location specified by
 the `dest_folder` argument. Recommended setting is `lagosus_path()`.
@@ -58,13 +59,19 @@ has a unique version number.
 ``` r
 library(LAGOSUS)
 
+# only the locus module is currently public
+lagosus_get(dest_folder = lagosus_path())
+
+# an example for members of the dev team to specify local data folder paths
 lagosus_compile(
   locus_version = "1.0",
   locus_folder = "~/Downloads/LAGOSUS_LOCUS/LOCUS_v1.0",
   limno_version = "2.1",
   limno_folder = "~/Downloads/LAGOSUS_LIMNO/US/LIMNO_v2.1/Final exports",
   depth_version = "0.1",
-  depth_folder = "~/Downloads/LAGOSUS_DEPTH/DEPTH_v0.1", 
+  depth_folder = "~/Downloads/LAGOSUS_DEPTH/DEPTH_v0.1",
+  geo_version = "1.0",
+  geo_folder = "~/Downloads/LAGOSUS_GEO/GEO_EXPORT_BETA_v1",
   dest_folder = lagosus_path())
 ```
 
@@ -88,25 +95,15 @@ names(lg)
 ```
 
 <!-- ```{r load_data_cached, eval=FALSE, echo=FALSE} -->
-
 <!-- dt <- readRDS(system.file("lagos_test_subset.rds", package = "LAGOSUS")) -->
-
 <!-- names(dt) -->
-
 <!-- ``` -->
-
 <!-- #### Locate tables containing a variable  -->
-
 <!-- ```{r eval=FALSE} -->
-
 <!-- query_lagos_names("secchi") -->
-
 <!-- ``` -->
-
 <!-- ```{r echo=FALSE, eval=FALSE} -->
-
 <!-- query_lagos_names("secchi", dt = dt) -->
-
 <!-- ``` -->
 
 #### Preview a table
@@ -140,21 +137,13 @@ query_lagos_names("ws_meanwidth", dt = lg)
 ```
 
 <!-- ```{r load printr, echo=FALSE,message=FALSE,results='hide', eval=FALSE} -->
-
 <!-- loadNamespace("printr") -->
-
 <!-- ``` -->
-
 <!-- ```{r Read metadata for individual tables, eval=FALSE} -->
-
 <!-- help.search("datasets", package = "LAGOSUS") -->
-
 <!-- ``` -->
-
 <!-- ```{r unload printr, echo=FALSE, eval=FALSE} -->
-
 <!-- unloadNamespace("printr") -->
-
 <!-- ``` -->
 
 ## Legacy Versions

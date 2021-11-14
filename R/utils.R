@@ -195,7 +195,7 @@ query_column_keywords <- function(dt, table_name, keyword_string){
 
 #' @importFrom curl curl_fetch_memory
 #' @importFrom stringr str_extract
-get_file_names <- function(url){
+get_file_names <- function(url) {  
   handle <- curl::new_handle(nobody = TRUE)
 
   headers <- curl::parse_headers(
@@ -209,7 +209,7 @@ get_file_names <- function(url){
 get_lagos_module <- function(edi_url, pasta_url, folder_name, overwrite){
 
   files <- suppressWarnings(paste0(edi_url, "&entityid=",
-                            readLines(pasta_url)))
+                            readLines(pasta_url)))  
   file_names <- sapply(files, get_file_names)
 
   files      <- files[!is.na(file_names)]
@@ -219,9 +219,9 @@ get_lagos_module <- function(edi_url, pasta_url, folder_name, overwrite){
   dir.create(local_dir, showWarnings = FALSE)
 
   file_paths <- file.path(local_dir, file_names)
-
+  
   invisible(lapply(seq_len(length(files)),
-    function(i){
+    function(i) {      
       message(paste0("Downloading ", file_names[i], " ..."))
       get_if_not_exists(files[i], file_paths[i], overwrite)
       }))

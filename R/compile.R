@@ -61,6 +61,7 @@ lagosus_compile <- function(
     message(paste0("locus module version ", locus_version, " already exists at: ",
                    dest_folder))
     }
+  
   if (!is.na(locus_folder) & (!file.exists(locus_path) | locus_overwrite)) {
     pb$tick(tokens = list(type = "locus data"))
     locus <- lagos_ingest(locus_folder = locus_folder)

@@ -15,3 +15,4 @@ taxonomy/*.xlsx*
 docs
 pkgdown/
 rebuild.R
+README.html
