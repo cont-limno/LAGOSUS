@@ -38,7 +38,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">LAGOSUS</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.4</span>
       </span>
     </div>
 
@@ -89,13 +89,13 @@
 
       
 
-      </header><script src="lagosne_structure_files/header-attrs-2.6.6/header-attrs.js"></script><div class="row">
+      </header><script src="lagosne_structure_files/header-attrs-2.11/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>The Structure of LAGOSNE</h1>
-                        <h4 class="author">Samantha Oliver and Joseph Stachelek</h4>
+                        <h4 class="author">Samantha Oliver and Jemma Stachelek</h4>
             
-            <h4 class="date">2021-02-25</h4>
+            <h4 class="date">2021-11-15</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/cont-limno/LAGOSUS/blob/master/vignettes/lagosne_structure.Rmd"><code>vignettes/lagosne_structure.Rmd</code></a></small>
       <div class="hidden name"><code>lagosne_structure.Rmd</code></div>
@@ -114,16 +114,19 @@
 <h2 class="hasAnchor">
 <a href="#accessing-lagosne" class="anchor"></a>Accessing LAGOSNE</h2>
 <p>Following <a href="https://github.com/cont-limno/LAGOSNE">these instructions</a>, install the LAGOSNE package and download the data from the online repository. The data are open-access and stored online as flat files [location]. The data only need to be downloaded once, and will be stored locally at the location returned by <code><a href="https://rappdirs.r-lib.org/reference/user_data_dir.html">rappdirs::user_data_dir</a></code></p>
-<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">LAGOSNE</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/cont-limno/LAGOSNE">LAGOSNE</a></span><span class="op">)</span></code></pre></div>
 <p>Now that the data are stored locally, you can import them as a list.</p>
-<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="co"># Import LAGOSNE data into R</span>
-<span class="no">dt</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/LAGOSNE/man/lagosne_load.html">lagosne_load</a></span>()</pre></body></html></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Import LAGOSNE data into R</span>
+<span class="va">dt</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/LAGOSNE/man/lagosne_load.html">lagosne_load</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="lagosne-structure" class="section level2">
 <h2 class="hasAnchor">
 <a href="#lagosne-structure" class="anchor"></a>LAGOSNE Structure</h2>
 <p>As previously noted, LAGOSNE is comprised of three modules with multiple tables within each module. When LAGOSNE is imported using the above method, the tables are stored in a list, and you can get information about each table in a few ways:</p>
-<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span>(<span class="no">dt</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">dt</span><span class="op">)</span></code></pre></div>
 <pre><code>##  [1] "county"               "county.chag"          "county.conn"         
 ##  [4] "county.lulc"          "edu"                  "edu.chag"            
 ##  [7] "edu.conn"             "edu.lulc"             "hu4"                 
@@ -137,7 +140,8 @@
 ## [31] "buffer500m.conn"      "buffer500m.lulc"      "lakes.geo"           
 ## [34] "epi_nutr"             "lakes_limno"          "lagos_source_program"
 ## [37] "locus"</code></pre>
-<div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/help.search.html">help.search</a></span>(<span class="st">"datasets"</span>, <span class="kw">package</span> <span class="kw">=</span> <span class="st">"LAGOSNE"</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/help.search.html">help.search</a></span><span class="op">(</span><span class="st">"datasets"</span>, package <span class="op">=</span> <span class="st">"LAGOSNE"</span><span class="op">)</span></code></pre></div>
 <table class="table">
 <thead><tr class="header">
 <th align="left">Package</th>
@@ -182,10 +186,15 @@
 </tr>
 <tr class="even">
 <td align="left">LAGOSNE</td>
+<td align="left">lg_extent</td>
+<td align="left">The spatial extent of LAGOSNE data</td>
+</tr>
+<tr class="odd">
+<td align="left">LAGOSNE</td>
 <td align="left">locus</td>
 <td align="left">Metadata for all lakes &gt; 1ha</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">LAGOSNE</td>
 <td align="left">lulc</td>
 <td align="left">Land Use Land Cover (LULC) Data Frames</td>
@@ -228,11 +237,12 @@
 <h4 class="hasAnchor">
 <a href="#spatial-classifications-layers" class="anchor"></a>Spatial Classifications Layers</h4>
 <p>In additional to the multiple tables describing ecological context at each spatial classification, we have provided the polygons for each spatial classification. [change to future location of shape files - for now link to HU4 files that were put on Github as part of the time series manuscript]</p>
-<div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">rgdal</span>)
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://rgdal.r-forge.r-project.org">rgdal</a></span><span class="op">)</span>
 
 <span class="co"># get huc4 polygons from github</span>
-<span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/connections.html">url</a></span>(<span class="st">"https://github.com/limnoliver/CSI-Nutrient-Time-Series/blob/72c8269902e53c7ec6a2cfbe13a0239d13062dc8/Data/huc4.RData?raw=true"</span>))
-<span class="fu"><a href="https://rdrr.io/r/base/plot.html">plot</a></span>(<span class="no">huc4</span>, <span class="kw">lty</span> <span class="kw">=</span> <span class="fl">1</span>, <span class="kw">lwd</span><span class="kw">=</span><span class="fl">1</span>, <span class="kw">border</span><span class="kw">=</span><span class="fl">TRUE</span>, <span class="kw">col</span> <span class="kw">=</span> <span class="st">"lightgray"</span>)</pre></body></html></div>
+<span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/connections.html">url</a></span><span class="op">(</span><span class="st">"https://github.com/limnoliver/CSI-Nutrient-Time-Series/blob/72c8269902e53c7ec6a2cfbe13a0239d13062dc8/Data/huc4.RData?raw=true"</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">huc4</span>, lty <span class="op">=</span> <span class="fl">1</span>, lwd<span class="op">=</span><span class="fl">1</span>, border<span class="op">=</span><span class="cn">TRUE</span>, col <span class="op">=</span> <span class="st">"lightgray"</span><span class="op">)</span></code></pre></div>
 </div>
 </div>
 <div id="lagoslocus" class="section level3">
@@ -287,11 +297,11 @@ Soranno, PA, and KS Cheruvelil. 2017a. <span>“<span class="nocase">LAGOS-NE-GE
 
 
       <footer><div class="copyright">
-  <p>Developed by Joseph Stachelek.</p>
+  <p>Developed by Jemma Stachelek.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

@@ -40,7 +40,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">LAGOSUS</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.4</span>
       </span>
     </div>
 
@@ -104,26 +104,33 @@
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<div class="sourceCode" id="cb1"><pre class="r"><span class="co"># install development version from Github</span>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># install development version from Github</span>
 <span class="co"># install devtools if not found - install.packages("devtools")</span>
-<span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_git</a></span>(
-  <span class="st">"https://gitlab.msu.edu/stachel2/lagosus"</span>, <span class="kw">dependencies</span> <span class="kw">=</span> <span class="fl">TRUE</span>)</pre></div>
+<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"cont-limno/LAGOSUS"</span>, dependencies <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <div id="data" class="section level3">
 <h3 class="hasAnchor">
 <a href="#data" class="anchor"></a>Data</h3>
-<p>Until the LAGOS-US datasets have been made available in a public repository, LAGOSUS users will need to use the <code>lagosus_compile</code> function (not <code>lagosus_get</code>) and supply the path to their local <code>locus</code>, <code>limno</code>, <code>geo</code>, and <code>depth</code> data folders. Replace the paths in the example below with the path to each respective folder on your system. Most people will have access to these folders through Dropbox. For example, the <code>locus_folder</code> would be assigned to something like: <code>C:/Users/FWL/Dropbox/CL_LAGOSUS_exports/LAGOSUS_LOCUS</code></p>
-<p>Files are “compiled” to an <code>R</code> data format in the location specified by the <code>dest_folder</code> argument. Recommended setting is <code><a href="reference/lagosus_path.html">lagosus_path()</a></code>. Data only needs to be downloaded one time per version per machine. Each <code>LAGOSUS</code> <a href="https://cont-limno.github.io/LAGOSUS/articles/lagosus_structure.html">module</a> has a unique version number.</p>
-<!-- dir("../../../Downloads/") -->
-<div class="sourceCode" id="cb2"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">LAGOSUS</span>)
+<p>General users currently have public access to the locus module. It can be downloaded and stored to your local system with the following command:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/cont-limno/LAGOSUS">LAGOSUS</a></span><span class="op">)</span>
 
-<span class="fu"><a href="reference/lagosus_compile.html">lagosus_compile</a></span>(
-  <span class="kw">locus_version</span> <span class="kw">=</span> <span class="st">"1.0"</span>,
-  <span class="kw">locus_folder</span> <span class="kw">=</span> <span class="st">"~/Downloads/LAGOSUS_LOCUS/LOCUS_v1.0"</span>,
-  <span class="kw">limno_version</span> <span class="kw">=</span> <span class="st">"2.1"</span>,
-  <span class="kw">limno_folder</span> <span class="kw">=</span> <span class="st">"~/Downloads/LAGOSUS_LIMNO/US/LIMNO_v2.1/Final exports"</span>,
-  <span class="kw">depth_version</span> <span class="kw">=</span> <span class="st">"0.1"</span>,
-  <span class="kw">depth_folder</span> <span class="kw">=</span> <span class="st">"~/Downloads/LAGOSUS_DEPTH/DEPTH_v0.1"</span>,
-  <span class="kw">dest_folder</span> <span class="kw">=</span> <span class="fu"><a href="reference/lagosus_path.html">lagosus_path</a></span>())</pre></div>
+<span class="co"># only the locus module is currently public</span>
+<span class="fu"><a href="reference/lagosus_get.html">lagosus_get</a></span><span class="op">(</span>dest_folder <span class="op">=</span> <span class="fu"><a href="reference/lagosus_path.html">lagosus_path</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<p>Currently only the “locus” module of LAGOS-US has been released in a public repository. Members of the development team who have access to unreleased modules (limno, geo, etc), will need to use the the <code>lagosus_compile</code> function (not <code>lagosus_get</code>) and supply the path to their local <code>locus</code>, <code>limno</code>, <code>geo</code>, or <code>depth</code> data folders. Replace the paths in the example below with the path to each respective folder on your system. Most people will have access to these folders through Dropbox. For example, the <code>locus_folder</code> would be assigned to something like: <code>C:/Users/FWL/Dropbox/CL_LAGOSUS_exports/LAGOSUS_LOCUS</code></p>
+<!-- dir("../../../Downloads/") -->
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># an example for members of the dev team to specify local data folder paths</span>
+<span class="fu"><a href="reference/lagosus_compile.html">lagosus_compile</a></span><span class="op">(</span>
+  locus_version <span class="op">=</span> <span class="st">"1.0"</span>,
+  locus_folder <span class="op">=</span> <span class="st">"~/Downloads/LAGOSUS_LOCUS/LOCUS_v1.0"</span>,
+  limno_version <span class="op">=</span> <span class="st">"2.1"</span>,
+  limno_folder <span class="op">=</span> <span class="st">"~/Downloads/LAGOSUS_LIMNO/US/LIMNO_v2.1/Final exports"</span>,
+  depth_version <span class="op">=</span> <span class="st">"0.1"</span>,
+  depth_folder <span class="op">=</span> <span class="st">"~/Downloads/LAGOSUS_DEPTH/DEPTH_v0.1"</span>,
+  geo_version <span class="op">=</span> <span class="st">"1.0"</span>,
+  geo_folder <span class="op">=</span> <span class="st">"~/Downloads/LAGOSUS_GEO/GEO_EXPORT_BETA_v1"</span>,
+  dest_folder <span class="op">=</span> <span class="fu"><a href="reference/lagosus_path.html">lagosus_path</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 </div>
 </div>
 <div id="usage" class="section level2">
@@ -132,14 +139,16 @@
 <div id="load-package" class="section level3">
 <h3 class="hasAnchor">
 <a href="#load-package" class="anchor"></a>Load Package</h3>
-<div class="sourceCode" id="cb3"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">LAGOSUS</span>)</pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/cont-limno/LAGOSUS">LAGOSUS</a></span><span class="op">)</span></code></pre></div>
 </div>
 <div id="load-data" class="section level3">
 <h3 class="hasAnchor">
 <a href="#load-data" class="anchor"></a>Load data</h3>
 <p>The <code>lagosus_load</code> function returns a named list of <code>data.frame</code> objects. Use the <code><a href="https://rdrr.io/r/base/names.html">names()</a></code> function to see a list of available data frames <code><a href="https://rdrr.io/r/base/names.html">names(lg)</a></code>.</p>
-<div class="sourceCode" id="cb4"><pre class="r"><span class="no">lg</span> <span class="kw">&lt;-</span> <span class="fu"><a href="reference/lagosus_load.html">lagosus_load</a></span>(<span class="kw">modules</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"locus"</span>, <span class="st">"limno"</span>, <span class="st">"depth"</span>))
-<span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span>(<span class="no">lg</span>)</pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">lg</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/lagosus_load.html">lagosus_load</a></span><span class="op">(</span>modules <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"locus"</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">lg</span><span class="op">)</span></code></pre></div>
 <!-- ```{r load_data_cached, eval=FALSE, echo=FALSE} -->
 <!-- dt <- readRDS(system.file("lagos_test_subset.rds", package = "LAGOSUS")) -->
 <!-- names(dt) -->
@@ -154,28 +163,32 @@
 <div id="preview-a-table" class="section level4">
 <h4 class="hasAnchor">
 <a href="#preview-a-table" class="anchor"></a>Preview a table</h4>
-<div class="sourceCode" id="cb5"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">lg</span>$<span class="no">locus</span>$<span class="no">lake_characteristics</span>)</pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">lg</span><span class="op">$</span><span class="va">locus</span><span class="op">$</span><span class="va">lake_characteristics</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="preview-a-specific-lake" class="section level4">
 <h4 class="hasAnchor">
 <a href="#preview-a-specific-lake" class="anchor"></a>Preview a specific lake</h4>
-<div class="sourceCode" id="cb6"><pre class="r"><span class="fu"><a href="reference/lake_info.html">lake_info</a></span>(<span class="kw">name</span> <span class="kw">=</span> <span class="st">"Pine Lake"</span>, <span class="kw">state</span> <span class="kw">=</span> <span class="st">"Michigan"</span>)
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="reference/lake_info.html">lake_info</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Pine Lake"</span>, state <span class="op">=</span> <span class="st">"California"</span><span class="op">)</span>
 <span class="co"># or using a lagoslakeid</span>
-<span class="co"># lake_info(lagoslakeid = 4389)</span></pre></div>
+<span class="co"># lake_info(lagoslakeid = 4389)</span></code></pre></div>
 </div>
 <div id="map-specific-lakes" class="section level4">
 <h4 class="hasAnchor">
 <a href="#map-specific-lakes" class="anchor"></a>Map specific lakes</h4>
-<div class="sourceCode" id="cb7"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">mapview</span>)
-<span class="fu"><a href="https://rdrr.io/pkg/mapview/man/mapView.html">mapview</a></span>(<span class="fu"><a href="reference/coordinatize.html">coordinatize</a></span>(<span class="fu"><a href="reference/lake_info.html">lake_info</a></span>(<span class="kw">name</span> <span class="kw">=</span> <span class="st">"Pine Lake"</span>, <span class="kw">state</span> <span class="kw">=</span> <span class="st">"Michigan"</span>)))</pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/r-spatial/mapview">mapview</a></span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/pkg/mapview/man/mapView.html">mapview</a></span><span class="op">(</span><span class="fu"><a href="reference/coordinatize.html">coordinatize</a></span><span class="op">(</span><span class="fu"><a href="reference/lake_info.html">lake_info</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Pine Lake"</span>, state <span class="op">=</span> <span class="st">"California"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="read-table-metadata" class="section level4">
 <h4 class="hasAnchor">
 <a href="#read-table-metadata" class="anchor"></a>Read table metadata</h4>
-<div class="sourceCode" id="cb8"><pre class="r"><span class="co"># lookup which table(s) contain a column name </span>
-<span class="fu"><a href="reference/query_lagos_names.html">query_lagos_names</a></span>(<span class="st">"ws_meanwidth"</span>, <span class="kw">dt</span> <span class="kw">=</span> <span class="no">lg</span>)
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># lookup which table(s) contain a column name </span>
+<span class="fu"><a href="reference/query_lagos_names.html">query_lagos_names</a></span><span class="op">(</span><span class="st">"ws_meanwidth"</span>, dt <span class="op">=</span> <span class="va">lg</span><span class="op">)</span>
 <span class="co"># load help file for a table</span>
-?<span class="no">locus_watersheds</span></pre></div>
+<span class="op">?</span><span class="va">lake_watersheds</span></code></pre></div>
 <!-- ```{r load printr, echo=FALSE,message=FALSE,results='hide', eval=FALSE} -->
 <!-- loadNamespace("printr") -->
 <!-- ``` -->
@@ -192,14 +205,15 @@
 <h2 class="hasAnchor">
 <a href="#legacy-versions" class="anchor"></a>Legacy Versions</h2>
 <p>To install versions of <code>LAGOSUS</code> compatible with older versions of LAGOS-US data modules, review the <a href="https://cont-limno.github.io/LAGOSUS/news/index.html">Changelog</a> to find to package version associated with your desired module version. Run the following command where <code>ref</code> is set to your desired version (in the example, it is version 0.0.1):</p>
-<div class="sourceCode" id="cb9"><pre class="r"><span class="co"># install devtools if not found</span>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># install devtools if not found</span>
 <span class="co"># install.packages("devtools")</span>
-<span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"cont-limno/LAGOSUS"</span>, <span class="kw">ref</span> <span class="kw">=</span> <span class="st">"v0.0.1"</span>)</pre></div>
+<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"cont-limno/LAGOSUS"</span>, ref <span class="op">=</span> <span class="st">"v0.0.1"</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="references" class="section level2">
 <h2 class="hasAnchor">
 <a href="#references" class="anchor"></a>References</h2>
-<p>Soranno, P.A., Bacon, L.C., Beauchene, M., Bednar, K.E., Bissell, E.G., Boudreau, C.K., Boyer, M.G., Bremigan, M.T., Carpenter, S.R., Carr, J.W. Cheruvelil, K.S., and … , 2017. LAGOS-NE: A multi-scaled geospatial and temporal database of lake ecological context and water quality for thousands of US lakes. GigaScience, <a href="https://doi.org/10.1093/gigascience/gix101" class="uri">https://doi.org/10.1093/gigascience/gix101</a></p>
+<p>Cheruvelil, K.S., Soranno, P.A., McCullough, I.M., Webster, K.E., Rodriguez, L.K. and Smith, N.J., 2021. LAGOS‐US LOCUS v1. 0: Data module of location, identifiers, and physical characteristics of lakes and their watersheds in the conterminous US. Limnology and Oceanography Letters, 6(5), pp.270-292.</p>
 </div>
 </div>
 
@@ -230,7 +244,7 @@
 <div class="developers">
 <h2>Developers</h2>
 <ul class="list-unstyled">
-<li>Joseph Stachelek <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-5924-2464" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>Jemma Stachelek <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-5924-2464" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
 </ul>
 </div>
 
@@ -248,11 +262,11 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Joseph Stachelek.</p>
+  <p>Developed by Jemma Stachelek.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
