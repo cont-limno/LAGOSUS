@@ -1,8 +1,6 @@
 pandoc: 2.14.0.3
 pkgdown: 1.6.1
 pkgdown_sha: ~
-articles:
-  lagosne_structure: lagosne_structure.html
-  working_with_lagosne: working_with_lagosne.html
-last_built: 2021-11-15T15:24Z
+articles: {}
+last_built: 2021-11-15T15:28Z
 
