@@ -27,23 +27,25 @@ LAGOS-US contains data for 479,950 lakes and reservoirs larger than 1 ha in cont
 ```{r install,eval=FALSE}
 # install development version from Github
 # install devtools if not found - install.packages("devtools")
-devtools::install_git(
-  "https://gitlab.msu.edu/stachel2/lagosus", dependencies = TRUE)
+devtools::install_github("cont-limno/LAGOSUS", dependencies = TRUE)
 ```
  
 ### Data
 
-Currently only the "locus" module of LAGOS-US has been released in a public repository. Members of the development team who have access to unreleased modules (limno, geo, etc), will need to use the the `lagosus_compile` function (not `lagosus_get`) and supply the path to their local `locus`, `limno`, `geo`, or `depth` data folders. Replace the paths in the example below with the path to each respective folder on your system. Most people will have access to these folders through Dropbox. For example, the `locus_folder` would be assigned to something like: `C:/Users/FWL/Dropbox/CL_LAGOSUS_exports/LAGOSUS_LOCUS`
+General users currently have public access to the locus module. It can be downloaded and stored to your local system with the following command:
 
-Files are "compiled" to an `R` data format in the location specified by the `dest_folder` argument. Recommended setting is `lagosus_path()`. Data only needs to be downloaded one time per version per machine. Each `LAGOSUS` [module](https://cont-limno.github.io/LAGOSUS/articles/lagosus_structure.html) has a unique version number. 
-
-<!-- dir("../../../Downloads/") -->
 ```{r eval=FALSE}
 library(LAGOSUS)
 
 # only the locus module is currently public
 lagosus_get(dest_folder = lagosus_path())
+```
 
+Currently only the "locus" module of LAGOS-US has been released in a public repository. Members of the development team who have access to unreleased modules (limno, geo, etc), will need to use the the `lagosus_compile` function (not `lagosus_get`) and supply the path to their local `locus`, `limno`, `geo`, or `depth` data folders. Replace the paths in the example below with the path to each respective folder on your system. Most people will have access to these folders through Dropbox. For example, the `locus_folder` would be assigned to something like: `C:/Users/FWL/Dropbox/CL_LAGOSUS_exports/LAGOSUS_LOCUS`
+
+
+<!-- dir("../../../Downloads/") -->
+```{r eval=FALSE}
 # an example for members of the dev team to specify local data folder paths
 lagosus_compile(
   locus_version = "1.0",
@@ -71,7 +73,7 @@ The `lagosus_load` function returns a named list of `data.frame` objects.
 Use the `names()` function to see a list of available data frames `names(lg)`.
 
 ```{r load_data, eval=FALSE}
-lg <- lagosus_load(modules = c("locus", "limno", "depth"))
+lg <- lagosus_load(modules = c("locus"))
 names(lg)
 ```
 
@@ -99,20 +101,20 @@ head(lg$locus$lake_characteristics)
 #### Preview a specific lake
 
 ```{r lake_info, eval = FALSE}
-lake_info(name = "Pine Lake", state = "Michigan")
+lake_info(name = "Pine Lake", state = "California")
 # or using a lagoslakeid
 # lake_info(lagoslakeid = 4389)
 ```
 
 ```{r lake_info_cached, echo = FALSE, eval=FALSE}
-lake_info(name = "Pine Lake", state = "Iowa", dt = dt)
+lake_info(name = "Pine Lake", state = "California", dt = dt)
 ```
 
 #### Map specific lakes
 
 ```{r coordinatize, eval=FALSE}
 library(mapview)
-mapview(coordinatize(lake_info(name = "Pine Lake", state = "Michigan")))
+mapview(coordinatize(lake_info(name = "Pine Lake", state = "California")))
 ```
 
 #### Read table metadata
@@ -121,7 +123,7 @@ mapview(coordinatize(lake_info(name = "Pine Lake", state = "Michigan")))
 # lookup which table(s) contain a column name 
 query_lagos_names("ws_meanwidth", dt = lg)
 # load help file for a table
-?locus_watersheds
+?lake_watersheds
 ```
 
 <!-- ```{r load printr, echo=FALSE,message=FALSE,results='hide', eval=FALSE} -->

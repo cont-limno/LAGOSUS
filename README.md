@@ -6,7 +6,7 @@ has not yet been a stable, usable release suitable for the
 public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 [![R build
 status](https://github.com/cont-limno/LAGOSUS/workflows/R-CMD-check/badge.svg)](https://github.com/cont-limno/LAGOSUS/actions)
-[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/LAGOSUS)](https://cran.r-project.org/package=LAGOSUS)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/LAGOSUS)](https://cran.r-project.org/package=LAGOSUS)
 [![CRAN RStudio mirror
 downloads](http://cranlogs.r-pkg.org/badges/LAGOSUS)](https://cran.r-project.org/package=LAGOSUS)
 
@@ -31,11 +31,21 @@ depth for a subset of all lakes (forthcoming).
 ``` r
 # install development version from Github
 # install devtools if not found - install.packages("devtools")
-devtools::install_git(
-  "https://gitlab.msu.edu/stachel2/lagosus", dependencies = TRUE)
+devtools::install_github("cont-limno/LAGOSUS", dependencies = TRUE)
 ```
 
 ### Data
+
+General users currently have public access to the locus module. It can
+be downloaded and stored to your local system with the following
+command:
+
+``` r
+library(LAGOSUS)
+
+# only the locus module is currently public
+lagosus_get(dest_folder = lagosus_path())
+```
 
 Currently only the “locus” module of LAGOS-US has been released in a
 public repository. Members of the development team who have access to
@@ -47,21 +57,9 @@ on your system. Most people will have access to these folders through
 Dropbox. For example, the `locus_folder` would be assigned to something
 like: `C:/Users/FWL/Dropbox/CL_LAGOSUS_exports/LAGOSUS_LOCUS`
 
-Files are “compiled” to an `R` data format in the location specified by
-the `dest_folder` argument. Recommended setting is `lagosus_path()`.
-Data only needs to be downloaded one time per version per machine. Each
-`LAGOSUS`
-[module](https://cont-limno.github.io/LAGOSUS/articles/lagosus_structure.html)
-has a unique version number.
-
 <!-- dir("../../../Downloads/") -->
 
 ``` r
-library(LAGOSUS)
-
-# only the locus module is currently public
-lagosus_get(dest_folder = lagosus_path())
-
 # an example for members of the dev team to specify local data folder paths
 lagosus_compile(
   locus_version = "1.0",
@@ -90,7 +88,7 @@ objects. Use the `names()` function to see a list of available data
 frames `names(lg)`.
 
 ``` r
-lg <- lagosus_load(modules = c("locus", "limno", "depth"))
+lg <- lagosus_load(modules = c("locus"))
 names(lg)
 ```
 
@@ -115,7 +113,7 @@ head(lg$locus$lake_characteristics)
 #### Preview a specific lake
 
 ``` r
-lake_info(name = "Pine Lake", state = "Michigan")
+lake_info(name = "Pine Lake", state = "California")
 # or using a lagoslakeid
 # lake_info(lagoslakeid = 4389)
 ```
@@ -124,7 +122,7 @@ lake_info(name = "Pine Lake", state = "Michigan")
 
 ``` r
 library(mapview)
-mapview(coordinatize(lake_info(name = "Pine Lake", state = "Michigan")))
+mapview(coordinatize(lake_info(name = "Pine Lake", state = "California")))
 ```
 
 #### Read table metadata
@@ -133,7 +131,7 @@ mapview(coordinatize(lake_info(name = "Pine Lake", state = "Michigan")))
 # lookup which table(s) contain a column name 
 query_lagos_names("ws_meanwidth", dt = lg)
 # load help file for a table
-?locus_watersheds
+?lake_watersheds
 ```
 
 <!-- ```{r load printr, echo=FALSE,message=FALSE,results='hide', eval=FALSE} -->
