@@ -6,7 +6,7 @@ has not yet been a stable, usable release suitable for the
 public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 [![R build
 status](https://github.com/cont-limno/LAGOSUS/workflows/R-CMD-check/badge.svg)](https://github.com/cont-limno/LAGOSUS/actions)
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/LAGOSUS)](https://cran.r-project.org/package=LAGOSUS)
+[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/LAGOSUS)](https://cran.r-project.org/package=LAGOSUS)
 [![CRAN RStudio mirror
 downloads](http://cranlogs.r-pkg.org/badges/LAGOSUS)](https://cran.r-project.org/package=LAGOSUS)
 
@@ -161,9 +161,8 @@ devtools::install_github("cont-limno/LAGOSUS", ref = "v0.0.1")
 
 ## References
 
-Soranno, P.A., Bacon, L.C., Beauchene, M., Bednar, K.E., Bissell, E.G.,
-Boudreau, C.K., Boyer, M.G., Bremigan, M.T., Carpenter, S.R., Carr, J.W.
-Cheruvelil, K.S., and … , 2017. LAGOS-NE: A multi-scaled geospatial and
-temporal database of lake ecological context and water quality for
-thousands of US lakes. GigaScience,
-<https://doi.org/10.1093/gigascience/gix101>
+Cheruvelil, K.S., Soranno, P.A., McCullough, I.M., Webster, K.E.,
+Rodriguez, L.K. and Smith, N.J., 2021. LAGOS‐US LOCUS v1. 0: Data module
+of location, identifiers, and physical characteristics of lakes and
+their watersheds in the conterminous US. Limnology and Oceanography
+Letters, 6(5), pp.270-292.

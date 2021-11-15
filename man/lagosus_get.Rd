@@ -2,7 +2,7 @@
 % Please edit documentation in R/get.R
 \name{lagosus_get}
 \alias{lagosus_get}
-\title{Retrieve LAGOSNE flat files}
+\title{Retrieve LAGOSUS flat files}
 \usage{
 lagosus_get(
   locus_version = NA,
@@ -49,12 +49,12 @@ lagosus_get(
 \code{\link[LAGOSUS]{lagosus_path}}}
 }
 \description{
-Retrieve LAGOSNE flat files from EDI.
+Retrieve LAGOSUS flat files from EDI.
 }
 \examples{
 \dontrun{
 # default to latest version
-lagosus_get(dest_folder = LAGOSUS:::lagosus_path())
+lagosus_get(dest_folder = LAGOSUS::lagosus_path())
 
 # get previous version(s)
 # - recommended to install corresponding package version

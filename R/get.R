@@ -1,9 +1,10 @@
-#' Retrieve LAGOSNE flat files
+#' Retrieve LAGOSUS flat files
 #'
-#' Retrieve LAGOSNE flat files from EDI.
+#' Retrieve LAGOSUS flat files from EDI.
 #'
 #' @export
 #' @importFrom utils download.file
+#' @importFrom rlang .data
 #' @inheritParams lagosus_compile
 #' @examples \dontrun{
 #' # default to latest version
@@ -19,8 +20,8 @@ lagosus_get <- function(locus_version = NA, locus_folder = NA, locus_overwrite =
                         depth_version = NA, depth_folder = NA, depth_overwrite = FALSE,
                         dest_folder = NA){
 
-  if(dest_folder != lagosus_path()){
-    warning("Set dest_folder to LAGOSNE::lagosus_path() so that data persists
+  if(dest_folder != lagosus_path()) {
+    warning("Set dest_folder to LAGOSUS::lagosus_path() so that data persists
 between R sessions. \n")
   }
 
@@ -51,7 +52,7 @@ between R sessions. \n")
     check_latest("locus", locus_version)
     if(is.na(locus_version)) {
       locus_version <- dplyr::pull(
-        dplyr::filter(lagosus_version(), modules == "locus"), "versions")
+        lagosus_version()[lagosus_version()$modules == "locus",], "versions")
     }
     locus_base_edi   <- paste0(edi_baseurl, c("edi.854.1"))
     locus_base_pasta <- paste0(pasta_baseurl, "854/1")
