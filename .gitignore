@@ -12,7 +12,6 @@ CRAN-RELEASE
 export_script/
 tests/testthat/test-lagos_ingest.R
 taxonomy/*.xlsx*
-docs
 pkgdown/
 rebuild.R
 README.html
