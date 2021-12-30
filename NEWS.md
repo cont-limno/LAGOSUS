@@ -2,6 +2,8 @@
 
 ## MODULE UPDATES
 
+* Added support for the GEO module
+
 # LAGOSUS 0.0.3
 
 ## MODULE UPDATES
