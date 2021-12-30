@@ -128,7 +128,7 @@ mapview(coordinatize(lake_info(name = "Pine Lake", state = "California")))
 #### Read table metadata
 
 ``` r
-# lookup which table(s) contain a column name 
+# lookup which table(s) contain a column name
 query_lagos_names("ws_meanwidth", dt = lg)
 # load help file for a table
 ?lake_watersheds

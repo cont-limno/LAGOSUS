@@ -99,13 +99,13 @@ lake_info <- function(lagoslakeid = NA, name = NA, state = NA,
   dt <- locus_state_iws
 
   # ---- filtering ----
-  do.call("rbind", apply(name_state, 1, function(x){
+  do.call("rbind", apply(name_state, 1, function(x) {
     lake_info_(dt = dt, name = x[1], state = x[2], llid = x[3],
                max_distance = max_distance)
   }))
 }
 
-lake_info_ <- function(dt, name, state, llid, max_distance){
+lake_info_ <- function(dt, name, state, llid, max_distance) {
   # name <- name_state$name[1]
   # state <- name_state$state[1]
   # llid <- name_state$lagoslakeid[1]
@@ -114,7 +114,7 @@ lake_info_ <- function(dt, name, state, llid, max_distance){
     data.frame(state.name = state,
                stringsAsFactors = FALSE))$state.abb)
 
-  if(is.na(name)){
+  if(is.na(name)) {
     name  <- dplyr::filter(dt, lagoslakeid == llid) %>%
       dplyr::pull(.data$lake_namegnis)
   }
@@ -124,24 +124,23 @@ lake_info_ <- function(dt, name, state, llid, max_distance){
                           as.character(state),]
 
   if (is.na(llid)) {
-    filter_criteria <- lazyeval::interp(~ agrepl(name,
-                                                 lake_namegnis,
+    # dt_filter <- dplyr::filter(dt, !is.na(state_name))
+    dt_filter <- dplyr::filter(dt_filter, agrepl(name,
+                                                 .data$lake_namegnis,
                                                  ignore.case = TRUE,
                                       max.distance = list(all = max_distance)))
-    # dt_filter       <- dplyr::filter(dt, !is.na(state_name))
-    dt_filter       <- dplyr::filter_(dt_filter, filter_criteria)
   }else{
     dt_filter <- dplyr::filter(dt, lagoslakeid == as.numeric(llid))
   }
 
   if (nrow(dt_filter) == 0) {
-    filter_criteria <- lazyeval::interp(~ agrepl(name, lake_namegnis,
+    dt_filter <- dplyr::filter(dt_filter, agrepl(name,
+                                                 .data$lake_namegnis,
                                                  ignore.case = TRUE,
-                                    max.distance = list(all = max_distance)))
-    dt_filter       <- dplyr::filter_(dt_filter, filter_criteria)
+                                      max.distance = list(all = max_distance)))
   }
 
-  if(nrow(dt_filter) < 1 & !is.na(state)){
+  if(nrow(dt_filter) < 1 & !is.na(state)) {
     stop(paste0("Lake '", name, "' in ", state, " not found"))
   }
 
