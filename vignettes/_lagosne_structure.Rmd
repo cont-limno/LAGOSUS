@@ -64,7 +64,7 @@ Below, we describe how each table fits within each module.
 
 LAGOSlimno is an integration of preexisting water quality data from disparate sources, including state, federal, tribal, and university organizations. Water chemistry (various species of nitrogen, phosphorus, and carbon) and transparency (Secchi disk measurement) are the main features of the `epi_nutr` table, but also include metadata about those measurements. `?epi_nutr` gives the names of all variables and metadata (including units). 
 
-Each observation of LAGOSlimno is a discrete sampling event, where one or more water quality parameters were measured. Sampling events are tied to lakes that have a unique LAGOSNE and National Hydrography Dataset (NHD) identifier, and lakes can have single or multiple obervations of each parameter. There are 14,657 unique lakes in `epi_nutr` distributed across the 17-state region. 
+Each observation of LAGOSlimno is a discrete sampling event, where one or more water quality parameters were measured. Sampling events are tied to lakes that have a unique LAGOSNE and National Hydrography Dataset (NHD) identifier, and lakes can have single or multiple observations of each parameter. There are 14,657 unique lakes in `epi_nutr` distributed across the 17-state region. 
 
 ### LAGOSgeo ^[@LAGOSgeo]
 
