@@ -1,5 +1,7 @@
 # LAGOSUS 0.0.4
 
+* Added EDI data downloading functionality for the LOCUS module
+
 ## MODULE UPDATES
 
 * Added support for the GEO module
