@@ -59,6 +59,18 @@ between R sessions. \n")
     locus_dir        <- get_lagos_module(locus_base_edi, locus_base_pasta,
                                          "locus", locus_overwrite)
 
+    message("Downloading the 'depth' module ...")
+    check_version("depth", depth_version)
+    check_latest("depth", depth_version)
+    if(is.na(depth_version)) {
+      depth_version <- dplyr::pull(
+        lagosus_version()[lagosus_version()$modules == "depth",], "versions")
+    }
+    depth_base_edi   <- paste0(edi_baseurl, c("edi.1043.1"))
+    depth_base_pasta <- paste0(pasta_baseurl, "1043/1")
+    depth_dir        <- get_lagos_module(depth_base_edi, depth_base_pasta,
+                                         "depth", depth_overwrite)
+
     # message("Downloading the 'limno' module ...")
     # limno_base_edi   <- paste0(edi_baseurl, c("edi.101.3"))
     # limno_base_pasta <- paste0(pasta_baseurl, "101/3")
@@ -77,13 +89,17 @@ between R sessions. \n")
 
   lagosus_compile(locus_version = locus_version,
                 locus_folder = locus_dir,
-                locus_overwrite = locus_overwrite,
+                locus_overwrite = locus_overwrite,                
+                depth_version = depth_version,
+                depth_folder=depth_dir,
+                depth_overwrite=depth_overwrite,
                 limno_folder = NA,
                 geo_folder   = NA,
                 dest_folder  = dest_folder
                 )
 
   return(invisible(list(locus_folder = locus_dir,
+                        depth_folder=depth_dir,
                         limno_folder = NA,
                         geo_folder   = NA)))
 }

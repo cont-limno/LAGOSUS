@@ -380,14 +380,14 @@ tabular <- function(df, ...) {
 # get_table_metadata("limno", "site_chemicalphysical")
 #' @importFrom snakecase to_any_case
 get_table_metadata <- function(module_name_, table_name_){
-  # module_name_ <- "limno"
-  # table_name_ <- "site_chemicalphysical"
+  # module_name_ <- "depth"
+  # table_name_ <- "lake_depth"
   lg          <- lagosus_load(modules = c(module_name_))
   dt_raw      <- lg[[module_name_]]
   dt_raw      <- dt_raw[[grep("dictionary", names(dt_raw))]]
 
   dt <- dt_raw[stringr::str_detect(dt_raw$table_name, table_name_),] %>%
-    dplyr::select("variable_name", "variable_description", "units")
+    dplyr::select(matches("variable_name"), "variable_description", "units")
   dt <- setNames(dt,
                  snakecase::to_any_case(names(dt), "sentence"))
   dt <- dplyr::mutate(dt, dplyr::across(dplyr::everything(), ~

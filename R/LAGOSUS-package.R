@@ -122,45 +122,45 @@ NULL
 #' @keywords datasets
 NULL
 
-#' LAGOSUS Chemical and physical data
-#'
-#' @eval get_table_metadata("limno", "site_chemicalphysical")
-#'
-#' @name site_chemicalphysical
-#' @docType data
-#' @keywords datasets
-NULL
+# #' LAGOSUS Chemical and physical data
+# #'
+# #' @eval get_table_metadata("limno", "site_chemicalphysical")
+# #'
+# #' @name site_chemicalphysical
+# #' @docType data
+# #' @keywords datasets
+# NULL
 
-#' LAGOSUS Contaminant data
-#'
-#' @eval get_table_metadata("limno", "site_contaminants")
-#'
-#' @name site_contaminants
-#' @docType data
-#' @keywords datasets
-NULL
+# #' LAGOSUS Contaminant data
+# #'
+# #' @eval get_table_metadata("limno", "site_contaminants")
+# #'
+# #' @name site_contaminants
+# #' @docType data
+# #' @keywords datasets
+# NULL
 
-#' LAGOSUS LIMNO information
-#'
-#' @eval get_table_metadata("limno", "site_information")
-#'
-#' @name site_information
-#' @docType data
-#' @keywords datasets
-NULL
+# #' LAGOSUS LIMNO information
+# #'
+# #' @eval get_table_metadata("limno", "site_information")
+# #'
+# #' @name site_information
+# #' @docType data
+# #' @keywords datasets
+# NULL
 
-#' LAGOSUS LIMNO Data sources
-#'
-#' @eval get_table_metadata("limno", "source_table_limno")
-#'
-#' @name source_table_limno
-#' @docType data
-#' @keywords datasets
-NULL
+# #' LAGOSUS LIMNO Data sources
+# #'
+# #' @eval get_table_metadata("limno", "source_table_limno")
+# #'
+# #' @name source_table_limno
+# #' @docType data
+# #' @keywords datasets
+# NULL
 
 #' LAGOSUS Depth data
 #'
-#' @eval c("@details", get_table_metadata("depth", "depth"))
+#' @eval c("@details", get_table_metadata("depth", "lake_depth"))
 #'
 #' @name depth
 #' @docType data

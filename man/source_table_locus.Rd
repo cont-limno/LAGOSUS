@@ -7,20 +7,20 @@
 \description{
 LAGOSUS Data sources
 
-\tabular{lll}{
-\bold{Variable name} \tab \bold{Variable description} \tab \bold{Units} \cr
-source_code               \tab a short codename used for the source dataset in LAGOS-US variables or metadata                                                   \tab \cr
-source_name               \tab the name of the source dataset                                                                                                   \tab \cr
-source_shortname          \tab the abbreviated name used to refer to the source dataset in LAGOS-US documentation                                               \tab \cr
-source_description        \tab a brief description of the source dataset                                                                                        \tab \cr
-source_provider           \tab the provider of the source dataset (government agency, publication citation, etc.)                                               \tab \cr
-source_citation           \tab the citation for the source dataset, including the download link used to acquire the dataset at the time of LAGOS-US creation    \tab \cr
-source_url                \tab The principal website associated with the source dataset. This may not be the same as the download URL included in the citation. \tab \cr
-source_metadata_url       \tab a website URL where metadata and data use guidance for the source dataset can be found                                           \tab \cr
-source_spatial_resolution \tab the spatial resolution of the source dataset, if applicable                                                                      \tab \cr
-source_time_period        \tab the time period captured by the source dataset, if applicable                                                                    \tab \cr
-source_access_date        \tab the date(s) the source dataset was acquired for use in creating LAGOS-US                                                         \tab \cr
-source_data_type          \tab the data value type contained in the source dataset, if applicable                                                               \tab
+\tabular{lllll}{
+\bold{Variable name} \tab \bold{Variable name group} \tab \bold{Lagosne variable name} \tab \bold{Variable description} \tab \bold{Units} \cr
+source_code               \tab metadata \tab  \tab a short codename used for the source dataset in LAGOS-US variables or metadata                                                   \tab \cr
+source_name               \tab metadata \tab  \tab the name of the source dataset                                                                                                   \tab \cr
+source_shortname          \tab metadata \tab  \tab the abbreviated name used to refer to the source dataset in LAGOS-US documentation                                               \tab \cr
+source_description        \tab metadata \tab  \tab a brief description of the source dataset                                                                                        \tab \cr
+source_provider           \tab metadata \tab  \tab the provider of the source dataset (government agency, publication citation, etc.)                                               \tab \cr
+source_citation           \tab metadata \tab  \tab the citation for the source dataset, including the download link used to acquire the dataset at the time of LAGOS-US creation    \tab \cr
+source_url                \tab metadata \tab  \tab The principal website associated with the source dataset. This may not be the same as the download URL included in the citation. \tab \cr
+source_metadata_url       \tab metadata \tab  \tab a website URL where metadata and data use guidance for the source dataset can be found                                           \tab \cr
+source_spatial_resolution \tab metadata \tab  \tab the spatial resolution of the source dataset, if applicable                                                                      \tab \cr
+source_time_period        \tab metadata \tab  \tab the time period captured by the source dataset, if applicable                                                                    \tab \cr
+source_access_date        \tab metadata \tab  \tab the date(s) the source dataset was acquired for use in creating LAGOS-US                                                         \tab \cr
+source_data_type          \tab metadata \tab  \tab the data value type contained in the source dataset, if applicable                                                               \tab
 }
 }
 \keyword{datasets}

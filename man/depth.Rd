@@ -8,21 +8,21 @@
 LAGOSUS Depth data
 }
 \details{
-\tabular{lll}{
-\bold{Variable name} \tab \bold{Variable description} \tab \bold{Units} \cr
-lagoslakeid                   \tab unique lake identifier developed for LAGOS-US LOCUS v1.0                                                                                                                                                          \tab               \cr
-lake_namegnis                 \tab lake name from the GNIS database by way of the LAGOS-US LOCUS v1.0 module                                                                                                                                         \tab               \cr
-lake_states                   \tab two-letter postal abbreviation(s) of state(s) intersecting the lake polygon from the LAGOS-US LOCUS v1.0 module                                                                                                   \tab               \cr
-lake_depth_state              \tab two-letter postal abbreviation of the state used to search for a lake's depth                                                                                                                                     \tab               \cr
-lake_lat_decdeg               \tab the latitude of the lake center point (NAD83) from the LAGOS-US LOCUS v1.0 module                                                                                                                                 \tab decimal degree\cr
-lake_lon_decdeg               \tab the longitude of the lake center point (NAD83) from the LAGOS-US LOCUS v1.0 module                                                                                                                                \tab decimal degree\cr
-lake_maxdepth_m               \tab lake maximum depth in meters                                                                                                                                                                                      \tab meter         \cr
-lake_meandepth_m              \tab lake mean depth in meters                                                                                                                                                                                         \tab meter         \cr
-lake_waterarea_ha             \tab surface area of lake waterbody polygon from NHD (excluding islands) by way of the LAGOS-US LOCUS v1.0 module                                                                                                      \tab hectare       \cr
-lake_depth_sourcename         \tab name of the source of lake depth data                                                                                                                                                                             \tab               \cr
-lake_depth_sourceurl          \tab url link of the source of lake depth data                                                                                                                                                                         \tab               \cr
-lake_depth_effort             \tab name representing one of four different depth searching efforts (used for quality assurance and de-duplication); one of LAGOSNE, LAGOSUS, bathymetry, or NLA; corresponds with values of lagos_effort_reliability \tab               \cr
-lake_depth_effort_reliability \tab reliability of each lagos_effort (used for quality assurance and de-duplication); values are in ascending order (1 = most reliable, 2 = reliable, 3 = less reliable, 4 = questionable)                            \tab
+\tabular{lllll}{
+\bold{Variable name new} \tab \bold{Variable name group} \tab \bold{Lagosne variable name} \tab \bold{Variable description} \tab \bold{Units} \cr
+lagoslakeid           \tab lagoslakeid      \tab lagoslakeid  \tab unique lake identifier developed for LAGOS-US LOCUS v1.0                                                                                                                  \tab NULL           \cr
+lake_namegnis         \tab namegnis         \tab gnis_name    \tab lake name from the GNIS database by way of the LAGOS-US LOCUS v1.0 module                                                                                                 \tab NULL           \cr
+lake_states           \tab states           \tab NULL         \tab two-letter postal abbreviation(s) of state(s) intersecting the lake polygon from the LAGOS-US LOCUS v1.0 module                                                           \tab NULL           \cr
+lake_depth_state      \tab depth_state      \tab NULL         \tab two-letter postal abbreviation of the state used to search for a lake's depth                                                                                             \tab NULL           \cr
+lake_lat_decdeg       \tab lat_decdeg       \tab nhd_lat      \tab the latitude of the lake center point (NAD83) from the LAGOS-US LOCUS v1.0 module                                                                                         \tab Decimal Degrees\cr
+lake_lon_decdeg       \tab lon_decdeg       \tab nhd_long     \tab the longitude of the lake center point (NAD83) from the LAGOS-US LOCUS v1.0 module                                                                                        \tab Decimal Degrees\cr
+lake_maxdepth_m       \tab maxdepth_m       \tab maxdepth     \tab lake maximum depth in meters                                                                                                                                              \tab Meters         \cr
+lake_meandepth_m      \tab meandepth_m      \tab meandepth    \tab lake mean depth in meters                                                                                                                                                 \tab Meters         \cr
+lake_waterarea_ha     \tab waterarea_ha     \tab lake_area_ha \tab surface area of lake waterbody polygon from NHD (excluding islands) by way of the LAGOS-US LOCUS v1.0 module                                                              \tab Hectares       \cr
+lake_depth_sourcename \tab depth_sourcename \tab NULL         \tab name of the source of lake depth data                                                                                                                                     \tab NULL           \cr
+lake_depth_sourceurl  \tab depth_sourceurl  \tab NULL         \tab url link of the source of lake depth data                                                                                                                                 \tab NULL           \cr
+lake_maxdepth_effort  \tab maxdepth_effort  \tab NULL         \tab name representing one of six different maximum depth searching efforts (used for quality assurance and de-duplication); one of LAGOSNE, LAGOSUS, bathymetry, or NLA       \tab NULL           \cr
+lake_meandepth_effort \tab meandepth_effort \tab NULL         \tab name representing one of four different mean depth searching efforts (used for quality assurance and de-duplication); one of LAGOSNE, LAGOSNE_Q500, LAGOSUS, LAGOSUS_Q500 \tab NULL
 }
 }
 \keyword{datasets}
