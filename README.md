@@ -6,7 +6,7 @@ state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![R build
 status](https://github.com/cont-limno/LAGOSUS/workflows/R-CMD-check/badge.svg)](https://github.com/cont-limno/LAGOSUS/actions)
-[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/LAGOSUS)](https://cran.r-project.org/package=LAGOSUS)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/LAGOSUS)](https://cran.r-project.org/package=LAGOSUS)
 [![CRAN RStudio mirror
 downloads](http://cranlogs.r-pkg.org/badges/LAGOSUS)](https://cran.r-project.org/package=LAGOSUS)
 
@@ -36,26 +36,28 @@ devtools::install_github("cont-limno/LAGOSUS", dependencies = TRUE)
 
 ### Data
 
-General users currently have public access to the locus module. It can
-be downloaded and stored to your local system with the following
-command:
+General users currently have public access to the locus and depth
+modules. They can be downloaded and stored to your local system with the
+following command (note that an attempt will be made to download all
+public modules, those that already exist will be skipped unless an
+“overwrite” argument is specified):
 
 ``` r
 library(LAGOSUS)
 
-# only the locus module is currently public
+# only the locus and depth modules are currently public:
 lagosus_get(dest_folder = lagosus_path())
 ```
 
-Currently only the “locus” module of LAGOS-US has been released in a
-public repository. Members of the development team who have access to
-unreleased modules (limno, geo, etc), will need to use the the
-`lagosus_compile` function (not `lagosus_get`) and supply the path to
-their local `locus`, `limno`, `geo`, or `depth` data folders. Replace
-the paths in the example below with the path to each respective folder
-on your system. Most people will have access to these folders through
-Dropbox. For example, the `locus_folder` would be assigned to something
-like: `C:/Users/FWL/Dropbox/CL_LAGOSUS_exports/LAGOSUS_LOCUS`
+Currently only the “locus” and “depth” modules of LAGOS-US has been
+released in a public repository. Members of the development team who
+have access to unreleased modules (limno, geo, etc), will need to use
+the the `lagosus_compile` function (not `lagosus_get`) and supply the
+path to their local `locus`, `limno`, `geo`, or `depth` data folders.
+Replace the paths in the example below with the path to each respective
+folder on your system. Most people will have access to these folders
+through Dropbox. For example, the `locus_folder` would be assigned to
+something like: `C:/Users/FWL/Dropbox/CL_LAGOSUS_exports/LAGOSUS_LOCUS`
 
 <!-- dir("../../../Downloads/") -->
 
