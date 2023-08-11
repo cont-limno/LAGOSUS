@@ -164,7 +164,7 @@ devtools::install_github("cont-limno/LAGOSUS", ref = "v0.0.1")
 ## References
 
 Cheruvelil, K.S., Soranno, P.A., McCullough, I.M., Webster, K.E.,
-Rodriguez, L.K. and Smith, N.J., 2021. LAGOS‐US LOCUS v1. 0: Data module
+Rodriguez, L.K. and Smith, N.J., 2021. LAGOS-US LOCUS v1.0: Data module
 of location, identifiers, and physical characteristics of lakes and
 their watersheds in the conterminous US. Limnology and Oceanography
-Letters, 6(5), pp.270-292.
+Letters, 6(5), pp.270-292. <https://doi.org/10.1002/lol2.10203>
